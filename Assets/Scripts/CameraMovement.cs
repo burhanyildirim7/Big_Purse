@@ -7,17 +7,30 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     GameObject Player;
 
+    [SerializeField] private GameObject _dusmanObject;
+
+    
+
     Vector3 aradakiFark;
 
 
     void Start()
     {
         aradakiFark = transform.position - Player.transform.position;
+
     }
 
     
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
+        if (AnimationControl._dusmaniFirlat == true)
+        {
+            transform.position = new Vector3(_dusmanObject.transform.position.x, _dusmanObject.transform.position.y + aradakiFark.y, _dusmanObject.transform.position.z + aradakiFark.z);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
+        }
+        
     }
 }

@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject barierSag;
     Plane objPlane;
     Vector3 m0;
+    [SerializeField] private float _playerSpeed;
 
     public static bool _oyunAktif;
     
@@ -50,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_oyunAktif == true)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 5f);
+            transform.Translate(Vector3.forward * Time.deltaTime * _playerSpeed);
 
             if (Input.GetMouseButtonDown(0))
             {
