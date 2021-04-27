@@ -54,7 +54,8 @@ public class AnimationControl : MonoBehaviour
 			//if (hitType== 1) playerAnimator.SetTrigger("bir");
 			//else if (hitType == 2) playerAnimator.SetTrigger("iki");
 			//else playerAnimator.SetTrigger("uc");
-			_purse.gameObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
+			_purse.gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
+			_purse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0);
 			StartCoroutine(DelayHitType());
 		}
 		
