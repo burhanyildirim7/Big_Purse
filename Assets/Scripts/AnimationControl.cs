@@ -18,11 +18,14 @@ public class AnimationControl : MonoBehaviour
 
 	private float _purseBoyutX;
 
+	private float _dusmaniFirlatmaKuvveti;
+
 
     private void Start()
     {
 		_yolSonuKontrol = false;
 		_dusmaniFirlat = false;
+		_dusmaniFirlatmaKuvveti = 150;
 
 	}
     private void Update()
@@ -35,6 +38,7 @@ public class AnimationControl : MonoBehaviour
 
 		_purseBoyutX = _purse.gameObject.transform.localScale.x;
 	}
+
 	
 	public void HitAnim()
 	{
@@ -45,7 +49,7 @@ public class AnimationControl : MonoBehaviour
             {
 				_dusmaniFirlat = true;
 				_purse.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
-				_dusmanControl.DusamaniFirlatma();
+				_dusmanControl.DusamaniFirlatma(_dusmaniFirlatmaKuvveti);
 
 			}
 			
@@ -54,8 +58,9 @@ public class AnimationControl : MonoBehaviour
 			//if (hitType== 1) playerAnimator.SetTrigger("bir");
 			//else if (hitType == 2) playerAnimator.SetTrigger("iki");
 			//else playerAnimator.SetTrigger("uc");
-			_purse.gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-			_purse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0);
+			_purse.gameObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
+			_purse.gameObject.transform.localPosition -= new Vector3(0, 0.02f, 0);
+			_dusmaniFirlatmaKuvveti += 30;
 			StartCoroutine(DelayHitType());
 		}
 		
@@ -84,4 +89,7 @@ public class AnimationControl : MonoBehaviour
 			_yolSonuKontrol = true;
 		}
     }
+
+
+	
 }

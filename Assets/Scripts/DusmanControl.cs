@@ -8,9 +8,12 @@ public class DusmanControl : MonoBehaviour
     Rigidbody m_Rigidbody;
     public float m_Thrust = 20f;
 
+    [SerializeField] GameObject _puanZemini;
+
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        _puanZemini.SetActive(false);
     }
 
     
@@ -19,11 +22,12 @@ public class DusmanControl : MonoBehaviour
         
     }
 
-    public void DusamaniFirlatma()
+    public void DusamaniFirlatma(float deger)
     {
-        m_Rigidbody.AddForce(transform.up * (m_Thrust * Time.deltaTime), ForceMode.Impulse);
-        m_Rigidbody.AddForce(transform.forward * (-m_Thrust * Time.deltaTime), ForceMode.Impulse);
+        _puanZemini.SetActive(true);
+        m_Rigidbody.AddForce(transform.up * (deger * Time.deltaTime), ForceMode.Impulse);
+        m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
 
-        Debug.Log("UC DUSMAN UC");
+        Debug.Log(deger);
     }
 }
