@@ -10,6 +10,13 @@ public class AnimationControl : MonoBehaviour
 
 	[SerializeField] private DusmanControl _dusmanControl;
 
+	[SerializeField] private LevelController _levelController;
+
+	[SerializeField] private ParticleSystem _moneyEffect;
+	[SerializeField] private GameObject _moneyEffectObject;
+
+	[SerializeField] private GameObject _purseObject;
+
 	public static bool _dusmaniFirlat;
 
 	private bool _yolSonuKontrol;
@@ -18,19 +25,19 @@ public class AnimationControl : MonoBehaviour
 
 	private float _purseBoyutX;
 
-	private float _dusmaniFirlatmaKuvveti;
+	
 
 
     private void Start()
     {
 		_yolSonuKontrol = false;
 		_dusmaniFirlat = false;
-		_dusmaniFirlatmaKuvveti = 150;
+		
 
 	}
     private void Update()
 	{
-		if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true)
+		if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true && LevelController._dusmaniFirlatmaKuvveti > 0)
 		{
 			HitAnim();
 			
@@ -39,20 +46,30 @@ public class AnimationControl : MonoBehaviour
 		_purseBoyutX = _purse.gameObject.transform.localScale.x;
 	}
 
-	
-	public void HitAnim()
+    private void FixedUpdate()
+    {
+		if (_purseBoyutX <= 0.32f && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
+		{
+			_dusmaniFirlat = true;
+			_purse.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
+			_dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
+
+        }
+        else
+        {
+			
+        }
+	}
+
+
+    public void HitAnim()
 	{
 		if(hitType == 0 && _dusmaniFirlat == false)
 		{
 
-            if (_purseBoyutX <= 0.32f)
-            {
-				_dusmaniFirlat = true;
-				_purse.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
-				_dusmanControl.DusamaniFirlatma(_dusmaniFirlatmaKuvveti);
+			_moneyEffectObject.transform.position = _purseObject.transform.position;
+			_moneyEffect.Play();
 
-			}
-			
 			hitType = Random.Range(1, 4);
 			Debug.Log(hitType);
 			//if (hitType== 1) playerAnimator.SetTrigger("bir");
@@ -60,8 +77,12 @@ public class AnimationControl : MonoBehaviour
 			//else playerAnimator.SetTrigger("uc");
 			_purse.gameObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
 			_purse.gameObject.transform.localPosition -= new Vector3(0, 0.02f, 0);
-			_dusmaniFirlatmaKuvveti += 30;
+			
 			StartCoroutine(DelayHitType());
+        }
+        else
+        {
+			//_moneyEffect.Stop();
 		}
 		
 	}
@@ -85,6 +106,7 @@ public class AnimationControl : MonoBehaviour
         {
 			Debug.Log("YolSonu");
 			PlayerMovement._oyunAktif = false;
+			_levelController.DusmanaUygulanacakKuvvet();
 			//JumpAnim();
 			_yolSonuKontrol = true;
 		}

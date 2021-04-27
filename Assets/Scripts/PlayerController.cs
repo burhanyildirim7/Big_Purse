@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem _engelTrailEffect;
     [SerializeField] private GameObject _engelTrailEffectObject;
 
+    [SerializeField] private ParticleSystem _moneyEffect;
+    [SerializeField] private GameObject _moneyEffectObject;
+
+    [SerializeField] private GameObject _purseObject;
+
+    [SerializeField] private LevelController _levelController;
+
     Rigidbody p_Rigidbody;
 
     [SerializeField] private float _ziplamaDegeri;
@@ -22,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         _engelTrailEffectObject.transform.position = transform.position;
+       
         p_Rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -32,6 +40,7 @@ public class PlayerController : MonoBehaviour
             //_playerPurse.gameObject.transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), Time.deltaTime * 0.1f);
             _playerPurse.gameObject.transform.localScale += new Vector3(0.03f, 0.03f, 0.03f);
             _playerPurse.gameObject.transform.localPosition += new Vector3(0, 0.03f, 0);
+            _levelController.ToplananEsyaSayisi();
            
             Destroy(other.gameObject);
         }
@@ -39,13 +48,16 @@ public class PlayerController : MonoBehaviour
         {
             _playerPurse.gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
             _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0);
-            
+            _levelController.EksilenEsyaSayisi();
+            _moneyEffectObject.transform.position = _purseObject.transform.position;
             _engelTrailEffect.Play();
+            _moneyEffect.Play();
             // Destroy(other.gameObject);
         }
         else
         {
             _engelTrailEffect.Stop();
+            _moneyEffect.Stop();
         }
         
     }
