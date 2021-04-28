@@ -12,6 +12,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem _moneyEffect;
     [SerializeField] private GameObject _moneyEffectObject;
 
+    [SerializeField] private ParticleSystem _angryEmojiEffect;
+    [SerializeField] private GameObject _angryEmojiObject;
+
+    [SerializeField] private ParticleSystem _happyEmojiEffect;
+    [SerializeField] private GameObject _happyEmojiObject;
+
     [SerializeField] private GameObject _purseObject;
 
     [SerializeField] private LevelController _levelController;
@@ -22,15 +28,17 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        p_Rigidbody = GetComponent<Rigidbody>();
     }
 
     
     void Update()
     {
         _engelTrailEffectObject.transform.position = transform.position;
-       
-        p_Rigidbody = GetComponent<Rigidbody>();
+        _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -41,7 +49,9 @@ public class PlayerController : MonoBehaviour
             _playerPurse.gameObject.transform.localScale += new Vector3(0.03f, 0.03f, 0.03f);
             _playerPurse.gameObject.transform.localPosition += new Vector3(0, 0.03f, 0);
             _levelController.ToplananEsyaSayisi();
-           
+            _happyEmojiEffect.Play();
+
+
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "DegersizEsya")
@@ -52,7 +62,18 @@ public class PlayerController : MonoBehaviour
             _moneyEffectObject.transform.position = _purseObject.transform.position;
             _engelTrailEffect.Play();
             _moneyEffect.Play();
+            _angryEmojiEffect.Play();
             // Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "DurmaZemini")
+        {
+            PlayerMovement._playerHareket = false;
+            Invoke("PlayerTekarHareket", 3);
+        }
+        else if (other.gameObject.tag == "ZiplamaZemini")
+        {
+            p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
+            p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
         }
         else
         {
@@ -62,6 +83,13 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void PlayerTekarHareket()
+    {
+        PlayerMovement._playerHareket = true;
+    }
+
+
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "ZiplamaZemini")
@@ -69,7 +97,14 @@ public class PlayerController : MonoBehaviour
             p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
             p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
         }
+        else if (collision.gameObject.tag == "DurmaZemini")
+        {
+            PlayerMovement._playerHareket = false;
+            Invoke("PlayerTekarHareket", 3);
+        }
     }
+    */
+
 
 
     /*

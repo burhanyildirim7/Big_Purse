@@ -19,7 +19,7 @@ public class AnimationControl : MonoBehaviour
 
 	public static bool _dusmaniFirlat;
 
-	private bool _yolSonuKontrol;
+	public static bool _yolSonuKontrol;
 
 	private Vector3 _purseBoyutu;
 
@@ -105,7 +105,7 @@ public class AnimationControl : MonoBehaviour
         if (other.gameObject.tag == "YolSonu")
         {
 			Debug.Log("YolSonu");
-			PlayerMovement._oyunAktif = false;
+			GameController._oyunAktif = false;
 			_levelController.DusmanaUygulanacakKuvvet();
 			//JumpAnim();
 			_yolSonuKontrol = true;

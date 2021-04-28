@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m0;
     [SerializeField] private float _playerSpeed;
 
-    public static bool _oyunAktif;
+    public static bool _playerHareket;
+
+    
     
     Ray GenerateMouseRay()
     {
@@ -44,12 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        _oyunAktif = true;
+        
     }
 
     void Update()
     {
-        if (_oyunAktif == true)
+        if (GameController._oyunAktif == true && _playerHareket == true)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * _playerSpeed);
 
