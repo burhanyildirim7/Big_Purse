@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
 
+    [SerializeField] private PlayerController _playerController;
+
     public static bool _oyunAktif;
     
 
@@ -26,7 +28,9 @@ public class GameController : MonoBehaviour
                 _uiController.LevelScreenOpen();
                 _oyunAktif = true;
                 PlayerMovement._playerHareket = true;
-                
+                _playerController.PlayerYurume();
+
+
             }
             else
             {

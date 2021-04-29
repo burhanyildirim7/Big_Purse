@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LevelController _levelController;
 
+    [SerializeField] private Animator _playerAnimator;
+
     Rigidbody p_Rigidbody;
 
     [SerializeField] private float _ziplamaDegeri;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         p_Rigidbody = GetComponent<Rigidbody>();
+        
     }
 
     
@@ -63,12 +67,15 @@ public class PlayerController : MonoBehaviour
             _engelTrailEffect.Play();
             _moneyEffect.Play();
             _angryEmojiEffect.Play();
+            _playerAnimator.SetBool("tokezle", true);
+            Invoke("TokezleIptal", 1);
+
             // Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "DurmaZemini")
         {
             PlayerMovement._playerHareket = false;
-            Invoke("PlayerTekarHareket", 3);
+            Invoke("PlayerTekrarHareket", 3);
         }
         else if (other.gameObject.tag == "ZiplamaZemini")
         {
@@ -83,9 +90,27 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void PlayerTekarHareket()
+    private void PlayerTekrarHareket()
     {
         PlayerMovement._playerHareket = true;
+    }
+
+    public void PlayerYurume()
+    {
+        _playerAnimator.SetBool("yuru", true);
+        _playerPurse.SetActive(true);
+    }
+
+    public void PlayerZipla()
+    {
+        _playerAnimator.SetBool("zipla", true);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z), 5f);
+        p_Rigidbody.isKinematic = true;
+    }
+
+    private void TokezleIptal()
+    {
+        _playerAnimator.SetBool("tokezle", false);
     }
 
 

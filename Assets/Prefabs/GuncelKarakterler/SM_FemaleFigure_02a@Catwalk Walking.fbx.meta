@@ -6,7 +6,42 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hadan_abla_hair_texture
+    second: {fileID: 2100000, guid: 9638849ed9181d1409856036ed0e7fd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_body_TEXTURE
+    second: {fileID: 2100000, guid: ce44d9bb3b44b69408083e9676b45338, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_dress_texture
+    second: {fileID: 2100000, guid: 6e7d2954b3482234ca7abb4e51ad4dfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_eyebrow_TEXTURE
+    second: {fileID: 2100000, guid: 2881136bc306db44d9a7ed77f0789f4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_eyes_TEXTURE
+    second: {fileID: 2100000, guid: 6f4102216c5dbdc49a7ebbc3229e6bb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_lips_TEXTURE
+    second: {fileID: 2100000, guid: a36185c4ea3f48344900c30efd937d48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handan_abla_shoes_TEXTURE
+    second: {fileID: 2100000, guid: a502682af934bc8439b08267a5a7c8de, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,7 +61,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -91,13 +126,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
