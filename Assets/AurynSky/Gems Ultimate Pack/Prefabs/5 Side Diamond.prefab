@@ -12,11 +12,9 @@ GameObject:
   - component: {fileID: 33000013580865012}
   - component: {fileID: 23000012220716874}
   - component: {fileID: 114000012797500034}
-  - component: {fileID: 1626333083}
   - component: {fileID: 1626333078}
   - component: {fileID: 794752016}
   - component: {fileID: 794752017}
-  - component: {fileID: 794752018}
   m_Layer: 0
   m_Name: 5 Side Diamond
   m_TagString: Untagged
@@ -111,19 +109,6 @@ MonoBehaviour:
   endScale: {x: 0.6, y: 0.6, z: 0.6}
   scaleSpeed: 1
   scaleRate: 0.5
---- !u!65 &1626333083
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010880751780}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.3966622, y: 2.2793622, z: 2.1000001}
-  m_Center: {x: -0.022504508, y: 0.12031922, z: -0.19482045}
 --- !u!114 &1626333078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,15 +150,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.3966622, y: 2.2793622, z: 2.1000001}
   m_Center: {x: -0.022504508, y: 0.12031922, z: -0.19482045}
---- !u!114 &794752018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010880751780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42a74fe31a0a034c949378a43d562ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
