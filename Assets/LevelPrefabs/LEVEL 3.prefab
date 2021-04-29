@@ -9436,8 +9436,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5989221291944327925}
+  - component: {fileID: 1894689294}
   m_Layer: 0
-  m_Name: Zemin (2)
+  m_Name: HareketliZemin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9460,6 +9461,25 @@ Transform:
   m_Father: {fileID: 5989221290482271846}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1894689294
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989221291944327924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55c456fdafc802e47a8c2ce71dd16264, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5989221291946068752
 GameObject:
   m_ObjectHideFlags: 0
