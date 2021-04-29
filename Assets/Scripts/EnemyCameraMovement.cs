@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class EnemyCameraMovement : MonoBehaviour
 {
     [SerializeField]
-    GameObject Player;
-
-    [SerializeField] private GameObject _dusmanObject;
+    GameObject Enemy;
 
     
+
+
 
     Vector3 aradakiFark;
 
 
     void Start()
     {
-        aradakiFark = transform.position - Player.transform.position;
+        aradakiFark = transform.position - Enemy.transform.position;
 
     }
 
-    
-    void Update()
+
+    void FixedUpdate()
     {
         /*
         if (AnimationControl._dusmaniFirlat == true)
@@ -29,8 +29,8 @@ public class CameraMovement : MonoBehaviour
             transform.position = new Vector3(_dusmanObject.transform.position.x, _dusmanObject.transform.position.y + aradakiFark.y, _dusmanObject.transform.position.z + aradakiFark.z);
         }
        */
-            transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
-       
+            transform.position = Vector3.Lerp(transform.position, new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + aradakiFark.y, Enemy.transform.position.z + aradakiFark.z), Time.deltaTime * 10f);
         
+
     }
 }

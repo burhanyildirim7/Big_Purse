@@ -15,6 +15,9 @@ public class LevelController : MonoBehaviour
 
     public static float _dusmaniFirlatmaKuvveti;
 
+    [SerializeField] private CoinsController _coinsController;
+
+    [SerializeField] private UIController _uiController;
 
     void Start()
     {
@@ -52,5 +55,19 @@ public class LevelController : MonoBehaviour
             Debug.Log(_esyaOrani.ToString() + " - Minimumun Altinda Kaldi");
         }
         
+    }
+
+    public void CollectButonu()
+    {
+        _coinsController.CollectCoins();
+        DusmanControl._yereCarpti = false;
+        _uiController.WinScreenClose();
+    }
+
+    public void Collect3xButonu()
+    {
+        _coinsController.CollectCoins3x();
+        DusmanControl._yereCarpti = false;
+        _uiController.WinScreenClose();
     }
 }

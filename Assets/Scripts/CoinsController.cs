@@ -32,6 +32,17 @@ public class CoinsController : MonoBehaviour
     {
         _coins = PlayerPrefs.GetInt("Coins");
         _coins += _oyundaToplananCoins * deger;
+        //PlayerPrefs.SetInt("Coins", _coins);
+    }
+
+    public void CollectCoins()
+    {
+        PlayerPrefs.SetInt("Coins", _coins);
+    }
+
+    public void CollectCoins3x()
+    {
+        _coins = _coins * 3;
         PlayerPrefs.SetInt("Coins", _coins);
     }
 }

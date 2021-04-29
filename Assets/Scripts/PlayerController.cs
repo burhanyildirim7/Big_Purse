@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerMovement _playerMovement;
 
+    private float _purseBoyutX;
+
     void Start()
     {
         p_Rigidbody = GetComponent<Rigidbody>();
@@ -43,7 +45,7 @@ public class PlayerController : MonoBehaviour
         _engelTrailEffectObject.transform.position = transform.position;
         _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-
+        _purseBoyutX = _playerPurse.gameObject.transform.localScale.x;
 
     }
 
@@ -52,8 +54,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "DegerliEsya")
         {
             //_playerPurse.gameObject.transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), Time.deltaTime * 0.1f);
-            _playerPurse.gameObject.transform.localScale += new Vector3(0.03f, 0.03f, 0.03f);
-            _playerPurse.gameObject.transform.localPosition += new Vector3(0, 0.03f, 0);
+            _playerPurse.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0.02f);
             _levelController.ToplananEsyaSayisi();
             _happyEmojiEffect.Play();
 
@@ -62,8 +64,12 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "DegersizEsya")
         {
-            _playerPurse.gameObject.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0);
+            if (_purseBoyutX >= 1.1f)
+            {
+                _playerPurse.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                _playerPurse.gameObject.transform.localPosition += new Vector3(0, 0.005f, 0.01f);
+               
+            }
             _levelController.EksilenEsyaSayisi();
             _moneyEffectObject.transform.position = _purseObject.transform.position;
             _engelTrailEffect.Play();
@@ -72,6 +78,7 @@ public class PlayerController : MonoBehaviour
             _playerAnimator.SetBool("tokezle", true);
             _playerMovement.PlayerHiziniDusur();
             Invoke("TokezleIptal", 1);
+
 
             // Destroy(other.gameObject);
         }

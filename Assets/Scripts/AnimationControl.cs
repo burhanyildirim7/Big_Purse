@@ -57,7 +57,7 @@ public class AnimationControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_purseBoyutX <= 0.32f && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
+        if (_purseBoyutX <= 1.1f && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
         {
             _dusmaniFirlat = true;
             _purse.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
@@ -102,8 +102,8 @@ public class AnimationControl : MonoBehaviour
                 _enemyAnimatorController.EnemyHit3();
                 _moneyEffect.Play();
             }
-            _purse.gameObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
-            _purse.gameObject.transform.localPosition -= new Vector3(0, 0.02f, 0);
+            _purse.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+            _purse.gameObject.transform.localPosition += new Vector3(0, 0.005f, 0.01f);
 
             StartCoroutine(DelayHitType());
         }
