@@ -27,6 +27,8 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private PlayerController _playerController;
 
+    [SerializeField] private EnemyAnimatorController _enemyAnimatorController;
+
 
 
 
@@ -43,6 +45,11 @@ public class AnimationControl : MonoBehaviour
         {
             HitAnim();
 
+        }
+        else
+        {
+            _playerController.HitleriKapat();
+            _enemyAnimatorController.EnemyHitleriKapat();
         }
 
         _purseBoyutX = _purse.gameObject.transform.localScale.x;
@@ -70,21 +77,30 @@ public class AnimationControl : MonoBehaviour
         {
 
             _moneyEffectObject.transform.position = _purseObject.transform.position;
-            _moneyEffect.Play();
+            
 
             hitType = Random.Range(1, 4);
             Debug.Log(hitType);
             if (hitType == 1)
             {
                 //playerAnimator.SetTrigger("bir");
+                _playerController.PlayerHit1();
+                _enemyAnimatorController.EnemyHit1();
+                _moneyEffect.Play();
             }
             else if (hitType == 2)
             {
-               // playerAnimator.SetTrigger("iki");
+                // playerAnimator.SetTrigger("iki");
+                _playerController.PlayerHit3();
+                _enemyAnimatorController.EnemyHit2();
+                _moneyEffect.Play();
             }
             else
             {
-               // playerAnimator.SetTrigger("uc");
+                // playerAnimator.SetTrigger("uc");
+                _playerController.PlayerHit2();
+                _enemyAnimatorController.EnemyHit3();
+                _moneyEffect.Play();
             }
             _purse.gameObject.transform.localScale -= new Vector3(0.02f, 0.02f, 0.02f);
             _purse.gameObject.transform.localPosition -= new Vector3(0, 0.02f, 0);
@@ -107,7 +123,7 @@ public class AnimationControl : MonoBehaviour
 	*/
     IEnumerator DelayHitType()
     {
-        yield return new WaitForSeconds(.4f);
+        yield return new WaitForSeconds(.6f);
         hitType = 0;
     }
 

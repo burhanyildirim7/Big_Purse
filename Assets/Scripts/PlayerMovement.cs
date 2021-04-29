@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool _playerHareket;
 
+    private float _speed;
+
     
     
     Ray GenerateMouseRay()
@@ -46,14 +48,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        
+        _speed = _playerSpeed;
     }
 
     void Update()
     {
         if (GameController._oyunAktif == true && _playerHareket == true)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * _playerSpeed);
+            transform.Translate(Vector3.forward * Time.deltaTime * _speed);
 
             if (Input.GetMouseButtonDown(0))
             {
@@ -106,6 +108,16 @@ public class PlayerMovement : MonoBehaviour
         }
         
      
+    }
+
+    public void PlayerHiziniDusur()
+    {
+        _speed = _playerSpeed / 2;
+    }
+
+    public void PlayerHiziniArtir()
+    {
+       _speed = _playerSpeed;
     }
 
 }

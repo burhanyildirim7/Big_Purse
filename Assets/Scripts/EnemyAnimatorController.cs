@@ -39,4 +39,11 @@ public class EnemyAnimatorController : MonoBehaviour
         _enemyAnimator.SetBool("Hit1", false);
         _enemyAnimator.SetBool("Hit2", false);
     }
+
+    public void EnemyHitleriKapat()
+    {
+        _enemyAnimator.SetBool("Hit1", false);
+        _enemyAnimator.SetBool("Hit2", false);
+        _enemyAnimator.SetBool("Hit3", false);
+    }
 }

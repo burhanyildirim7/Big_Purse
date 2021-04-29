@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float _ziplamaDegeri;
 
+    [SerializeField] private PlayerMovement _playerMovement;
+
     void Start()
     {
         p_Rigidbody = GetComponent<Rigidbody>();
@@ -68,6 +70,7 @@ public class PlayerController : MonoBehaviour
             _moneyEffect.Play();
             _angryEmojiEffect.Play();
             _playerAnimator.SetBool("tokezle", true);
+            _playerMovement.PlayerHiziniDusur();
             Invoke("TokezleIptal", 1);
 
             // Destroy(other.gameObject);
@@ -104,13 +107,42 @@ public class PlayerController : MonoBehaviour
     public void PlayerZipla()
     {
         _playerAnimator.SetBool("zipla", true);
-        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x, transform.position.y + 2.5f, transform.position.z), 5f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y + 2.5f, transform.position.z), 5f);
         p_Rigidbody.isKinematic = true;
     }
 
     private void TokezleIptal()
     {
         _playerAnimator.SetBool("tokezle", false);
+        _playerMovement.PlayerHiziniArtir();
+    }
+
+    public void PlayerHit1()
+    {
+        _playerAnimator.SetBool("vurus1", true);
+        _playerAnimator.SetBool("vurus2", false);
+        _playerAnimator.SetBool("vurus3", false);
+    }
+
+    public void PlayerHit2()
+    {
+        _playerAnimator.SetBool("vurus2", true);
+        _playerAnimator.SetBool("vurus1", false);
+        _playerAnimator.SetBool("vurus3", false);
+    }
+
+    public void PlayerHit3()
+    {
+        _playerAnimator.SetBool("vurus3", true);
+        _playerAnimator.SetBool("vurus1", false);
+        _playerAnimator.SetBool("vurus2", false);
+    }
+
+    public void HitleriKapat()
+    {
+        _playerAnimator.SetBool("vurus1", false);
+        _playerAnimator.SetBool("vurus2", false);
+        _playerAnimator.SetBool("vurus3", false);
     }
 
 

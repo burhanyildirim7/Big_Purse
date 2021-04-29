@@ -13537,6 +13537,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3212765730338819275, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
   m_PrefabInstance: {fileID: 2330437680225148125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132149396115480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3212765730338819269, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
+  m_PrefabInstance: {fileID: 2330437680225148125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149396115478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1832d8fd36abdfb4291c7d1fc99958a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &919132149396115481 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3212765730338819268, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
@@ -13777,6 +13788,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5866666021672718550}
     - target: {fileID: 3212765730338819268, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
+      propertyPath: _playerMovement
+      value: 
+      objectReference: {fileID: 919132149396115480}
+    - target: {fileID: 3212765730338819268, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
       propertyPath: _levelController
       value: 
       objectReference: {fileID: 418169152}
@@ -13844,6 +13859,10 @@ PrefabInstance:
       propertyPath: _moneyEffectObject
       value: 
       objectReference: {fileID: 1027255252}
+    - target: {fileID: 3212765730338819274, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
+      propertyPath: _enemyAnimatorController
+      value: 
+      objectReference: {fileID: 919132148448654256}
     - target: {fileID: 3212765730338819275, guid: d8e02db0490a91c4a9334e2adb4d4dc4, type: 3}
       propertyPath: m_Name
       value: Player
