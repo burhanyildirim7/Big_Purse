@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ParticleSystem _happyEmojiEffect;
     [SerializeField] private GameObject _happyEmojiObject;
 
+    [SerializeField] private ParticleSystem _windEffect;
+    [SerializeField] private GameObject _windObject;
+
     [SerializeField] private GameObject _purseObject;
 
     [SerializeField] private LevelController _levelController;
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _ziplamaDegeri;
 
     [SerializeField] private PlayerMovement _playerMovement;
+
+    [SerializeField] private HareketliZemin _hareketliZemin;
 
     private float _purseBoyutX;
 
@@ -45,6 +50,7 @@ public class PlayerController : MonoBehaviour
         _engelTrailEffectObject.transform.position = transform.position;
         _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+        _windObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _purseBoyutX = _playerPurse.gameObject.transform.localScale.x;
 
     }
@@ -85,17 +91,20 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag == "DurmaZemini")
         {
             PlayerMovement._playerHareket = false;
-            Invoke("PlayerTekrarHareket", 3);
+            _hareketliZemin.ZeminiKaldir();
+            Invoke("PlayerTekrarHareket", 1);
         }
         else if (other.gameObject.tag == "ZiplamaZemini")
         {
             p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
             p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
+            _windEffect.Play();
         }
         else
         {
             _engelTrailEffect.Stop();
             _moneyEffect.Stop();
+            _windEffect.Stop();
         }
         
     }

@@ -37,7 +37,7 @@ public class DusmanControl : MonoBehaviour
 
     public void DusamaniFirlatma(float deger)
     {
-        _puanZemini.SetActive(true);
+       // _puanZemini.SetActive(true);
         m_Rigidbody.AddForce(transform.up * (deger * Time.deltaTime), ForceMode.Impulse);
         m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
         _playerCamera.SetActive(false);

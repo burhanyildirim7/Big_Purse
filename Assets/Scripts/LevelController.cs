@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -18,6 +19,13 @@ public class LevelController : MonoBehaviour
     [SerializeField] private CoinsController _coinsController;
 
     [SerializeField] private UIController _uiController;
+
+    [SerializeField] private GameObject _playerObject;
+    [SerializeField] private GameObject _enemyObject;
+
+    [SerializeField] private DusmanControl _dusmanControl;
+
+    public int _sonrakiSahneLeveli;
 
     void Start()
     {
@@ -60,14 +68,22 @@ public class LevelController : MonoBehaviour
     public void CollectButonu()
     {
         _coinsController.CollectCoins();
-        DusmanControl._yereCarpti = false;
-        _uiController.WinScreenClose();
+        SceneManager.LoadScene(_sonrakiSahneLeveli);
+        // DusmanControl._yereCarpti = false;
+        //_uiController.WinScreenClose();
+        // _playerObject.transform.position = new Vector3(0, 0, 5);
+        // _enemyObject.transform.position = new Vector3(0, 0, 194);
+        // _dusmanControl.KameralariNormaleDondur();
     }
 
     public void Collect3xButonu()
     {
         _coinsController.CollectCoins3x();
-        DusmanControl._yereCarpti = false;
-        _uiController.WinScreenClose();
+        SceneManager.LoadScene(_sonrakiSahneLeveli);
+        //DusmanControl._yereCarpti = false;
+        //_uiController.WinScreenClose();
+        // _playerObject.transform.position = new Vector3(0, 0, 5);
+        // _enemyObject.transform.position = new Vector3(0, 0, 194);
+        // _dusmanControl.KameralariNormaleDondur();
     }
 }

@@ -32,6 +32,7 @@ public class UIController : MonoBehaviour
     public void TapToStartScreenClose()
     {
         _tapToStartScreen.SetActive(false);
+        _levelScreen.SetActive(true);
     }
 
     public void LevelScreenOpen()
@@ -46,21 +47,26 @@ public class UIController : MonoBehaviour
 
     public void LoseScreenOpen()
     {
+        _levelScreen.SetActive(false);
         _loseScreen.SetActive(true);
+
     }
 
     public void LoseScreenClose()
     {
         _loseScreen.SetActive(false);
+        _tapToStartScreen.SetActive(true);
     }
 
     public void WinScreenOpen()
     {
+        _levelScreen.SetActive(false);
         _winScreen.SetActive(true);
     }
 
     public void WinScreenClose()
     {
         _winScreen.SetActive(false);
+        _tapToStartScreen.SetActive(true);
     }
 }
