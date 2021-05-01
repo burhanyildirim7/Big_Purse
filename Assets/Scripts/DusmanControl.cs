@@ -6,6 +6,7 @@ public class DusmanControl : MonoBehaviour
 {
 
     Rigidbody m_Rigidbody;
+    Collider m_Collider;
     public float m_Thrust = 20f;
 
     [SerializeField] GameObject _puanZemini;
@@ -17,16 +18,20 @@ public class DusmanControl : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
 
+    [SerializeField] private EnemyRagdollControl _ragdollControl;
+
     public static bool _yereCarpti;
 
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        m_Collider = GetComponent<Collider>();
         _puanZemini.SetActive(false);
-        m_Rigidbody.isKinematic = false;
+        m_Rigidbody.isKinematic = true;
         _playerCamera.SetActive(true);
         _enemyCamera.SetActive(false);
         _yereCarpti = false;
+        GetComponent<Animator>().enabled = true;
     }
 
     
@@ -37,11 +42,14 @@ public class DusmanControl : MonoBehaviour
 
     public void DusamaniFirlatma(float deger)
     {
-       // _puanZemini.SetActive(true);
+        // _puanZemini.SetActive(true);
+        m_Rigidbody.isKinematic = false;
+        GetComponent<Animator>().enabled = false;
         m_Rigidbody.AddForce(transform.up * (deger * Time.deltaTime), ForceMode.Impulse);
         m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
         _playerCamera.SetActive(false);
         _enemyCamera.SetActive(true);
+        
 
         Debug.Log(deger);
     }
@@ -58,6 +66,8 @@ public class DusmanControl : MonoBehaviour
         {
             if (other.gameObject.tag == "X1")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(1);
                 m_Rigidbody.isKinematic = true;
@@ -66,6 +76,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X2")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(2);
                 m_Rigidbody.isKinematic = true;
@@ -74,6 +86,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X3")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(3);
                 m_Rigidbody.isKinematic = true;
@@ -82,6 +96,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X4")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(4);
                 m_Rigidbody.isKinematic = true;
@@ -90,6 +106,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X5")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(5);
                 m_Rigidbody.isKinematic = true;
@@ -98,6 +116,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X6")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(6);
                 m_Rigidbody.isKinematic = true;
@@ -106,6 +126,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X7")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(7);
                 m_Rigidbody.isKinematic = true;
@@ -114,6 +136,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X8")
             {
+                //m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(8);
                 m_Rigidbody.isKinematic = true;
@@ -122,6 +146,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X9")
             {
+                // m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(9);
                 m_Rigidbody.isKinematic = true;
@@ -130,6 +156,8 @@ public class DusmanControl : MonoBehaviour
             }
             else if (other.gameObject.tag == "X10")
             {
+                // m_Collider.isTrigger = false;
+                _ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(10);
                 m_Rigidbody.isKinematic = true;

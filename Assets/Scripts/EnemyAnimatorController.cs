@@ -19,6 +19,8 @@ public class EnemyAnimatorController : MonoBehaviour
         
     }
 
+  
+
     public void EnemyHit1()
     {
         _enemyAnimator.SetBool("Hit1", true);

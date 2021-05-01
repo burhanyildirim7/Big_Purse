@@ -21,7 +21,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private UIController _uiController;
 
     [SerializeField] private GameObject _playerObject;
-    [SerializeField] private GameObject _enemyObject;
+    [SerializeField] private GameObject _enemyRigidbody;
 
     [SerializeField] private DusmanControl _dusmanControl;
 
@@ -30,6 +30,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         _toplananEsyaSayisi = 0;
+        
     }
 
     

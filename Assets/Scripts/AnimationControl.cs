@@ -29,6 +29,8 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private EnemyAnimatorController _enemyAnimatorController;
 
+    [SerializeField] private Rigidbody _enemyRigidbody;
+
 
 
 
@@ -36,6 +38,7 @@ public class AnimationControl : MonoBehaviour
     {
         _yolSonuKontrol = false;
         _dusmaniFirlat = false;
+        
 
 
     }
@@ -60,8 +63,9 @@ public class AnimationControl : MonoBehaviour
         if (_purseBoyutX <= 1.1f && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
         {
             _dusmaniFirlat = true;
-            _purse.gameObject.transform.localScale = new Vector3(0.32f, 0.32f, 0.32f);
+            _purse.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             _dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
+            
 
         }
         else
@@ -102,8 +106,8 @@ public class AnimationControl : MonoBehaviour
                 _enemyAnimatorController.EnemyHit3();
                 _moneyEffect.Play();
             }
-            _purse.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-            _purse.gameObject.transform.localPosition += new Vector3(0, 0.005f, 0.01f);
+            _purse.gameObject.transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f);
+            _purse.gameObject.transform.localPosition += new Vector3(0, 0.015f, 0.03f);
 
             StartCoroutine(DelayHitType());
         }
