@@ -17,7 +17,10 @@ public class EnemyRagdollControl : MonoBehaviour
     public void RagdollIsKinematic()
     {
         m_Rigidbody.isKinematic = true;
+        
     }
+
+  
 
     
     void Update()
