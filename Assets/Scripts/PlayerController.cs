@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private HareketliZemin _hareketliZemin;
 
+   // [SerializeField] private GameObject _duvarYikmaKuresi;
+
+    [SerializeField] private GameObject _yikmaObject;
+
     private float _purseBoyutX;
 
     void Start()
@@ -50,8 +54,14 @@ public class PlayerController : MonoBehaviour
         _engelTrailEffectObject.transform.position = transform.position;
         _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-        _windObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _purseBoyutX = _playerPurse.gameObject.transform.localScale.x;
+       // _duvarYikmaKuresi.transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z + 3f);
+
+
+        _windObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
+       
+
+        
 
     }
 
@@ -99,6 +109,10 @@ public class PlayerController : MonoBehaviour
             p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
             p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
             _windEffect.Play();
+        }
+        else if (other.gameObject.tag == "YikmaSinir")
+        {
+            Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
         }
         else
         {

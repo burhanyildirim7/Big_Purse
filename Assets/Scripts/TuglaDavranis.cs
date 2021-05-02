@@ -5,9 +5,19 @@ using UnityEngine;
 public class TuglaDavranis : MonoBehaviour
 {
 
+    private void Start()
+    {
+        gameObject.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public void IsKinematicOff()
+    {
+        
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Missile")
+        if (collision.gameObject.tag == "Missile" || collision.gameObject.tag == "Player")
         {
             gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
@@ -16,7 +26,7 @@ public class TuglaDavranis : MonoBehaviour
     {
         if (TuglaYokEtme.yoketme==true)
         {
-            Destroy(gameObject,3f);
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
