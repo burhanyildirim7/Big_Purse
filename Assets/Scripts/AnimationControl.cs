@@ -29,7 +29,7 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private EnemyAnimatorController _enemyAnimatorController;
 
-    [SerializeField] private Rigidbody _enemyRigidbody;
+   // [SerializeField] private Rigidbody _enemyRigidbody;
 
 
 
