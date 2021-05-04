@@ -106,8 +106,8 @@ public class AnimationControl : MonoBehaviour
                 _enemyAnimatorController.EnemyHit3();
                 _moneyEffect.Play();
             }
-            _purse.gameObject.transform.localScale -= new Vector3(0.3f, 0.3f, 0.3f);
-            _purse.gameObject.transform.localPosition += new Vector3(0, 0.015f, 0.03f);
+            _purse.gameObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+            _purse.gameObject.transform.localPosition += new Vector3(0, 0.025f, 0.05f);
 
             StartCoroutine(DelayHitType());
         }

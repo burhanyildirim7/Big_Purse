@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.31014583, g: 0.6543915, b: 0.9962148, a: 1}
+  m_IndirectSpecularColor: {r: 0.07865827, g: 0.38491768, b: 0.98162264, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 18445b227f9f73140a76d01327431a75, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 459f83249a90a8b4aac5038f678e6d11, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -2478,13 +2478,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelPrefabs: []
   _toplanmasiGerekenEsyaSayisi:
-  - 23
-  _maksimumFirlatmaKuvveti: 235
+  - 22
+  _maksimumFirlatmaKuvveti: 160
   _coinsController: {fileID: 163298161}
   _uiController: {fileID: 498351671}
   _playerObject: {fileID: 919132149396115478}
-  _enemyRigidbody: {fileID: 0}
-  _dusmanControl: {fileID: 0}
+  _enemyRigidbody: {fileID: 919132148448654252}
+  _dusmanControl: {fileID: 919132148448654253}
   _sonrakiSahneLeveli: 2
 --- !u!4 &418169153
 Transform:
@@ -5410,7 +5410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3046279260207194175, guid: 29624c3c6198a6248ac1c2ff93677189, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29624c3c6198a6248ac1c2ff93677189, type: 3}
@@ -7428,7 +7428,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7485,13 +7485,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.46193978, y: 0.33141357, z: -0.19134171, w: 0.8001032}
+  m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: -21.82, y: 16.13, z: 5.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 60, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
 --- !u!1001 &711722033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8589,8 +8589,8 @@ RectTransform:
   m_Father: {fileID: 1937871305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.374, y: 0.851}
-  m_AnchorMax: {x: 0.625, y: 0.89652085}
+  m_AnchorMin: {x: 0.36, y: 0.9167292}
+  m_AnchorMax: {x: 0.638, y: 0.96933323}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8641,7 +8641,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 78.2
+  m_fontSize: 90.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -16835,6 +16835,10 @@ PrefabInstance:
     - target: {fileID: 5358839703369364801, guid: 0e4ab791e2a995d4380af3d45929db8e, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358839703369364801, guid: 0e4ab791e2a995d4380af3d45929db8e, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5358839703369364802, guid: 0e4ab791e2a995d4380af3d45929db8e, type: 3}
       propertyPath: _puanZemini
