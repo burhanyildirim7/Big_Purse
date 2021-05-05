@@ -7,7 +7,15 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
 
-    [SerializeField] private PlayerController _playerController;
+    private PlayerController _playerController;
+
+    private AnimationControl _animationControl;
+
+    [SerializeField] private LevelController _levelController;
+
+    [SerializeField] private EnemyCameraMovement _enemyCameraMovement;
+
+    [SerializeField] private DusmanControl _dusmanControl;
 
     public static bool _oyunAktif;
     
@@ -15,7 +23,11 @@ public class GameController : MonoBehaviour
     void Start()
     {
         _oyunAktif = false;
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        _animationControl = GameObject.FindWithTag("Player").GetComponent<AnimationControl>();
     }
+
+   
 
     
     void Update()
@@ -29,6 +41,10 @@ public class GameController : MonoBehaviour
                 _oyunAktif = true;
                 PlayerMovement._playerHareket = true;
                 _playerController.PlayerYurume();
+                _animationControl.DusmanGuncelle();
+                _levelController.DusmanYenile();
+                _enemyCameraMovement.EnemyKameraPozisyonDuzenle();
+                _dusmanControl.EnemyYenile();
 
 
             }

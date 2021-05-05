@@ -7,9 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject _playerPurse;
 
-    [SerializeField] private ParticleSystem _engelTrailEffect;
-    [SerializeField] private GameObject _engelTrailEffectObject;
-
     [SerializeField] private ParticleSystem _moneyEffect;
     [SerializeField] private GameObject _moneyEffectObject;
 
@@ -34,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerMovement _playerMovement;
 
-    [SerializeField] private HareketliZemin _hareketliZemin;
+    private HareketliZemin _hareketliZemin;
 
    // [SerializeField] private GameObject _duvarYikmaKuresi;
 
@@ -46,22 +43,18 @@ public class PlayerController : MonoBehaviour
     {
         p_Rigidbody = GetComponent<Rigidbody>();
         
+        
+
     }
 
     
     void Update()
     {
-        _engelTrailEffectObject.transform.position = transform.position;
         _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _purseBoyutX = _playerPurse.gameObject.transform.localScale.x;
        // _duvarYikmaKuresi.transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z + 3f);
-
-
         _windObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-       
-
-        
 
     }
 
@@ -88,7 +81,6 @@ public class PlayerController : MonoBehaviour
             }
             _levelController.EksilenEsyaSayisi();
             _moneyEffectObject.transform.position = _purseObject.transform.position;
-            _engelTrailEffect.Play();
             _moneyEffect.Play();
             _angryEmojiEffect.Play();
             _playerAnimator.SetBool("tokezle", true);
@@ -113,10 +105,10 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag == "YikmaSinir")
         {
             Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
+            
         }
         else
         {
-            _engelTrailEffect.Stop();
             _moneyEffect.Stop();
             _windEffect.Stop();
         }
@@ -130,8 +122,11 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerYurume()
     {
+        //_playerAnimator.SetBool("zipla", false);
+        p_Rigidbody.isKinematic = false;
         _playerAnimator.SetBool("yuru", true);
         _playerPurse.SetActive(true);
+        _hareketliZemin = GameObject.FindWithTag("HareketliZemin").GetComponent<HareketliZemin>();
     }
 
     public void PlayerZipla()

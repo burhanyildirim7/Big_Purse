@@ -8,6 +8,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private List<GameObject> _levelPrefabs = new List<GameObject>();
     [SerializeField] private List<float> _toplanmasiGerekenEsyaSayisi = new List<float>();
 
+    private int _levelNumarasi;
+
     private float _toplananEsyaSayisi;
 
     [SerializeField] private float _maksimumFirlatmaKuvveti;
@@ -21,22 +23,30 @@ public class LevelController : MonoBehaviour
     [SerializeField] private UIController _uiController;
 
     [SerializeField] private GameObject _playerObject;
-    [SerializeField] private GameObject _enemyRigidbody;
 
-    [SerializeField] private DusmanControl _dusmanControl;
+    [SerializeField] private CameraMovement _cameraMovement;
 
-    public int _sonrakiSahneLeveli;
+    private DusmanControl _dusmanControl;
+
+    
+
 
     void Start()
     {
         _toplananEsyaSayisi = 0;
-        
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+
     }
 
     
     void Update()
     {
         
+    }
+
+    public void DusmanYenile()
+    {
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
     }
 
     public void ToplananEsyaSayisi()
@@ -69,22 +79,40 @@ public class LevelController : MonoBehaviour
     public void CollectButonu()
     {
         _coinsController.CollectCoins();
-        SceneManager.LoadScene(_sonrakiSahneLeveli);
-        // DusmanControl._yereCarpti = false;
-        //_uiController.WinScreenClose();
-        // _playerObject.transform.position = new Vector3(0, 0, 5);
-        // _enemyObject.transform.position = new Vector3(0, 0, 194);
-        // _dusmanControl.KameralariNormaleDondur();
+        _uiController.WinScreenClose();
+        DusmanControl._yereCarpti = false;
+        _cameraMovement.KameraPzoisyonResetle();
+        _playerObject.transform.position = new Vector3(0, 0, 5);
+        GameController._oyunAktif = false;
+        AnimationControl._yolSonuKontrol = false;
+        _playerObject.SetActive(false);
+        _playerObject.SetActive(true);
+        LevelDegistir();
+        _dusmanControl.KameralariNormaleDondur();
+        _toplananEsyaSayisi = 0;
     }
 
     public void Collect3xButonu()
     {
         _coinsController.CollectCoins3x();
-        SceneManager.LoadScene(_sonrakiSahneLeveli);
-        //DusmanControl._yereCarpti = false;
-        //_uiController.WinScreenClose();
-        // _playerObject.transform.position = new Vector3(0, 0, 5);
-        // _enemyObject.transform.position = new Vector3(0, 0, 194);
-        // _dusmanControl.KameralariNormaleDondur();
+        _uiController.WinScreenClose();
+        DusmanControl._yereCarpti = false;
+        _cameraMovement.KameraPzoisyonResetle();
+        _playerObject.transform.position = new Vector3(0, 0, 5);
+        GameController._oyunAktif = false;
+        AnimationControl._yolSonuKontrol = false;
+        _playerObject.SetActive(false);
+        _playerObject.SetActive(true);
+        LevelDegistir();
+        _dusmanControl.KameralariNormaleDondur();
+        _toplananEsyaSayisi = 0;
+    }
+
+    private void LevelDegistir()
+    {
+        _levelPrefabs[_levelNumarasi].SetActive(false);
+        _levelNumarasi++;
+        _levelPrefabs[_levelNumarasi].SetActive(true);
+
     }
 }

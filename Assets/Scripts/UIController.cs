@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private GameObject _winScreen;
 
+
     void Start()
     {
         _tapToStartScreen.SetActive(true);

@@ -9,8 +9,6 @@ public class DusmanControl : MonoBehaviour
     Collider m_Collider;
     public float m_Thrust = 20f;
 
-    [SerializeField] GameObject _puanZemini;
-
     [SerializeField] private CoinsController _coinsController;
 
     [SerializeField] private GameObject _playerCamera;
@@ -26,7 +24,6 @@ public class DusmanControl : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Collider = GetComponent<Collider>();
-        _puanZemini.SetActive(false);
         m_Rigidbody.isKinematic = true;
         _playerCamera.SetActive(true);
         _enemyCamera.SetActive(false);
@@ -38,6 +35,17 @@ public class DusmanControl : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EnemyYenile()
+    {
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_Collider = GetComponent<Collider>();
+        m_Rigidbody.isKinematic = true;
+        _playerCamera.SetActive(true);
+        _enemyCamera.SetActive(false);
+        _yereCarpti = false;
+        GetComponent<Animator>().enabled = true;
     }
 
     public void DusamaniFirlatma(float deger)

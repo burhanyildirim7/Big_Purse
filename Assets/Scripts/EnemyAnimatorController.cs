@@ -23,6 +23,7 @@ public class EnemyAnimatorController : MonoBehaviour
 
     public void EnemyHit1()
     {
+        Debug.Log("Hit1");
         _enemyAnimator.SetBool("Hit1", true);
         _enemyAnimator.SetBool("Hit2", false);
         _enemyAnimator.SetBool("Hit3", false);
@@ -30,6 +31,7 @@ public class EnemyAnimatorController : MonoBehaviour
 
     public void EnemyHit2()
     {
+        Debug.Log("Hit2");
         _enemyAnimator.SetBool("Hit2", true);
         _enemyAnimator.SetBool("Hit1", false);
         _enemyAnimator.SetBool("Hit3", false);
@@ -37,6 +39,7 @@ public class EnemyAnimatorController : MonoBehaviour
 
     public void EnemyHit3()
     {
+        Debug.Log("Hit3");
         _enemyAnimator.SetBool("Hit3", true);
         _enemyAnimator.SetBool("Hit1", false);
         _enemyAnimator.SetBool("Hit2", false);

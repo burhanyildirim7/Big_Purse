@@ -8,7 +8,7 @@ public class AnimationControl : MonoBehaviour
     int hitType = 0;
     [SerializeField] private GameObject _purse;
 
-    [SerializeField] private DusmanControl _dusmanControl;
+    private DusmanControl _dusmanControl;
 
     [SerializeField] private LevelController _levelController;
 
@@ -27,7 +27,7 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private PlayerController _playerController;
 
-    [SerializeField] private EnemyAnimatorController _enemyAnimatorController;
+    private EnemyAnimatorController _enemyAnimatorController;
 
    // [SerializeField] private Rigidbody _enemyRigidbody;
 
@@ -38,7 +38,10 @@ public class AnimationControl : MonoBehaviour
     {
         _yolSonuKontrol = false;
         _dusmaniFirlat = false;
-        
+
+        _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+
 
 
     }
@@ -72,6 +75,12 @@ public class AnimationControl : MonoBehaviour
         {
 
         }
+    }
+
+    public void DusmanGuncelle()
+    {
+        _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
     }
 
 
@@ -138,6 +147,7 @@ public class AnimationControl : MonoBehaviour
             Debug.Log("YolSonu");
             _playerController.PlayerZipla();
             GameController._oyunAktif = false;
+            _dusmaniFirlat = false;
             _levelController.DusmanaUygulanacakKuvvet();
             //JumpAnim();
             _yolSonuKontrol = true;
