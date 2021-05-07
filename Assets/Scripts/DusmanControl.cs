@@ -45,6 +45,11 @@ public class DusmanControl : MonoBehaviour
         _playerCamera.SetActive(true);
         _enemyCamera.SetActive(false);
         _yereCarpti = false;
+        
+    }
+
+    public void EnemyAnimatorBaslat()
+    {
         GetComponent<Animator>().enabled = true;
     }
 
@@ -57,6 +62,7 @@ public class DusmanControl : MonoBehaviour
         m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
         _playerCamera.SetActive(false);
         _enemyCamera.SetActive(true);
+        EnemyCameraMovement._enemyKameraTakip = true;
         
 
         Debug.Log(deger);

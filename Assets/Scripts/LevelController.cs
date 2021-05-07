@@ -26,7 +26,13 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private CameraMovement _cameraMovement;
 
+    [SerializeField] private List<GameObject> _enemySpawnPoint = new List<GameObject>();
+
     private DusmanControl _dusmanControl;
+
+    private GameObject _enemyObject;
+
+    private int _enemySpawnNumber;
 
     
 
@@ -34,7 +40,9 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         _toplananEsyaSayisi = 0;
+        _enemySpawnNumber = 0;
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
 
     }
 
@@ -47,6 +55,8 @@ public class LevelController : MonoBehaviour
     public void DusmanYenile()
     {
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        
     }
 
     public void ToplananEsyaSayisi()
@@ -83,6 +93,9 @@ public class LevelController : MonoBehaviour
         DusmanControl._yereCarpti = false;
         _cameraMovement.KameraPzoisyonResetle();
         _playerObject.transform.position = new Vector3(0, 0, 5);
+        _enemySpawnNumber++;
+        _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
         _playerObject.SetActive(false);
@@ -90,6 +103,7 @@ public class LevelController : MonoBehaviour
         LevelDegistir();
         _dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
+     
     }
 
     public void Collect3xButonu()
@@ -99,6 +113,9 @@ public class LevelController : MonoBehaviour
         DusmanControl._yereCarpti = false;
         _cameraMovement.KameraPzoisyonResetle();
         _playerObject.transform.position = new Vector3(0, 0, 5);
+        _enemySpawnNumber++;
+        _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
         _playerObject.SetActive(false);
@@ -106,6 +123,7 @@ public class LevelController : MonoBehaviour
         LevelDegistir();
         _dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
+       
     }
 
     private void LevelDegistir()

@@ -98,14 +98,18 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "ZiplamaZemini")
         {
-            p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
-            p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.deltaTime), ForceMode.Impulse);
+            p_Rigidbody.AddForce(transform.up * (_ziplamaDegeri * Time.fixedDeltaTime), ForceMode.Impulse);
+            p_Rigidbody.AddForce(transform.forward * (_ziplamaDegeri * Time.fixedDeltaTime), ForceMode.Impulse);
             _windEffect.Play();
+            StartCoroutine(PlayerUcusAnimasyonKontrol());
         }
         else if (other.gameObject.tag == "YikmaSinir")
         {
+            _playerMovement.PlayerHiziniDusur();
+            _playerAnimator.SetBool("attack", true);
             Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
-            
+            Invoke("AttackIptal", 0.5f);
+
         }
         else
         {
@@ -113,6 +117,18 @@ public class PlayerController : MonoBehaviour
             _windEffect.Stop();
         }
         
+    }
+
+    IEnumerator PlayerUcusAnimasyonKontrol()
+    {
+
+        _playerAnimator.SetBool("ucus", true);
+        _playerAnimator.SetBool("yuru", false);
+        yield return new WaitForSeconds(3f);
+        _playerAnimator.SetBool("ucus", false);
+        _playerAnimator.SetBool("yuru", true);
+
+
     }
 
     private void PlayerTekrarHareket()
@@ -140,6 +156,13 @@ public class PlayerController : MonoBehaviour
     {
         _playerAnimator.SetBool("tokezle", false);
         _playerMovement.PlayerHiziniArtir();
+    }
+
+    private void AttackIptal()
+    {
+        _playerAnimator.SetBool("attack", false);
+        _playerMovement.PlayerHiziniArtir();
+
     }
 
     public void PlayerHit1()

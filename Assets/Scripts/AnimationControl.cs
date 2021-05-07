@@ -17,6 +17,10 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private GameObject _purseObject;
 
+    private int _hitNumber = 0;
+
+    public static bool _firlatmaKuvvetiUygula;
+
     public static bool _dusmaniFirlat;
 
     public static bool _yolSonuKontrol;
@@ -29,7 +33,7 @@ public class AnimationControl : MonoBehaviour
 
     private EnemyAnimatorController _enemyAnimatorController;
 
-   // [SerializeField] private Rigidbody _enemyRigidbody;
+    // [SerializeField] private Rigidbody _enemyRigidbody;
 
 
 
@@ -38,6 +42,7 @@ public class AnimationControl : MonoBehaviour
     {
         _yolSonuKontrol = false;
         _dusmaniFirlat = false;
+        _firlatmaKuvvetiUygula = false;
 
         _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
@@ -63,12 +68,13 @@ public class AnimationControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_purseBoyutX <= 1.1f && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
+        if (_firlatmaKuvvetiUygula == true && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
         {
             _dusmaniFirlat = true;
-            _purse.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            _firlatmaKuvvetiUygula = false;
+            // _purse.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             _dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
-            
+
 
         }
         else
@@ -90,33 +96,41 @@ public class AnimationControl : MonoBehaviour
         {
 
             _moneyEffectObject.transform.position = _purseObject.transform.position;
-            
+
 
             hitType = Random.Range(1, 4);
+
             Debug.Log(hitType);
-            if (hitType == 1)
+            if (_hitNumber == 0)
             {
                 //playerAnimator.SetTrigger("bir");
-                _playerController.PlayerHit1();
-                _enemyAnimatorController.EnemyHit1();
-                _moneyEffect.Play();
+                // _playerController.PlayerHit3();
+                //  _enemyAnimatorController.EnemyHit1();
+                // _moneyEffect.Play();
+                StartCoroutine(PlayerHitType1());
+                _hitNumber++;
             }
-            else if (hitType == 2)
+            else if (_hitNumber == 1)
             {
                 // playerAnimator.SetTrigger("iki");
-                _playerController.PlayerHit3();
-                _enemyAnimatorController.EnemyHit2();
-                _moneyEffect.Play();
+                // _playerController.PlayerHit3();
+                // _enemyAnimatorController.EnemyHit2();
+                // _moneyEffect.Play();
+                StartCoroutine(PlayerHitType2());
+                _hitNumber++;
             }
-            else
+            else if (_hitNumber == 2)
             {
                 // playerAnimator.SetTrigger("uc");
-                _playerController.PlayerHit2();
-                _enemyAnimatorController.EnemyHit3();
-                _moneyEffect.Play();
+                // _playerController.PlayerHit3();
+                // _enemyAnimatorController.EnemyHit3();
+                // _moneyEffect.Play();
+                StartCoroutine(PlayerHitType3());
+                // _firlatmaKuvvetiUygula = true;
+                _hitNumber = 0;
             }
-            _purse.gameObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
-            _purse.gameObject.transform.localPosition += new Vector3(0, 0.025f, 0.05f);
+            // _purse.gameObject.transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+            // _purse.gameObject.transform.localPosition += new Vector3(0, 0.025f, 0.05f);
 
             StartCoroutine(DelayHitType());
         }
@@ -136,8 +150,38 @@ public class AnimationControl : MonoBehaviour
 	*/
     IEnumerator DelayHitType()
     {
-        yield return new WaitForSeconds(.6f);
+        yield return new WaitForSeconds(1f);
         hitType = 0;
+    }
+
+    IEnumerator PlayerHitType1()
+    {
+        _playerController.PlayerHit1();
+        yield return new WaitForSeconds(0.3f);
+        _enemyAnimatorController.EnemyHit1();
+        _moneyEffect.Play();
+
+    }
+
+    IEnumerator PlayerHitType2()
+    {
+        _playerController.PlayerHit2();
+        yield return new WaitForSeconds(0.3f);
+        _enemyAnimatorController.EnemyHit2();
+        _moneyEffect.Play();
+
+    }
+
+    IEnumerator PlayerHitType3()
+    {
+        Time.timeScale = 0.5f;
+        _playerController.PlayerHit3();
+        yield return new WaitForSeconds(0.5f);
+        _enemyAnimatorController.EnemyHit3();
+        _moneyEffect.Play();
+        yield return new WaitForSeconds(0.1f);
+        _firlatmaKuvvetiUygula = true;
+        Time.timeScale = 1;
     }
 
     private void OnTriggerEnter(Collider other)
