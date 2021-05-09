@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class AnimationControl : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private GameObject _purseObject;
 
+    [SerializeField] private CameraShake _cameraShake;
     private int _hitNumber = 0;
 
     public static bool _firlatmaKuvvetiUygula;
@@ -159,6 +161,7 @@ public class AnimationControl : MonoBehaviour
         _playerController.PlayerHit1();
         yield return new WaitForSeconds(0.3f);
         _enemyAnimatorController.EnemyHit1();
+        _cameraShake.ShakeOnce();
         _moneyEffect.Play();
 
     }
@@ -168,6 +171,7 @@ public class AnimationControl : MonoBehaviour
         _playerController.PlayerHit2();
         yield return new WaitForSeconds(0.3f);
         _enemyAnimatorController.EnemyHit2();
+        _cameraShake.ShakeOnce();
         _moneyEffect.Play();
 
     }
@@ -178,6 +182,7 @@ public class AnimationControl : MonoBehaviour
         _playerController.PlayerHit3();
         yield return new WaitForSeconds(0.5f);
         _enemyAnimatorController.EnemyHit3();
+        _cameraShake.ShakeOnce();
         _moneyEffect.Play();
         yield return new WaitForSeconds(0.1f);
         _firlatmaKuvvetiUygula = true;

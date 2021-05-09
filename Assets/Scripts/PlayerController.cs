@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private PlayerMovement _playerMovement;
 
+    [SerializeField] private CameraShake _cameraShake;
+
     private HareketliZemin _hareketliZemin;
 
    // [SerializeField] private GameObject _duvarYikmaKuresi;
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
             _playerMovement.PlayerHiziniDusur();
             _playerAnimator.SetBool("attack", true);
             Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
+            _cameraShake.ShakeOnce();
             Invoke("AttackIptal", 0.5f);
 
         }
