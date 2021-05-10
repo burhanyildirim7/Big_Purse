@@ -7,9 +7,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     GameObject Player;
 
-    [SerializeField] private GameObject _dusmanObject;
+   // [SerializeField] private GameObject _dusmanObject;
 
-    
+
 
     Vector3 aradakiFark;
 
@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
 
     }
 
-    
+
     void Update()
     {
         /*
@@ -29,11 +29,20 @@ public class CameraMovement : MonoBehaviour
             transform.position = new Vector3(_dusmanObject.transform.position.x, _dusmanObject.transform.position.y + aradakiFark.y, _dusmanObject.transform.position.z + aradakiFark.z);
         }
        */
+
+        if (AnimationControl._dusmaniFirlat == false)
+        {
             transform.position = Vector3.Lerp(transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y + aradakiFark.y, Player.transform.position.z + aradakiFark.z), Time.deltaTime * 5f);
+        }
+        else
+        {
+
+        }
+        
 
     }
 
-    public void KameraPzoisyonResetle()
+    public void KameraPozisyonResetle()
     {
         transform.position = new Vector3(0, 8.5f, -8.5f);
     }

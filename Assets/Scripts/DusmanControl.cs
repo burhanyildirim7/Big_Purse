@@ -18,6 +18,8 @@ public class DusmanControl : MonoBehaviour
 
     [SerializeField] private EnemyRagdollControl _ragdollControl;
 
+    private GameController _gameController;
+
     public static bool _yereCarpti;
 
     void Start()
@@ -29,6 +31,8 @@ public class DusmanControl : MonoBehaviour
         _enemyCamera.SetActive(false);
         _yereCarpti = false;
         GetComponent<Animator>().enabled = true;
+
+        _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     
@@ -74,6 +78,17 @@ public class DusmanControl : MonoBehaviour
         _enemyCamera.SetActive(false);
     }
 
+    IEnumerator SevinmeSahnesineGecis()
+    {
+        
+        yield return new WaitForSeconds(3f);
+        KameralariNormaleDondur();
+        _gameController.PlayerSevinmeOrganizasyon();
+        yield return new WaitForSeconds(3f);
+        _uiController.WinScreenOpen();
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (_yereCarpti == false)
@@ -85,7 +100,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(1);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X1");
             }
             else if (other.gameObject.tag == "X2")
@@ -95,7 +110,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(2);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X2");
             }
             else if (other.gameObject.tag == "X3")
@@ -105,7 +120,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(3);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X3");
             }
             else if (other.gameObject.tag == "X4")
@@ -115,7 +130,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(4);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X4");
             }
             else if (other.gameObject.tag == "X5")
@@ -125,7 +140,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(5);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X5");
             }
             else if (other.gameObject.tag == "X6")
@@ -135,7 +150,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(6);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X6");
             }
             else if (other.gameObject.tag == "X7")
@@ -145,7 +160,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(7);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X7");
             }
             else if (other.gameObject.tag == "X8")
@@ -155,7 +170,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(8);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X8");
             }
             else if (other.gameObject.tag == "X9")
@@ -165,7 +180,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(9);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X9");
             }
             else if (other.gameObject.tag == "X10")
@@ -175,7 +190,7 @@ public class DusmanControl : MonoBehaviour
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(10);
                 m_Rigidbody.isKinematic = true;
-                _uiController.WinScreenOpen();
+                StartCoroutine(SevinmeSahnesineGecis());
                 Debug.Log("X10");
             }
             else

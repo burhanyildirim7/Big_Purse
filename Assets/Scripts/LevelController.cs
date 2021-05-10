@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class LevelController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _levelPrefabs = new List<GameObject>();
@@ -28,6 +29,8 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private List<GameObject> _enemySpawnPoint = new List<GameObject>();
 
+    private GameController _gameController;
+
     private DusmanControl _dusmanControl;
 
     private GameObject _enemyObject;
@@ -43,7 +46,7 @@ public class LevelController : MonoBehaviour
         _enemySpawnNumber = 0;
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
-
+        _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     
@@ -91,8 +94,9 @@ public class LevelController : MonoBehaviour
         _coinsController.CollectCoins();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
-        _cameraMovement.KameraPzoisyonResetle();
-        _playerObject.transform.position = new Vector3(0, 0, 5);
+        _cameraMovement.KameraPozisyonResetle();
+        _playerObject.transform.position = new Vector3(0, 0.5f, 5);
+        _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;
         _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
@@ -101,9 +105,11 @@ public class LevelController : MonoBehaviour
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
         LevelDegistir();
-        _dusmanControl.KameralariNormaleDondur();
+        _gameController.ConfettileriDurdur();
+        //_dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
-     
+        AnimationControl._dusmaniFirlat = false;
+
     }
 
     public void Collect3xButonu()
@@ -111,8 +117,9 @@ public class LevelController : MonoBehaviour
         _coinsController.CollectCoins3x();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
-        _cameraMovement.KameraPzoisyonResetle();
-        _playerObject.transform.position = new Vector3(0, 0, 5);
+        _cameraMovement.KameraPozisyonResetle();
+        _playerObject.transform.position = new Vector3(0, 0.5f, 5);
+        _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;
         _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
@@ -121,9 +128,12 @@ public class LevelController : MonoBehaviour
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
         LevelDegistir();
-        _dusmanControl.KameralariNormaleDondur();
+        _gameController.ConfettileriDurdur();
+        // _dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
-       
+        AnimationControl._dusmaniFirlat = false;
+
+
     }
 
     private void LevelDegistir()
@@ -133,4 +143,6 @@ public class LevelController : MonoBehaviour
         _levelPrefabs[_levelNumarasi].SetActive(true);
 
     }
+
+    
 }

@@ -19,6 +19,11 @@ public class AnimationControl : MonoBehaviour
     [SerializeField] private GameObject _purseObject;
 
     [SerializeField] private CameraShake _cameraShake;
+
+    
+
+    
+
     private int _hitNumber = 0;
 
     public static bool _firlatmaKuvvetiUygula;
@@ -74,7 +79,9 @@ public class AnimationControl : MonoBehaviour
         {
             _dusmaniFirlat = true;
             _firlatmaKuvvetiUygula = false;
-            // _purse.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            _purse.gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
+            _purse.gameObject.transform.localPosition = new Vector3(0.05f, 0.1f, -0.26f);
+            //_purse.transform.eulerAngles = new Vector3(210, 172, 4);
             _dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
 
 
@@ -182,7 +189,7 @@ public class AnimationControl : MonoBehaviour
         _playerController.PlayerHit3();
         yield return new WaitForSeconds(0.5f);
         _enemyAnimatorController.EnemyHit3();
-        _cameraShake.ShakeOnce();
+        //_cameraShake.ShakeOnce();
         _moneyEffect.Play();
         yield return new WaitForSeconds(0.1f);
         _firlatmaKuvvetiUygula = true;
@@ -202,6 +209,9 @@ public class AnimationControl : MonoBehaviour
             _yolSonuKontrol = true;
         }
     }
+
+
+
 
 
 

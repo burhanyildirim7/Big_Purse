@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class GameController : MonoBehaviour
 {
@@ -17,6 +18,15 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private DusmanControl _dusmanControl;
 
+    [SerializeField] private GameObject _confettiPaket;
+
+    [SerializeField] private ParticleSystem _confetti1;
+    [SerializeField] private ParticleSystem _confetti2;
+
+    private GameObject _playerObject;
+
+    private GameObject _cameraObject;
+
     public static bool _oyunAktif;
 
     private GameObject Enemy;
@@ -30,6 +40,8 @@ public class GameController : MonoBehaviour
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _animationControl = GameObject.FindWithTag("Player").GetComponent<AnimationControl>();
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        _cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
+        _playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
    
@@ -64,5 +76,29 @@ public class GameController : MonoBehaviour
         {
 
         }
+    }
+
+    public void PlayerSevinmeOrganizasyon()
+    {
+        StartCoroutine(PlayerSevinme());
+    }
+
+
+    IEnumerator PlayerSevinme()
+    {
+        _cameraObject.transform.position = new Vector3(0, 6, _playerObject.transform.position.z - 2);
+        _confettiPaket.transform.position = new Vector3(0, -2.5f, _playerObject.transform.position.z + 6.5f);
+        _playerObject.transform.position = new Vector3(0, 0.5f, _playerObject.transform.position.z + 10);
+        _playerObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        yield return new WaitForSeconds(0.5f);
+        _confetti1.Play();
+        _confetti2.Play();
+
+    }
+
+    public void ConfettileriDurdur()
+    {
+        _confetti1.Stop();
+        _confetti2.Stop();
     }
 }

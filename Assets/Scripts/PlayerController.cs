@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             //_playerPurse.gameObject.transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), Time.deltaTime * 0.1f);
             _playerPurse.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
-            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.01f, 0.02f);
+            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.015f, 0.03f);
             _levelController.ToplananEsyaSayisi();
             _happyEmojiEffect.Play();
 
@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag == "YikmaSinir")
         {
             _playerMovement.PlayerHiziniDusur();
+            StartCoroutine(PlayerKinematicKontrol());
             _playerAnimator.SetBool("attack", true);
             Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
             _cameraShake.ShakeOnce();
@@ -131,6 +132,15 @@ public class PlayerController : MonoBehaviour
         _playerAnimator.SetBool("ucus", false);
         _playerAnimator.SetBool("yuru", true);
 
+
+    }
+
+    IEnumerator PlayerKinematicKontrol()
+    {
+
+        p_Rigidbody.isKinematic = true;
+        yield return new WaitForSeconds(1f);
+        p_Rigidbody.isKinematic = false;
 
     }
 
