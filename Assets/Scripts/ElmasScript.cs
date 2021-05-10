@@ -6,7 +6,7 @@ using DG.Tweening;
 public class ElmasScript : MonoBehaviour
 {
 
-    GameObject _coinsController;
+    private CoinsController _coinsController;
 
     private GameObject _player;
     [SerializeField] private GameObject _elmasObject;
@@ -15,7 +15,7 @@ public class ElmasScript : MonoBehaviour
 
     void Start()
     {
-        _coinsController = GameObject.FindGameObjectWithTag("CoinsController");
+        _coinsController = GameObject.FindGameObjectWithTag("CoinsController").GetComponent<CoinsController>(); 
         _player = GameObject.FindGameObjectWithTag("Player");
        // _elmasObject = GameObject.FindGameObjectWithTag("ElmasUI");
         _canvas = GameObject.FindGameObjectWithTag("Canvas");
@@ -35,21 +35,24 @@ public class ElmasScript : MonoBehaviour
         {
             //  _coinsController.GetComponent<CoinsController>().CoinToplama(1);
             Destroy(gameObject);
-            StartCoroutine(ElmasDestroy());
+            Instantiate(_elmasObject, new Vector2(_playerPosition.x, _playerPosition.y + 100f), Quaternion.identity);
+            _coinsController.CoinToplama(1);
+          //  StartCoroutine(ElmasDestroy());
 
 
 
         }
     }
 
-
+    /*
     IEnumerator ElmasDestroy()
     {
-        Instantiate(_elmasObject, new Vector2(_playerPosition.x, _playerPosition.y+100f), Quaternion.identity);
+        
         
         yield return new WaitForSeconds(1f);
-        _coinsController.GetComponent<CoinsController>().CoinToplama(1);
+        
         
 
     }
+    */
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _levelScreen;
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private GameObject _winScreen;
+
+    [SerializeField] private TextMeshProUGUI _levelText;
+    private int _levelNumber;
 
 
     void Start()
@@ -19,10 +23,15 @@ public class UIController : MonoBehaviour
         _winScreen.SetActive(false);
     }
 
+    public void UILevelNumber()
+    {
+        _levelNumber = LevelController._levelNumarasi + 1;
+    }
+
    
     void Update()
     {
-        
+        _levelText.text = "Level " + _levelNumber;
     }
 
     public void TapToStartScreenOpen()

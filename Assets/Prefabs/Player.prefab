@@ -778,7 +778,7 @@ Transform:
   m_LocalScale: {x: 25, y: 8.500002, z: 14.500006}
   m_Children: []
   m_Father: {fileID: 2330437681876989101}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 178.9, y: 171.5, z: -4.9}
 --- !u!33 &2330437680037083981
 MeshFilter:
@@ -856,6 +856,7 @@ Transform:
   m_LocalPosition: {x: 0.027, y: 0.235, z: -0.117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3863175211338864280}
   - {fileID: 2330437680242544565}
   m_Father: {fileID: 4171121000433454674}
   m_RootOrder: 5
@@ -1052,17 +1053,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPurse: {fileID: 2330437681876989106}
-  _engelTrailEffect: {fileID: 0}
-  _engelTrailEffectObject: {fileID: 0}
   _moneyEffect: {fileID: 0}
   _moneyEffectObject: {fileID: 0}
   _angryEmojiEffect: {fileID: 0}
   _angryEmojiObject: {fileID: 0}
   _happyEmojiEffect: {fileID: 0}
   _happyEmojiObject: {fileID: 0}
+  _windEffect: {fileID: 0}
+  _windObject: {fileID: 0}
   _purseObject: {fileID: 2330437681876989106}
   _levelController: {fileID: 0}
+  _playerAnimator: {fileID: 0}
   _ziplamaDegeri: 50
+  _playerMovement: {fileID: 0}
+  _cameraShake: {fileID: 0}
+  _yikmaObject: {fileID: 0}
 --- !u!114 &3212765730338819269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1093,11 +1098,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _purse: {fileID: 2330437681876989106}
-  _dusmanControl: {fileID: 0}
   _levelController: {fileID: 0}
   _moneyEffect: {fileID: 0}
   _moneyEffectObject: {fileID: 0}
   _purseObject: {fileID: 2330437681876989106}
+  _cameraShake: {fileID: 0}
+  _playerController: {fileID: 0}
 --- !u!1 &3330709070294407407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,3 +2419,65 @@ Transform:
   m_Father: {fileID: 8821149168703333465}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5196021495306822755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2330437681876989101}
+    m_Modifications:
+    - target: {fileID: 4184047391208486888, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_Name
+      value: Player_ToplanabilirCanta1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+--- !u!4 &3863175211338864280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9045263686708245243, guid: 1c27a12eb452b0f4dbc407bfe8e938a7, type: 3}
+  m_PrefabInstance: {fileID: 5196021495306822755}
+  m_PrefabAsset: {fileID: 0}

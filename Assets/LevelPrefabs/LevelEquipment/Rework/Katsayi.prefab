@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1799985585841874991}
   - component: {fileID: 1799985585841874989}
   - component: {fileID: 1799985585841874988}
+  - component: {fileID: 7283124781244340676}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X2
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7283124781244340676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985585841874990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0.0000038146973}
 --- !u!1 &1799985585901873965
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +282,7 @@ GameObject:
   - component: {fileID: 1799985585986163520}
   - component: {fileID: 1799985585986163534}
   - component: {fileID: 1799985585986163521}
+  - component: {fileID: 5926432038820654134}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X10
@@ -338,6 +353,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5926432038820654134
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985585986163523}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985586012453439
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +489,7 @@ GameObject:
   - component: {fileID: 1799985586043887254}
   - component: {fileID: 1799985586043887252}
   - component: {fileID: 1799985586043887255}
+  - component: {fileID: 750672362753696761}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X4
@@ -531,6 +560,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &750672362753696761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985586043887337}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985586104957074
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +584,7 @@ GameObject:
   - component: {fileID: 1799985586104957075}
   - component: {fileID: 1799985586104957073}
   - component: {fileID: 1799985586104957072}
+  - component: {fileID: 2715079823559369934}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X7
@@ -612,6 +655,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2715079823559369934
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985586104957074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985586113865464
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +967,7 @@ GameObject:
   - component: {fileID: 1799985586370489146}
   - component: {fileID: 1799985586370489144}
   - component: {fileID: 1799985586370489147}
+  - component: {fileID: 6422011158340497062}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X9
@@ -981,6 +1038,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6422011158340497062
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985586370489149}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985586393931359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1206,7 @@ GameObject:
   - component: {fileID: 1799985586528548436}
   - component: {fileID: 1799985586528548434}
   - component: {fileID: 1799985586528548437}
+  - component: {fileID: 6127885373114405620}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X6
@@ -1206,6 +1277,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6127885373114405620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985586528548439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985586705143939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,6 +1429,7 @@ GameObject:
   - component: {fileID: 1799985586955912136}
   - component: {fileID: 1799985586955912182}
   - component: {fileID: 1799985586955912137}
+  - component: {fileID: 189144952721524078}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X1
@@ -1415,6 +1500,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &189144952721524078
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985586955912139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985587080661828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1636,7 @@ GameObject:
   - component: {fileID: 1799985587102698550}
   - component: {fileID: 1799985587102698548}
   - component: {fileID: 1799985587102698551}
+  - component: {fileID: 6762668170589294910}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X3
@@ -1608,6 +1707,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6762668170589294910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985587102698505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985587181949416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2211,7 @@ GameObject:
   - component: {fileID: 1799985587724404643}
   - component: {fileID: 1799985587724404641}
   - component: {fileID: 1799985587724404640}
+  - component: {fileID: 7306931707436682630}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X8
@@ -2169,6 +2282,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7306931707436682630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985587724404642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985587749699274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2306,7 @@ GameObject:
   - component: {fileID: 1799985587749699275}
   - component: {fileID: 1799985587749699273}
   - component: {fileID: 1799985587749699272}
+  - component: {fileID: 8646703000260785265}
   m_Layer: 0
   m_Name: Plane
   m_TagString: X5
@@ -2250,6 +2377,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8646703000260785265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799985587749699274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1799985587752681120
 GameObject:
   m_ObjectHideFlags: 0

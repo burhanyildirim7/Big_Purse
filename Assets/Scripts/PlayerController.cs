@@ -65,8 +65,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "DegerliEsya")
         {
             //_playerPurse.gameObject.transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), Time.deltaTime * 0.1f);
-            _playerPurse.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
-            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.015f, 0.03f);
+            _playerPurse.gameObject.transform.localScale += new Vector3(0.15f, 0.15f, 0.15f);
+            _playerPurse.gameObject.transform.localPosition -= new Vector3(0, 0.020f, 0.045f);
             _levelController.ToplananEsyaSayisi();
             _happyEmojiEffect.Play();
 
@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag == "DurmaZemini")
         {
             PlayerMovement._playerHareket = false;
+            _hareketliZemin = GameObject.FindWithTag("HareketliZemin").GetComponent<HareketliZemin>();
             _hareketliZemin.ZeminiKaldir();
             Invoke("PlayerTekrarHareket", 1);
         }
@@ -155,7 +156,7 @@ public class PlayerController : MonoBehaviour
         p_Rigidbody.isKinematic = false;
         _playerAnimator.SetBool("yuru", true);
         _playerPurse.SetActive(true);
-        _hareketliZemin = GameObject.FindWithTag("HareketliZemin").GetComponent<HareketliZemin>();
+       
     }
 
     public void PlayerZipla()
@@ -204,6 +205,11 @@ public class PlayerController : MonoBehaviour
         _playerAnimator.SetBool("vurus1", false);
         _playerAnimator.SetBool("vurus2", false);
         _playerAnimator.SetBool("vurus3", false);
+    }
+
+    public void DansAnimasyonBaslat()
+    {
+        _playerAnimator.SetBool("dans", true);
     }
 
 

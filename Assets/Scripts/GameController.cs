@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private ParticleSystem _confetti1;
     [SerializeField] private ParticleSystem _confetti2;
 
+    private GameObject _purse;
+
     private GameObject _playerObject;
 
     private GameObject _cameraObject;
@@ -42,6 +44,7 @@ public class GameController : MonoBehaviour
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         _cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
+        _purse = GameObject.FindGameObjectWithTag("Purse");
     }
 
    
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                _uiController.UILevelNumber();
                 _uiController.TapToStartScreenClose();
                 _uiController.LevelScreenOpen();
                 _oyunAktif = true;
@@ -64,6 +68,7 @@ public class GameController : MonoBehaviour
                 _dusmanControl.EnemyYenile();
                 EnemyCameraMovement._enemyKameraTakip = false;
                 _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
+               
 
 
             }
@@ -90,6 +95,9 @@ public class GameController : MonoBehaviour
         _confettiPaket.transform.position = new Vector3(0, -2.5f, _playerObject.transform.position.z + 6.5f);
         _playerObject.transform.position = new Vector3(0, 0.5f, _playerObject.transform.position.z + 10);
         _playerObject.transform.eulerAngles = new Vector3(0, 180, 0);
+        _purse = GameObject.FindGameObjectWithTag("Purse");
+        _purse.SetActive(false);
+        _playerController.DansAnimasyonBaslat();
         yield return new WaitForSeconds(0.5f);
         _confetti1.Play();
         _confetti2.Play();

@@ -9,7 +9,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private List<GameObject> _levelPrefabs = new List<GameObject>();
     [SerializeField] private List<float> _toplanmasiGerekenEsyaSayisi = new List<float>();
 
-    private int _levelNumarasi;
+    public static int _levelNumarasi;
 
     private float _toplananEsyaSayisi;
 
@@ -47,6 +47,7 @@ public class LevelController : MonoBehaviour
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
     }
 
     
@@ -75,18 +76,23 @@ public class LevelController : MonoBehaviour
 
     public void DusmanaUygulanacakKuvvet()
     {
-        _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[0]) * 100;
+        _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]) * 100;
 
-        if (_esyaOrani >= 15)
+        if (_esyaOrani >= 10)
         {
-            _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti * (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[0]);
+            _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti * (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]);
             Debug.Log("FirlatmaKuvveti = " + _dusmaniFirlatmaKuvveti.ToString());
         }
         else
         {
             Debug.Log(_esyaOrani.ToString() + " - Minimumun Altinda Kaldi");
         }
-        
+
+        if (_esyaOrani >= 100)
+        {
+            _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti;
+        }
+
     }
 
     public void CollectButonu()
@@ -98,7 +104,7 @@ public class LevelController : MonoBehaviour
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;
-        _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
@@ -121,7 +127,7 @@ public class LevelController : MonoBehaviour
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;
-        _enemyObject.transform.position = new Vector3(0, 0, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;

@@ -185,16 +185,18 @@ public class AnimationControl : MonoBehaviour
 
     IEnumerator PlayerHitType3()
     {
-        Time.timeScale = 0.5f;
+        Time.timeScale = 0.2f;
         _playerController.PlayerHit3();
-        yield return new WaitForSeconds(0.5f);
-        _enemyAnimatorController.EnemyHit3();
+        yield return new WaitForSeconds(0.35f);
+        //_enemyAnimatorController.EnemyHit3();
         //_cameraShake.ShakeOnce();
         _moneyEffect.Play();
-        yield return new WaitForSeconds(0.1f);
         _firlatmaKuvvetiUygula = true;
+        yield return new WaitForSeconds(0.2f);
         Time.timeScale = 1;
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
