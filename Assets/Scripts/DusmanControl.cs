@@ -81,10 +81,10 @@ public class DusmanControl : MonoBehaviour
     IEnumerator SevinmeSahnesineGecis()
     {
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         KameralariNormaleDondur();
         _gameController.PlayerSevinmeOrganizasyon();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         _uiController.WinScreenOpen();
 
     }

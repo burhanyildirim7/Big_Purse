@@ -7,6 +7,8 @@ public class CoinsController : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI _coinsText;
+    [SerializeField] private TextMeshProUGUI _winScreenCoinsText;
+    [SerializeField] private TextMeshProUGUI _loseScreenCoinsText;
     private int _coins;
     private int _oyundaToplananCoins;
 
@@ -39,6 +41,8 @@ public class CoinsController : MonoBehaviour
         _hesaplananCoins = 0;
         _coins = PlayerPrefs.GetInt("Coins");
         _hesaplananCoins += (_oyundaToplananCoins * deger);
+        _winScreenCoinsText.text = _hesaplananCoins.ToString();
+        _loseScreenCoinsText.text = _oyundaToplananCoins.ToString();
         //PlayerPrefs.SetInt("Coins", _coins);
     }
 
