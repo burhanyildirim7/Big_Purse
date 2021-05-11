@@ -194,7 +194,7 @@ public class AnimationControl : MonoBehaviour
         _moneyEffect.Play();
         _firlatmaKuvvetiUygula = true;
         yield return new WaitForSeconds(0.2f);
-        Time.timeScale = 1;
+        Time.timeScale = 1.2f;
     }
 
    

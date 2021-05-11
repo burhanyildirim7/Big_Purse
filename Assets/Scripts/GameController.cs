@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private ParticleSystem _confetti1;
     [SerializeField] private ParticleSystem _confetti2;
 
+    [SerializeField] private GameObject _yolSonuDuvari;
+
     private GameObject _purse;
 
     private GameObject _playerObject;
@@ -45,6 +47,7 @@ public class GameController : MonoBehaviour
         _cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _purse = GameObject.FindGameObjectWithTag("Purse");
+        _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
     }
 
    
@@ -91,9 +94,11 @@ public class GameController : MonoBehaviour
 
     IEnumerator PlayerSevinme()
     {
-        _cameraObject.transform.position = new Vector3(0, 6, _playerObject.transform.position.z - 2);
-        _confettiPaket.transform.position = new Vector3(0, -2.5f, _playerObject.transform.position.z + 6.5f);
-        _playerObject.transform.position = new Vector3(0, 0.5f, _playerObject.transform.position.z + 10);
+        Time.timeScale = 1;
+        _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
+        _cameraObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 11f, _playerObject.transform.position.z - 2);
+        _confettiPaket.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 2.5f, _playerObject.transform.position.z + 6.5f);
+        _playerObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 5.5f, _playerObject.transform.position.z + 10);
         _playerObject.transform.eulerAngles = new Vector3(0, 180, 0);
         _purse = GameObject.FindGameObjectWithTag("Purse");
         _purse.SetActive(false);
