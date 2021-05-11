@@ -418,6 +418,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1387149119951777363}
+  - component: {fileID: 5845567079865793434}
+  - component: {fileID: 659338027616052107}
+  - component: {fileID: 4618447879302869168}
   m_Layer: 0
   m_Name: SM_MaleFigure_01d
   m_TagString: Untagged
@@ -434,7 +437,7 @@ Transform:
   m_GameObject: {fileID: 1732747221709419753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -574.58, y: -0.74999905, z: 14.295822}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 696215094343086023}
   - {fileID: 3435812149594210483}
@@ -444,6 +447,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5845567079865793434
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732747221709419753}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &659338027616052107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732747221709419753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2daea0d50a4983489bc2db9d4afebbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Thrust: 20
+  _coinsController: {fileID: 0}
+  _playerCamera: {fileID: 0}
+  _enemyCamera: {fileID: 0}
+  _uiController: {fileID: 0}
+  _ragdollControl: {fileID: 0}
+--- !u!114 &4618447879302869168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732747221709419753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff5d95b00edf6dd4db87bba1a6fefb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAnimator: {fileID: 0}
 --- !u!1 &1919926808744943821
 GameObject:
   m_ObjectHideFlags: 0

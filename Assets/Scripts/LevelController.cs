@@ -23,7 +23,7 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private UIController _uiController;
 
-    [SerializeField] private GameObject _playerObject;
+    private GameObject _playerObject;
 
     [SerializeField] private CameraMovement _cameraMovement;
 
@@ -46,6 +46,7 @@ public class LevelController : MonoBehaviour
         _enemySpawnNumber = 0;
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        _playerObject = GameObject.FindGameObjectWithTag("Player");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
     }
@@ -101,6 +102,7 @@ public class LevelController : MonoBehaviour
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
         _cameraMovement.KameraPozisyonResetle();
+        _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;
@@ -124,6 +126,7 @@ public class LevelController : MonoBehaviour
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
         _cameraMovement.KameraPozisyonResetle();
+        _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         _enemySpawnNumber++;

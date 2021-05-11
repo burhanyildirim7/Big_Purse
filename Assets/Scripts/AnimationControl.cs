@@ -7,7 +7,7 @@ public class AnimationControl : MonoBehaviour
 {
     //public Animator playerAnimator;
     int hitType = 0;
-    [SerializeField] private GameObject _purse;
+    
 
     private DusmanControl _dusmanControl;
 
@@ -53,6 +53,7 @@ public class AnimationControl : MonoBehaviour
 
         _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+       // _purseObject = GameObject.FindGameObjectWithTag("Purse");
 
 
 
@@ -70,7 +71,7 @@ public class AnimationControl : MonoBehaviour
             _enemyAnimatorController.EnemyHitleriKapat();
         }
 
-        _purseBoyutX = _purse.gameObject.transform.localScale.x;
+        _purseBoyutX = _purseObject.gameObject.transform.localScale.x;
     }
 
     private void FixedUpdate()
@@ -79,8 +80,8 @@ public class AnimationControl : MonoBehaviour
         {
             _dusmaniFirlat = true;
             _firlatmaKuvvetiUygula = false;
-            _purse.gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
-            _purse.gameObject.transform.localPosition = new Vector3(0.05f, 0.1f, -0.26f);
+            _purseObject.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            _purseObject.gameObject.transform.localPosition = new Vector3(0, -0.637f, -1.493f);
             //_purse.transform.eulerAngles = new Vector3(210, 172, 4);
             _dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
 

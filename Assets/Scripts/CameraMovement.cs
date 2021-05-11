@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField]
-    GameObject Player;
+    
+    private GameObject Player;
 
    // [SerializeField] private GameObject _dusmanObject;
 
@@ -16,8 +16,10 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         aradakiFark = transform.position - Player.transform.position;
 
+        
     }
 
 
