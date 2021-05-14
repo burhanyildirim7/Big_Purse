@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &129527541507859519
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,6 +2000,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129527541507859519}
     m_Modifications:
+    - target: {fileID: 1054319540685769459, guid: 1e39e0f222a291a4a8fc6e5dfe51c16a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecbdb75197bff514cb83b8f5e8f030d2, type: 2}
     - target: {fileID: 1054319541309485747, guid: 1e39e0f222a291a4a8fc6e5dfe51c16a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3014,6 +3018,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129527541507859519}
     m_Modifications:
+    - target: {fileID: 6455363457242007161, guid: c6d04f54d1e9f48429c9d3f013395555, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6af8db84d1a5814c952c887745cd5d5, type: 2}
     - target: {fileID: 6468549513595375572, guid: c6d04f54d1e9f48429c9d3f013395555, type: 3}
       propertyPath: m_Name
       value: rampa
@@ -3630,6 +3638,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129527541507859519}
     m_Modifications:
+    - target: {fileID: 6455363457242007161, guid: c6d04f54d1e9f48429c9d3f013395555, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b6af8db84d1a5814c952c887745cd5d5, type: 2}
     - target: {fileID: 6468549513595375572, guid: c6d04f54d1e9f48429c9d3f013395555, type: 3}
       propertyPath: m_Name
       value: rampa (1)
@@ -3798,6 +3810,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129527541507859519}
     m_Modifications:
+    - target: {fileID: 1054319540685769459, guid: 1e39e0f222a291a4a8fc6e5dfe51c16a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ecbdb75197bff514cb83b8f5e8f030d2, type: 2}
     - target: {fileID: 1054319541309485747, guid: 1e39e0f222a291a4a8fc6e5dfe51c16a, type: 3}
       propertyPath: m_RootOrder
       value: 1
