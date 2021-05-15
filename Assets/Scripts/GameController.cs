@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private ParticleSystem _confetti1;
     [SerializeField] private ParticleSystem _confetti2;
 
-    [SerializeField] private GameObject _yolSonuDuvari;
+    private GameObject _yolSonuDuvari;
 
     private GameObject _purse;
 

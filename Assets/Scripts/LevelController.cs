@@ -6,28 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _levelPrefabs = new List<GameObject>();
-    [SerializeField] private List<float> _toplanmasiGerekenEsyaSayisi = new List<float>();
-
-    public static int _levelNumarasi;
-
-    private float _toplananEsyaSayisi;
-
     [SerializeField] private float _maksimumFirlatmaKuvveti;
 
-    private float _esyaOrani;
-
-    public static float _dusmaniFirlatmaKuvveti;
+    [SerializeField] private CameraMovement _cameraMovement;
 
     [SerializeField] private CoinsController _coinsController;
 
     [SerializeField] private UIController _uiController;
 
-    private GameObject _playerObject;
+    [SerializeField] private List<GameObject> _levelPrefabs = new List<GameObject>();
 
-    [SerializeField] private CameraMovement _cameraMovement;
+    [SerializeField] private List<float> _toplanmasiGerekenEsyaSayisi = new List<float>();
 
     [SerializeField] private List<GameObject> _enemySpawnPoint = new List<GameObject>();
+
+    public static int _levelNumarasi;
+
+    private float _toplananEsyaSayisi;
+
+    private float _esyaOrani;
+
+    public static float _dusmaniFirlatmaKuvveti;
+
+    private GameObject _playerObject;
 
     private GameController _gameController;
 
