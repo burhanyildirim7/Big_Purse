@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &8756205448591185438
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431510599795859661}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a2ba120b8b59da46befcfb726ad0eba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2935011944213171045
 GameObject:
   m_ObjectHideFlags: 0
@@ -48,33 +29,14 @@ Transform:
   m_Children:
   - {fileID: 4576301256959461665}
   - {fileID: 6460083930633218965}
+  - {fileID: 4120575101956595535}
   - {fileID: 4612908909556069185}
   - {fileID: 3441407563873544209}
-  - {fileID: 4120575101956595535}
   - {fileID: 2738317516643791175}
   - {fileID: 7862269265290013708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8627174478710282103
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3441407564263218907}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a2ba120b8b59da46befcfb726ad0eba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &1785570510530068748
 Animator:
   serializedVersion: 3
@@ -208,25 +170,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &834781741
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6529626436811972973}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a2ba120b8b59da46befcfb726ad0eba, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &518941584930681300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,7 +179,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2950406880666507716, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
       propertyPath: m_Name
-      value: ToplanabilirCanta3
+      value: ToplanabilirCanta4
       objectReference: {fileID: 0}
     - target: {fileID: 2950406880666507716, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
       propertyPath: m_IsActive
@@ -244,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2950406880666507717, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2950406880666507717, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,11 +238,6 @@ PrefabInstance:
 --- !u!4 &3441407563873544209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2950406880666507717, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
-  m_PrefabInstance: {fileID: 518941584930681300}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3441407564263218907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2950406882524196623, guid: af04f328ca7f3554595d555f73e7adee, type: 3}
   m_PrefabInstance: {fileID: 518941584930681300}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &684070813464153431
@@ -372,11 +310,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3422238196924562448, guid: 13e824dfa79e08e409b0d47caccc7299, type: 3}
   m_PrefabInstance: {fileID: 684070813464153431}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &431510599795859661 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 901641717732322714, guid: 13e824dfa79e08e409b0d47caccc7299, type: 3}
-  m_PrefabInstance: {fileID: 684070813464153431}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1638287733784499376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,11 +380,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5700020114821283621, guid: 8ea7207aa4d45c74dba182444bbd106d, type: 3}
   m_PrefabInstance: {fileID: 1638287733784499376}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6529626436811972973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485871041466578397, guid: 8ea7207aa4d45c74dba182444bbd106d, type: 3}
-  m_PrefabInstance: {fileID: 1638287733784499376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6353057716499422944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,7 +389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 794073843322410813, guid: 78467e328503627428b16107490f805f, type: 3}
       propertyPath: m_Name
-      value: ToplanabilirCanta2
+      value: ToplanabilirCanta3
       objectReference: {fileID: 0}
     - target: {fileID: 794073843322410813, guid: 78467e328503627428b16107490f805f, type: 3}
       propertyPath: m_IsActive
@@ -469,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1742541640676044193, guid: 78467e328503627428b16107490f805f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1742541640676044193, guid: 78467e328503627428b16107490f805f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,7 +538,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 102344034693553471, guid: ac8c69f4a3f39d743a00de5cfaa0bced, type: 3}
       propertyPath: m_Name
-      value: ToplanabilirCanta4
+      value: ToplanabilirCanta2
       objectReference: {fileID: 0}
     - target: {fileID: 102344034693553471, guid: ac8c69f4a3f39d743a00de5cfaa0bced, type: 3}
       propertyPath: m_IsActive
@@ -618,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924241670186604624, guid: ac8c69f4a3f39d743a00de5cfaa0bced, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4924241670186604624, guid: ac8c69f4a3f39d743a00de5cfaa0bced, type: 3}
       propertyPath: m_LocalPosition.x
