@@ -71,12 +71,13 @@ public class LevelController : MonoBehaviour
         // _enemySpawnNumber = 0;
         // PlayerPrefs.SetInt("LevelNumarasi", 0);
         // PlayerPrefs.SetInt("PlayerNumber", 0);
+        _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+        _enemyPrefabs[_playerNumber].SetActive(true);
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
-        _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
         _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
         _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomBonusLevelNumarasi");
         _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
@@ -404,9 +405,11 @@ public class LevelController : MonoBehaviour
         {
             _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+            _enemyPrefabs[_playerNumber].SetActive(false);
             _playerPrefabs[_playerNumber].SetActive(false);
             _playerNumber = 0;
             _playerPrefabs[_playerNumber].SetActive(true);
+            _enemyPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
             /*
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
@@ -427,9 +430,11 @@ public class LevelController : MonoBehaviour
         {
             _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+            _enemyPrefabs[_playerNumber].SetActive(false);
             _playerPrefabs[_playerNumber].SetActive(false);
             _playerNumber++;
             _playerPrefabs[_playerNumber].SetActive(true);
+            _enemyPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
             /*
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
@@ -447,6 +452,7 @@ public class LevelController : MonoBehaviour
         }
 
     }
+
 
 
 }

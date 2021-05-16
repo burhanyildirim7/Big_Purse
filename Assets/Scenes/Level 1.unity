@@ -1774,7 +1774,11 @@ MonoBehaviour:
   - {fileID: 335390738}
   - {fileID: 1173064076307730080}
   - {fileID: 212331986}
-  _enemyPrefabs: []
+  _enemyPrefabs:
+  - {fileID: 2055293333}
+  - {fileID: 500235215}
+  - {fileID: 1732747221680433922}
+  - {fileID: 1638648198}
 --- !u!4 &418169153
 Transform:
   m_ObjectHideFlags: 0
@@ -11345,7 +11349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1732747221680433923
 BoxCollider:
   m_ObjectHideFlags: 0
