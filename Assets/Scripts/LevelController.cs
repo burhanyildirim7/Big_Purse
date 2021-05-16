@@ -18,9 +18,19 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] private List<float> _toplanmasiGerekenEsyaSayisi = new List<float>();
 
-    [SerializeField] private List<GameObject> _enemySpawnPoint = new List<GameObject>();
+    [SerializeField] private List<GameObject> _playerPrefabs = new List<GameObject>();
 
-    public static int _levelNumarasi;
+    [SerializeField] private List<GameObject> _enemyPrefabs = new List<GameObject>();
+
+    // [SerializeField] private List<GameObject> _enemySpawnPoints = new List<GameObject>();
+
+    // [SerializeField] private List<GameObject> _normalLevelPrefabs = new List<GameObject>();
+
+    // [SerializeField] private List<GameObject> _bonusLevelPrefabs = new List<GameObject>();
+
+    private GameObject _spawnPoint;
+
+    private int _levelNumarasi;
 
     private float _toplananEsyaSayisi;
 
@@ -36,33 +46,76 @@ public class LevelController : MonoBehaviour
 
     private GameObject _enemyObject;
 
-    private int _enemySpawnNumber;
+    // private int _enemySpawnNumber;
 
-    
+    private int _playerNumber;
+
+    private int _enemyNumber;
+
+    private GameObject _cantalar;
+
+    private int _randomLevelNumarasi;
+
+    private int _randomBonusLevelNumarasi;
+
+    private int _bonusLevelSayac;
+
+    private GameObject _aktifLevelPrefab;
+
+    private int _levellerTamamlandi;
+
+
 
 
     void Start()
     {
         _toplananEsyaSayisi = 0;
-        _enemySpawnNumber = 0;
+        // _enemySpawnNumber = 0;
+        // PlayerPrefs.SetInt("LevelNumarasi", 0);
+        // PlayerPrefs.SetInt("PlayerNumber", 0);
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+        _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+        _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
+        _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomBonusLevelNumarasi");
+        _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
+        // _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
+        _levellerTamamlandi = PlayerPrefs.GetInt("LevellerTamamlandi");
+
+        _playerPrefabs[_playerNumber].SetActive(true);
+
+        // BaslangicLevelAcma();
+        //_levelPrefabs[_levelNumarasi].SetActive(true);
+        // _aktifLevelPrefab.SetActive(true);
+
+        _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+
+        _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
+        for (int a = 0; a < _cantalar.transform.childCount; a++)
+        {
+            _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
+        }
+
+        //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
+        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
-    
+
     void Update()
     {
-        
+        // _cantalar = GameObject.Find("Cantalar");
+        //  _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
     }
 
     public void DusmanYenile()
     {
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
-        
+
     }
 
     public void ToplananEsyaSayisi()
@@ -102,18 +155,22 @@ public class LevelController : MonoBehaviour
         _coinsController.CollectCoins();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
+        LevelDegistir();
+        // _cantalar = GameObject.Find("Cantalar");
+        PlayerDegistir();
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        _enemySpawnNumber++;
-        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        // _enemySpawnNumber++;
+        //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
+        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
-        LevelDegistir();
         _gameController.ConfettileriDurdur();
         //_dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
@@ -126,18 +183,22 @@ public class LevelController : MonoBehaviour
         _coinsController.CollectCoins3x();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
+        LevelDegistir();
+        // _cantalar = GameObject.Find("Cantalar");
+        PlayerDegistir();
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        _enemySpawnNumber++;
-        _enemyObject.transform.position = new Vector3(0, _enemySpawnPoint[_enemySpawnNumber].transform.position.y, _enemySpawnPoint[_enemySpawnNumber].transform.position.z);
+        // _enemySpawnNumber++;
+        //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
+        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
-        LevelDegistir();
         _gameController.ConfettileriDurdur();
         // _dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
@@ -148,11 +209,232 @@ public class LevelController : MonoBehaviour
 
     private void LevelDegistir()
     {
-        _levelPrefabs[_levelNumarasi].SetActive(false);
-        _levelNumarasi++;
-        _levelPrefabs[_levelNumarasi].SetActive(true);
+        _levellerTamamlandi = PlayerPrefs.GetInt("LevellerTamamlandi");
+        /*
+                _cantalar = GameObject.Find("Cantalar");
+                for (int a = 0; a < _cantalar.transform.childCount; a++)
+                {
+                    _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(false);
+                }
+        */
+        if (_levelNumarasi >= 14)
+        {
+            _levellerTamamlandi = 1;
+            PlayerPrefs.SetInt("LevellerTamamlandi", _levellerTamamlandi);
+        }
+        else
+        {
+
+        }
+
+        if (_levellerTamamlandi != 1)
+        {
+
+
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+            // _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
+            // _aktifLevelPrefab.SetActive(false);
+            Destroy(_aktifLevelPrefab);
+            _levelNumarasi++;
+            _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);   
+            // _levelPrefabs[_levelNumarasi].SetActive(true);
+            PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+
+
+        }
+        else
+        {
+            Debug.Log("Elsete");
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+            //  _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
+            //  _aktifLevelPrefab.SetActive(false);
+            Destroy(_aktifLevelPrefab);
+            _levelNumarasi = Random.Range(4, 8);
+           // _levelNumarasi = 3;
+            _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+            Debug.Log("Leveli yukledi"); 
+            // _levelPrefabs[_levelNumarasi].SetActive(true);
+            PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+            /*
+            if (_bonusLevelSayac <= 4)
+            {
+                _cantalar = GameObject.Find("Cantalar");
+                if (_cantalar == null)
+                {
+
+                }
+                else
+                {
+                    
+                    for (int a = 0; a < _cantalar.transform.childCount; a++)
+                    {
+                        _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(false);
+                    }
+                }
+
+                if (_aktifLevelPrefab == null)
+                {
+
+                }
+                else
+                {
+                    _aktifLevelPrefab.SetActive(false);
+                }
+
+                _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
+                _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
+                _randomLevelNumarasi = Random.Range(0, 8);
+                _normalLevelPrefabs[_randomLevelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("RandomLevelNumarasi", _randomLevelNumarasi);
+                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
+                _bonusLevelSayac++;
+                PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+            }
+            else
+            {
+                _cantalar = GameObject.Find("Cantalar");
+                if (_cantalar == null)
+                {
+
+                }
+                else
+                {
+                    
+                    for (int a = 0; a < _cantalar.transform.childCount; a++)
+                    {
+                        _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(false);
+                    }
+                }
+
+                if (_aktifLevelPrefab == null)
+                {
+
+                }
+                else
+                {
+                    _aktifLevelPrefab.SetActive(false);
+                }
+
+                _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
+                _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
+                _randomBonusLevelNumarasi = Random.Range(0, 2);
+                _bonusLevelPrefabs[_randomBonusLevelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("RandomBonusLevelNumarasi", _randomBonusLevelNumarasi);
+                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
+                _bonusLevelSayac = 0;
+                PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+            }
+            */
+        }
+
 
     }
 
-    
+    private void BaslangicLevelAcma()
+    {
+
+        /*
+        _cantalar = GameObject.Find("Cantalar");
+        for (int a = 0; a < _cantalar.transform.childCount; a++)
+        {
+            _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
+        }
+        */
+
+        _levellerTamamlandi = PlayerPrefs.GetInt("LevellerTamamlandi");
+
+        if (_levelNumarasi <= 14)
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+            // _aktifLevelPrefab.SetActive(false);
+            // _levelNumarasi++;
+            if (_levelNumarasi <= 14)
+            {
+                _levelPrefabs[_levelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+            }
+            else
+            {
+                _levelPrefabs[_levelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+                //LevelDegistir();
+            }
+
+        }
+        else
+        {
+            /*
+            if (_bonusLevelSayac <= 4)
+            {
+                _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
+               // _aktifLevelPrefab.SetActive(false);
+               // _randomLevelNumarasi = Random.Range(0, 8);
+                _normalLevelPrefabs[_randomLevelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("RandomLevelNumarasi", _randomLevelNumarasi);
+                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
+               // _bonusLevelSayac++;
+                PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+            }
+            else
+            {
+                _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
+               // _aktifLevelPrefab.SetActive(false);
+               // _randomBonusLevelNumarasi = Random.Range(0, 2);
+                _bonusLevelPrefabs[_randomBonusLevelNumarasi].SetActive(true);
+                PlayerPrefs.SetInt("RandomBonusLevelNumarasi", _randomBonusLevelNumarasi);
+                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
+               // _bonusLevelSayac = 0;
+                PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+            }
+            */
+        }
+
+
+    }
+
+    private void PlayerDegistir()
+    {
+
+
+        if (_playerNumber == 3)
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+            _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+            _playerPrefabs[_playerNumber].SetActive(false);
+            _playerNumber = 0;
+            _playerPrefabs[_playerNumber].SetActive(true);
+            PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
+            Debug.Log("Cantalar" + (_levelNumarasi + 1));
+            for (int a = 0; a < _cantalar.transform.childCount; a++)
+            {
+                Debug.Log("Forda canta acma oncesi");
+                _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
+                Debug.Log("Forda canta acma sonrasi");
+            }
+            // _cantalar = GameObject.Find("Cantalar");
+
+        }
+        else
+        {
+            _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
+            _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+            _playerPrefabs[_playerNumber].SetActive(false);
+            _playerNumber++;
+            _playerPrefabs[_playerNumber].SetActive(true);
+            PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
+            Debug.Log("Cantalar" + (_levelNumarasi + 1));
+            for (int a = 0; a < _cantalar.transform.childCount; a++)
+            {
+                Debug.Log("Forda canta acma oncesi");
+                _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
+                Debug.Log("Forda canta acma sonrasi");
+            }
+
+        }
+
+    }
+
+
 }

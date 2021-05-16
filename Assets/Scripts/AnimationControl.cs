@@ -60,7 +60,7 @@ public class AnimationControl : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true && LevelController._dusmaniFirlatmaKuvveti > 0)
+        if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true && LevelController._dusmaniFirlatmaKuvveti > 1)
         {
             HitAnim();
 
@@ -76,7 +76,7 @@ public class AnimationControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_firlatmaKuvvetiUygula == true && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 0)
+        if (_firlatmaKuvvetiUygula == true && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 1)
         {
             _dusmaniFirlat = true;
             _firlatmaKuvvetiUygula = false;

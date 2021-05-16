@@ -47,5 +47,7 @@ public class CameraMovement : MonoBehaviour
     public void KameraPozisyonResetle()
     {
         transform.position = new Vector3(0, 8.5f, -8.5f);
+        Player = GameObject.FindGameObjectWithTag("Player");
+        //aradakiFark = transform.position - Player.transform.position;
     }
 }

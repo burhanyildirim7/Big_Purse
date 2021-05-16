@@ -64,6 +64,8 @@ public class GameController : MonoBehaviour
                 _uiController.LevelScreenOpen();
                 _oyunAktif = true;
                 PlayerMovement._playerHareket = true;
+                _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+                _animationControl = GameObject.FindWithTag("Player").GetComponent<AnimationControl>();
                 _playerController.PlayerYurume();
                 _animationControl.DusmanGuncelle();
                 _levelController.DusmanYenile();
@@ -96,6 +98,7 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = 1;
         _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
+        _playerObject = GameObject.FindGameObjectWithTag("Player");
         _cameraObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 11f, _playerObject.transform.position.z - 2);
         _confettiPaket.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 2.5f, _playerObject.transform.position.z + 6.5f);
         _playerObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 5.5f, _playerObject.transform.position.z + 10);
@@ -106,6 +109,7 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _confetti1.Play();
         _confetti2.Play();
+        _oyunAktif = false;
 
     }
 

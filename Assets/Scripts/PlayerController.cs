@@ -5,7 +5,7 @@ using UnityEngine.Animations;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
 
     [SerializeField] private ParticleSystem _moneyEffect;
     [SerializeField] private GameObject _moneyEffectObject;
@@ -35,27 +35,28 @@ public class PlayerController : MonoBehaviour
 
     private HareketliZemin _hareketliZemin;
 
-   // [SerializeField] private GameObject _duvarYikmaKuresi;
+    // [SerializeField] private GameObject _duvarYikmaKuresi;
 
     [SerializeField] private GameObject _yikmaObject;
 
     private float _purseBoyutX;
+    private int _playerNumber;
 
     void Start()
     {
         p_Rigidbody = GetComponent<Rigidbody>();
-       // _purseObject = GameObject.FindGameObjectWithTag("Purse");
+        // _purseObject = GameObject.FindGameObjectWithTag("Purse");
 
 
     }
 
-    
+
     void Update()
     {
         _angryEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _happyEmojiObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
         _purseBoyutX = _purseObject.gameObject.transform.localScale.x;
-       // _duvarYikmaKuresi.transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z + 3f);
+        // _duvarYikmaKuresi.transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z + 3f);
         _windObject.transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
 
     }
@@ -64,12 +65,22 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "DegerliEsya")
         {
+            _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+
+            if (_playerNumber == 2)
+            {
+                _purseObject.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+                _purseObject.gameObject.transform.localPosition -= new Vector3(0, 0.08f, 0.15f);
+            }
+            else
+            {
+                _purseObject.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                _purseObject.gameObject.transform.localPosition -= new Vector3(0, 0.16f, 0.32f);
+            }
             //_playerPurse.gameObject.transform.localScale += Vector3.Lerp(transform.localScale, new Vector3(0.1f, 0.1f, 0.1f), Time.deltaTime * 0.1f);
-            _purseObject.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
-            _purseObject.gameObject.transform.localPosition -= new Vector3(0, 0.08f, 0.15f);
+
             _levelController.ToplananEsyaSayisi();
             _happyEmojiEffect.Play();
-
 
             Destroy(other.gameObject);
         }
@@ -77,9 +88,19 @@ public class PlayerController : MonoBehaviour
         {
             if (_purseBoyutX >= 1.1f)
             {
-                _purseObject.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
-                _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.08f, 0.15f);
-               
+                _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+
+                if (_playerNumber == 2)
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.08f, 0.15f);
+                }
+                else
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.16f, 0.32f);
+                }
+ 
             }
             _levelController.EksilenEsyaSayisi();
             _moneyEffectObject.transform.position = _purseObject.transform.position;
@@ -111,7 +132,7 @@ public class PlayerController : MonoBehaviour
             _playerMovement.PlayerHiziniDusur();
             StartCoroutine(PlayerKinematicKontrol());
             _playerAnimator.SetBool("attack", true);
-            Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y+3, transform.position.z), Quaternion.identity);
+            Instantiate(_yikmaObject, new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
             _cameraShake.ShakeOnce();
             Invoke("AttackIptal", 0.5f);
 
@@ -121,7 +142,7 @@ public class PlayerController : MonoBehaviour
             _moneyEffect.Stop();
             _windEffect.Stop();
         }
-        
+
     }
 
     IEnumerator PlayerUcusAnimasyonKontrol()
@@ -156,7 +177,7 @@ public class PlayerController : MonoBehaviour
         p_Rigidbody.isKinematic = false;
         _playerAnimator.SetBool("yuru", true);
         _purseObject.SetActive(true);
-       
+
     }
 
     public void PlayerZipla()

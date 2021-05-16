@@ -12,9 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _winScreen;
 
     [SerializeField] private TextMeshProUGUI _levelText;
-    
 
-   
     private int _levelNumber;
 
 
@@ -24,11 +22,17 @@ public class UIController : MonoBehaviour
         _levelScreen.SetActive(false);
         _loseScreen.SetActive(false);
         _winScreen.SetActive(false);
+
+       //PlayerPrefs.SetInt("LevelNumber", 0);
+
+
     }
 
     public void UILevelNumber()
     {
-        _levelNumber = LevelController._levelNumarasi + 1;
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        _levelNumber++;
+        PlayerPrefs.SetInt("LevelNumber", _levelNumber);
     }
 
    
