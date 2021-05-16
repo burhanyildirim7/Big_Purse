@@ -52,8 +52,6 @@ public class LevelController : MonoBehaviour
 
     private int _enemyNumber;
 
-    private GameObject _cantalar;
-
     private int _randomLevelNumarasi;
 
     private int _randomBonusLevelNumarasi;
@@ -87,17 +85,23 @@ public class LevelController : MonoBehaviour
 
         _playerPrefabs[_playerNumber].SetActive(true);
 
+       
+
         // BaslangicLevelAcma();
         //_levelPrefabs[_levelNumarasi].SetActive(true);
         // _aktifLevelPrefab.SetActive(true);
 
         _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
 
-        _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
-        for (int a = 0; a < _cantalar.transform.childCount; a++)
+        /*
+        GameObject _cantalar1;
+
+        _cantalar1 = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
+        for (int a = 0; a < _cantalar1.transform.childCount; a++)
         {
-            _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
+            _cantalar1.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
         }
+        */
 
         //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
         _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
@@ -155,9 +159,9 @@ public class LevelController : MonoBehaviour
         _coinsController.CollectCoins();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
-        LevelDegistir();
         // _cantalar = GameObject.Find("Cantalar");
         PlayerDegistir();
+        LevelDegistir();
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
@@ -182,10 +186,10 @@ public class LevelController : MonoBehaviour
     {
         _coinsController.CollectCoins3x();
         _uiController.WinScreenClose();
-        DusmanControl._yereCarpti = false;
-        LevelDegistir();
+        DusmanControl._yereCarpti = false;  
         // _cantalar = GameObject.Find("Cantalar");
         PlayerDegistir();
+        LevelDegistir();
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
@@ -404,6 +408,9 @@ public class LevelController : MonoBehaviour
             _playerNumber = 0;
             _playerPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            /*
+            PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            GameObject _cantalar;
             _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
             Debug.Log("Cantalar" + (_levelNumarasi + 1));
             for (int a = 0; a < _cantalar.transform.childCount; a++)
@@ -412,6 +419,7 @@ public class LevelController : MonoBehaviour
                 _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
                 Debug.Log("Forda canta acma sonrasi");
             }
+            */
             // _cantalar = GameObject.Find("Cantalar");
 
         }
@@ -423,6 +431,9 @@ public class LevelController : MonoBehaviour
             _playerNumber++;
             _playerPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            /*
+            PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
+            GameObject _cantalar;
             _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
             Debug.Log("Cantalar" + (_levelNumarasi + 1));
             for (int a = 0; a < _cantalar.transform.childCount; a++)
@@ -431,6 +442,7 @@ public class LevelController : MonoBehaviour
                 _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
                 Debug.Log("Forda canta acma sonrasi");
             }
+            */
 
         }
 
