@@ -104,8 +104,8 @@ public class LevelController : MonoBehaviour
         */
 
         //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
-        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
+       // _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+       // _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
 
@@ -168,8 +168,8 @@ public class LevelController : MonoBehaviour
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         // _enemySpawnNumber++;
         //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
-        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
+        //_spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+        //_enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
@@ -196,8 +196,8 @@ public class LevelController : MonoBehaviour
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
         // _enemySpawnNumber++;
         //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
-        _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
+        //_spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
+       // _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
@@ -253,7 +253,7 @@ public class LevelController : MonoBehaviour
             //  _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
             //  _aktifLevelPrefab.SetActive(false);
             Destroy(_aktifLevelPrefab);
-            _levelNumarasi = Random.Range(4, 8);
+            _levelNumarasi = Random.Range(4, 14);
            // _levelNumarasi = 3;
             _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
             Debug.Log("Leveli yukledi"); 

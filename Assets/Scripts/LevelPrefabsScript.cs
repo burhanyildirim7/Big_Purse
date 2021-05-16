@@ -7,6 +7,8 @@ public class LevelPrefabsScript : MonoBehaviour
 
     private int _playerNumber;
     [SerializeField] private GameObject _cantalar;
+    [SerializeField] private GameObject _spawnPoint;
+    private GameObject _enemyObject;
 
     void Start()
     {
@@ -18,6 +20,10 @@ public class LevelPrefabsScript : MonoBehaviour
             _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
             Debug.Log("Forda canta acma sonrasi");
         }
+
+       
+        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
     
