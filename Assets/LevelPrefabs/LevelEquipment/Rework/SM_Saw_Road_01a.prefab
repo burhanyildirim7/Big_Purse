@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7185581801829953812}
   - component: {fileID: 6059464684566412977}
   - component: {fileID: 8355158414032767611}
-  - component: {fileID: 6057109180884072568}
-  - component: {fileID: 4850429171368823100}
   m_Layer: 0
   m_Name: SM_Saw_Road_01a
   m_TagString: DegersizEsya
@@ -85,35 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &6057109180884072568
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7562529209103788974}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
---- !u!65 &4850429171368823100
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7562529209103788974}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029950336, y: 0.039999995, z: 0.03}
-  m_Center: {x: -0.00009429315, y: -1.3596776e-11, z: 0.00068451517}
 --- !u!1001 &6935353384951639084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,29 +94,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Testere
       objectReference: {fileID: 0}
-    - target: {fileID: 4051689842028590052, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e72ee0deaca5ce942b0109e48b8b6d69, type: 2}
-    - target: {fileID: 6261353259538371099, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0433357df714d624aaa2bc03fe6351fe, type: 2}
+    - target: {fileID: 2812512626213187572, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165073058212258240, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6576744143681149487, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6576744143681149487, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.010000003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6576744143681149487, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.0075
-      objectReference: {fileID: 0}
-    - target: {fileID: 6576744143681149487, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0050000013
       objectReference: {fileID: 0}
     - target: {fileID: 6576744143681149487, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,11 +146,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9008244629928391983, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0433357df714d624aaa2bc03fe6351fe, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5149239399478956189, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
+    - {fileID: 2005382225880566400, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
+    - {fileID: 4157475972270879033, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5aa3f71bc8073864ab53d43a082b2a9c, type: 3}
 --- !u!4 &4285767529930339843 stripped
 Transform:

@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30093091baf47745b4bf9d2a07db2dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cantalar: {fileID: 129527541935989282}
 --- !u!1 &129527541509130748
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,6 +3886,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: DegersizEsya
       objectReference: {fileID: 0}
+    - target: {fileID: 7733799027543132178, guid: 9d0338d962bd7084d8c5408eec9d0b82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e72ee0deaca5ce942b0109e48b8b6d69, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d0338d962bd7084d8c5408eec9d0b82, type: 3}
 --- !u!4 &6923655177854274894 stripped

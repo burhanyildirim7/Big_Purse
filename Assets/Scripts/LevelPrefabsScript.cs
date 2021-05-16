@@ -5,17 +5,13 @@ using UnityEngine;
 public class LevelPrefabsScript : MonoBehaviour
 {
 
-    private int _levelNumarasi;
     private int _playerNumber;
+    [SerializeField] private GameObject _cantalar;
 
     void Start()
     {
-        _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-
-        GameObject _cantalar;
-        _cantalar = GameObject.Find("Cantalar" + (_levelNumarasi + 1));
-
+        Debug.Log(_playerNumber);
         for (int a = 0; a < _cantalar.transform.childCount; a++)
         {
             Debug.Log("Forda canta acma oncesi");
