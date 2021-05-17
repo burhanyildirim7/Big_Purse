@@ -24,8 +24,8 @@ public class UIController : MonoBehaviour
         _loseScreen.SetActive(false);
         _winScreen.SetActive(false);
 
-       //PlayerPrefs.SetInt("LevelNumber", 0);
-
+        //PlayerPrefs.SetInt("LevelNumber", 0);
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
 
     }
 

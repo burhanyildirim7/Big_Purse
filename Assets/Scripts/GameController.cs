@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                _uiController.UILevelNumber();
+                
                 _uiController.TapToStartScreenClose();
                 _uiController.LevelScreenOpen();
                 _oyunAktif = true;
@@ -91,6 +91,7 @@ public class GameController : MonoBehaviour
     public void PlayerSevinmeOrganizasyon()
     {
         StartCoroutine(PlayerSevinme());
+        _uiController.UILevelNumber();
     }
 
 
