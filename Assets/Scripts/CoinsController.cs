@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class CoinsController : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI _coinsText;
-    [SerializeField] private TextMeshProUGUI _winScreenCoinsText;
-    [SerializeField] private TextMeshProUGUI _loseScreenCoinsText;
+    [SerializeField] private Text _coinsText;
+    [SerializeField] private Text _winScreenCoinsText;
+    [SerializeField] private Text _loseScreenCoinsText;
     private int _coins;
     private int _oyundaToplananCoins;
 

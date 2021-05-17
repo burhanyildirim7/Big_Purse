@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CameraShake _cameraShake;
 
+
     private HareketliZemin _hareketliZemin;
 
     // [SerializeField] private GameObject _duvarYikmaKuresi;
@@ -41,12 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private float _purseBoyutX;
     private int _playerNumber;
-
+    public static bool _artiBirAktif;
     void Start()
     {
+        _artiBirAktif = false;
         p_Rigidbody = GetComponent<Rigidbody>();
         // _purseObject = GameObject.FindGameObjectWithTag("Purse");
-
 
     }
 
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "DegerliEsya")
         {
             _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-
+            _artiBirAktif = true;
             if (_playerNumber == 2)
             {
                 _purseObject.gameObject.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);

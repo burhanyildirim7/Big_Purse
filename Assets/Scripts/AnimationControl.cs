@@ -20,9 +20,9 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private CameraShake _cameraShake;
 
-    
+    [SerializeField] private GameObject TapTapText;
 
-    
+
 
     private int _hitNumber = 0;
 
@@ -50,7 +50,7 @@ public class AnimationControl : MonoBehaviour
         _yolSonuKontrol = false;
         _dusmaniFirlat = false;
         _firlatmaKuvvetiUygula = false;
-
+        TapTapText.SetActive(false);
         _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
        // _purseObject = GameObject.FindGameObjectWithTag("Purse");
@@ -193,8 +193,10 @@ public class AnimationControl : MonoBehaviour
         //_cameraShake.ShakeOnce();
         _moneyEffect.Play();
         _firlatmaKuvvetiUygula = true;
+        TapTapText.SetActive(false);
         yield return new WaitForSeconds(0.2f);
         Time.timeScale = 1.2f;
+        
     }
 
    
@@ -205,6 +207,7 @@ public class AnimationControl : MonoBehaviour
         {
             Debug.Log("YolSonu");
             _playerController.PlayerZipla();
+            TapTapText.SetActive(true);
             GameController._oyunAktif = false;
             _dusmaniFirlat = false;
             _levelController.DusmanaUygulanacakKuvvet();

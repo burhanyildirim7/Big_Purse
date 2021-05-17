@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIController : MonoBehaviour
@@ -11,7 +12,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private GameObject _winScreen;
 
-    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private Text _levelText;
 
     private int _levelNumber;
 
