@@ -62,6 +62,8 @@ public class LevelController : MonoBehaviour
 
     private int _levellerTamamlandi;
 
+    
+
 
 
 
@@ -123,7 +125,11 @@ public class LevelController : MonoBehaviour
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
 
+        
+
     }
+
+    
 
     public void ToplananEsyaSayisi()
     {
@@ -153,6 +159,7 @@ public class LevelController : MonoBehaviour
         if (_esyaOrani >= 100)
         {
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti;
+            
         }
 
     }
