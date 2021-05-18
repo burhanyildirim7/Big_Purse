@@ -164,6 +164,7 @@ public class PlayerController : MonoBehaviour
         _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
         _coinsController.OyunSonuCoinsHesapla(1);
        // _purse = GameObject.FindGameObjectWithTag("Purse");
+
         _purseObject.SetActive(false);
         _uiController.LoseScreenOpen();
 

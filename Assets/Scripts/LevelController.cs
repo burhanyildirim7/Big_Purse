@@ -117,7 +117,7 @@ public class LevelController : MonoBehaviour
        // _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
-
+  
     public void DusmanYenile()
     {
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
@@ -182,12 +182,14 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            _uiController.LoseScreenClose();
+
+            SceneManager.LoadScene(0);
+            //_uiController.LoseScreenClose();
            // _playerPrefabs[_playerNumber].SetActive(false);
            // _playerPrefabs[_playerNumber].SetActive(true);
-            Destroy(_aktifLevelPrefab);
-            Destroy(_enemyObject);
-            _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+           // Destroy(_aktifLevelPrefab);
+           // Destroy(_enemyObject);
+           // _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
         }
         
         
@@ -253,6 +255,8 @@ public class LevelController : MonoBehaviour
 
 
     }
+
+    
 
     private void LevelDegistir()
     {
