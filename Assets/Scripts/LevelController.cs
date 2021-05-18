@@ -67,14 +67,16 @@ public class LevelController : MonoBehaviour
 
     void Start()
     {
+
+        //PlayerPrefs.SetInt("PlayerNumber", 0);
+        //PlayerPrefs.SetInt("LevelNumarasi", 0);
+        //PlayerPrefs.SetInt("LevellerTamamlandi", 0);
         _toplananEsyaSayisi = 0;
         // _enemySpawnNumber = 0;
         // PlayerPrefs.SetInt("LevelNumarasi", 0);
         // PlayerPrefs.SetInt("PlayerNumber", 0);
         _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-        _enemyPrefabs[_playerNumber].SetActive(true);
-        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
-        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        //_enemyPrefabs[_playerNumber].SetActive(true);
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
@@ -157,6 +159,8 @@ public class LevelController : MonoBehaviour
 
     public void CollectButonu()
     {
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _coinsController.CollectCoins();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;
@@ -180,11 +184,14 @@ public class LevelController : MonoBehaviour
         //_dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
         AnimationControl._dusmaniFirlat = false;
+        _uiController.UILevelNumber();
 
     }
 
     public void Collect3xButonu()
     {
+        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+        _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _coinsController.CollectCoins3x();
         _uiController.WinScreenClose();
         DusmanControl._yereCarpti = false;  
@@ -208,6 +215,7 @@ public class LevelController : MonoBehaviour
         // _dusmanControl.KameralariNormaleDondur();
         _toplananEsyaSayisi = 0;
         AnimationControl._dusmaniFirlat = false;
+        _uiController.UILevelNumber();
 
 
     }
@@ -405,11 +413,13 @@ public class LevelController : MonoBehaviour
         {
             _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-            _enemyPrefabs[_playerNumber].SetActive(false);
+            _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+            Destroy(_enemyObject);
             _playerPrefabs[_playerNumber].SetActive(false);
             _playerNumber = 0;
             _playerPrefabs[_playerNumber].SetActive(true);
-            _enemyPrefabs[_playerNumber].SetActive(true);
+            
+            //_enemyPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
             /*
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
@@ -430,11 +440,14 @@ public class LevelController : MonoBehaviour
         {
             _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-            _enemyPrefabs[_playerNumber].SetActive(false);
+            _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+            Destroy(_enemyObject);
+            //_enemyPrefabs[_playerNumber].SetActive(false);
             _playerPrefabs[_playerNumber].SetActive(false);
             _playerNumber++;
             _playerPrefabs[_playerNumber].SetActive(true);
-            _enemyPrefabs[_playerNumber].SetActive(true);
+            //Instantiate(_enemyPrefabs[_playerNumber], new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.identity);
+            //_enemyPrefabs[_playerNumber].SetActive(true);
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
             /*
             PlayerPrefs.SetInt("PlayerNumber", _playerNumber);
@@ -453,6 +466,7 @@ public class LevelController : MonoBehaviour
 
     }
 
+    
 
 
 }

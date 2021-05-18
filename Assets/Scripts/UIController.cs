@@ -16,17 +16,27 @@ public class UIController : MonoBehaviour
 
     private int _levelNumber;
 
+    private int _uiOyunBasladi;
+
 
     void Start()
     {
+        //PlayerPrefs.SetInt("LevelNumber", 1);
         _tapToStartScreen.SetActive(true);
         _levelScreen.SetActive(false);
         _loseScreen.SetActive(false);
         _winScreen.SetActive(false);
-
-        //PlayerPrefs.SetInt("LevelNumber", 0);
-        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
-
+        _uiOyunBasladi = PlayerPrefs.GetInt("UIOyunBasladi");
+        if (_uiOyunBasladi == 0)
+        {
+            PlayerPrefs.SetInt("LevelNumber", 1);
+            _uiOyunBasladi = 1;
+            PlayerPrefs.SetInt("UIOyunBasladi", _uiOyunBasladi);
+        }
+        else
+        {
+            _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        }
     }
 
     public void UILevelNumber()

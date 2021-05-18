@@ -236,6 +236,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cantalar: {fileID: 129527541935989282}
   _spawnPoint: {fileID: 8717573903719597125}
+  _enemyPrefabs:
+  - {fileID: 6562756074931682023, guid: 6691f4d5bc453c443a32e3e2f6533672, type: 3}
+  - {fileID: 4164664296121842956, guid: 6179b472a83079b41a4b8a7bdc0a7775, type: 3}
+  - {fileID: 622707689449808419, guid: 323368cceeff8124cb3b8a0d87f917eb, type: 3}
+  - {fileID: 5841667786998205746, guid: c40843fe0cc696d46bf03cfbecdc3f57, type: 3}
 --- !u!1 &129527541509130748
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,13 +482,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8717573903719597125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.5, z: 125}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 129527541507859519}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1950076900328498818
 MeshFilter:
   m_ObjectHideFlags: 0

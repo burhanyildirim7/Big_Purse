@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     // [SerializeField] private GameObject _duvarYikmaKuresi;
 
     [SerializeField] private GameObject _yikmaObject;
+    [SerializeField] private GameObject _moneyPurseObject;
 
     private float _purseBoyutX;
     private int _playerNumber;
@@ -104,7 +105,7 @@ public class PlayerController : MonoBehaviour
  
             }
             _levelController.EksilenEsyaSayisi();
-            _moneyEffectObject.transform.position = _purseObject.transform.position;
+            _moneyEffectObject.transform.position = _moneyPurseObject.transform.position;
             _moneyEffect.Play();
             _angryEmojiEffect.Play();
             _playerAnimator.SetBool("tokezle", true);

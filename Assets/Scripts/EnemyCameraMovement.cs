@@ -5,27 +5,27 @@ using UnityEngine;
 public class EnemyCameraMovement : MonoBehaviour
 {
     
-    GameObject Enemy;
+    //[SerializeField] private GameObject Enemy;
 
-    Vector3 aradakiFark;
+   // Vector3 aradakiFark;
 
-    public static bool _enemyKameraTakip;
+   // public static bool _enemyKameraTakip;
 
 
     void Start()
     {
-        EnemyKameraPozisyonDuzenle();
-        aradakiFark = transform.position - Enemy.transform.position;
-        _enemyKameraTakip = false;
+       // EnemyKameraPozisyonDuzenle();
+       // aradakiFark = transform.position - Enemy.transform.position;
+       // _enemyKameraTakip = false;
 
     }
-
+    /*
     public void EnemyKameraPozisyonDuzenle()
     {
         Enemy = GameObject.FindGameObjectWithTag("Enemy");
         transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
     }
-
+    */
 
     void FixedUpdate()
     {
@@ -33,7 +33,7 @@ public class EnemyCameraMovement : MonoBehaviour
         
            // transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
         
-            transform.position = Vector3.Lerp(transform.position, new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + aradakiFark.y, Enemy.transform.position.z + aradakiFark.z), Time.deltaTime * 10f);
+         //  transform.position = Vector3.Lerp(transform.position, new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + aradakiFark.y, Enemy.transform.position.z + aradakiFark.z), Time.deltaTime * 10f);
         
 
     }

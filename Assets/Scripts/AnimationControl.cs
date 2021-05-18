@@ -37,8 +37,11 @@ public class AnimationControl : MonoBehaviour
     private float _purseBoyutX;
 
     [SerializeField] private PlayerController _playerController;
+    [SerializeField] private GameObject _moneyPurseObject;
 
     private EnemyAnimatorController _enemyAnimatorController;
+
+    private GameObject _enemyObject;
 
     // [SerializeField] private Rigidbody _enemyRigidbody;
 
@@ -51,9 +54,10 @@ public class AnimationControl : MonoBehaviour
         _dusmaniFirlat = false;
         _firlatmaKuvvetiUygula = false;
         TapTapText.SetActive(false);
-        _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
-        _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
-       // _purseObject = GameObject.FindGameObjectWithTag("Purse");
+       // _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
+       // _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+       // _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        // _purseObject = GameObject.FindGameObjectWithTag("Purse");
 
 
 
@@ -68,7 +72,18 @@ public class AnimationControl : MonoBehaviour
         else
         {
             _playerController.HitleriKapat();
-            _enemyAnimatorController.EnemyHitleriKapat();
+            _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+            _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
+
+            if (_enemyObject != null)
+            {
+                _enemyAnimatorController.EnemyHitleriKapat();
+            }
+            else
+            {
+
+            }
+           
         }
 
         _purseBoyutX = _purseObject.gameObject.transform.localScale.x;
@@ -78,6 +93,7 @@ public class AnimationControl : MonoBehaviour
     {
         if (_firlatmaKuvvetiUygula == true && _yolSonuKontrol == true && _dusmaniFirlat == false && LevelController._dusmaniFirlatmaKuvveti > 1)
         {
+            _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
             _dusmaniFirlat = true;
             _firlatmaKuvvetiUygula = false;
             _purseObject.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -105,7 +121,7 @@ public class AnimationControl : MonoBehaviour
         if (hitType == 0 && _dusmaniFirlat == false)
         {
 
-            _moneyEffectObject.transform.position = _purseObject.transform.position;
+            _moneyEffectObject.transform.position = _moneyPurseObject.transform.position;
 
 
             hitType = Random.Range(1, 4);
@@ -166,6 +182,7 @@ public class AnimationControl : MonoBehaviour
 
     IEnumerator PlayerHitType1()
     {
+        _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
         _playerController.PlayerHit1();
         yield return new WaitForSeconds(0.3f);
         _enemyAnimatorController.EnemyHit1();
@@ -176,6 +193,7 @@ public class AnimationControl : MonoBehaviour
 
     IEnumerator PlayerHitType2()
     {
+        _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
         _playerController.PlayerHit2();
         yield return new WaitForSeconds(0.3f);
         _enemyAnimatorController.EnemyHit2();
@@ -186,7 +204,7 @@ public class AnimationControl : MonoBehaviour
 
     IEnumerator PlayerHitType3()
     {
-        Time.timeScale = 0.2f;
+        Time.timeScale = 0.3f;
         _playerController.PlayerHit3();
         yield return new WaitForSeconds(0.35f);
         //_enemyAnimatorController.EnemyHit3();

@@ -8,6 +8,7 @@ public class LevelPrefabsScript : MonoBehaviour
     private int _playerNumber;
     [SerializeField] private GameObject _cantalar;
     [SerializeField] private GameObject _spawnPoint;
+    [SerializeField] private GameObject[] _enemyPrefabs;
     private GameObject _enemyObject;
 
     void Start()
@@ -23,7 +24,8 @@ public class LevelPrefabsScript : MonoBehaviour
 
        
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
-        _enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
+        Instantiate(_enemyPrefabs[_playerNumber], _spawnPoint.transform.position, _spawnPoint.transform.rotation);
+        //_enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
     

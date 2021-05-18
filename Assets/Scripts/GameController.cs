@@ -14,9 +14,9 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private LevelController _levelController;
 
-    [SerializeField] private EnemyCameraMovement _enemyCameraMovement;
+    // private EnemyCameraMovement _enemyCameraMovement;
 
-    [SerializeField] private DusmanControl _dusmanControl;
+    private DusmanControl _dusmanControl;
 
     [SerializeField] private GameObject _confettiPaket;
 
@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 
     private GameObject Enemy;
 
-    [SerializeField] private GameObject _enemyCamera;
+   // [SerializeField] private GameObject _enemyCamera;
     
 
     void Start()
@@ -43,11 +43,12 @@ public class GameController : MonoBehaviour
         _oyunAktif = false;
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _animationControl = GameObject.FindWithTag("Player").GetComponent<AnimationControl>();
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+        //Enemy = GameObject.FindGameObjectWithTag("Enemy");
         _cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _purse = GameObject.FindGameObjectWithTag("Purse");
         _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
+       // _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
     }
 
    
@@ -69,10 +70,11 @@ public class GameController : MonoBehaviour
                 _playerController.PlayerYurume();
                 _animationControl.DusmanGuncelle();
                 _levelController.DusmanYenile();
-                _enemyCameraMovement.EnemyKameraPozisyonDuzenle();
+                // _enemyCameraMovement.EnemyKameraPozisyonDuzenle();
+                _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
                 _dusmanControl.EnemyYenile();
-                EnemyCameraMovement._enemyKameraTakip = false;
-                _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
+               // EnemyCameraMovement._enemyKameraTakip = false;
+              //  _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
                
 
 
@@ -91,7 +93,7 @@ public class GameController : MonoBehaviour
     public void PlayerSevinmeOrganizasyon()
     {
         StartCoroutine(PlayerSevinme());
-        _uiController.UILevelNumber();
+        
     }
 
 

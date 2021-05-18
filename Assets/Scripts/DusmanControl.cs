@@ -9,12 +9,12 @@ public class DusmanControl : MonoBehaviour
     Collider m_Collider;
     public float m_Thrust = 20f;
 
-    [SerializeField] private CoinsController _coinsController;
+    private CoinsController _coinsController;
 
-    [SerializeField] private GameObject _playerCamera;
+    private GameObject _playerCamera;
     [SerializeField] private GameObject _enemyCamera;
 
-    [SerializeField] private UIController _uiController;
+    private UIController _uiController;
 
     [SerializeField] private EnemyRagdollControl _ragdollControl;
 
@@ -24,6 +24,7 @@ public class DusmanControl : MonoBehaviour
 
     void Start()
     {
+        _playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Collider = GetComponent<Collider>();
         m_Rigidbody.isKinematic = true;
@@ -31,8 +32,12 @@ public class DusmanControl : MonoBehaviour
         _enemyCamera.SetActive(false);
         _yereCarpti = false;
         GetComponent<Animator>().enabled = true;
+        
 
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
+        _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
+        _playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     
@@ -43,6 +48,7 @@ public class DusmanControl : MonoBehaviour
 
     public void EnemyYenile()
     {
+        _playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Collider = GetComponent<Collider>();
         m_Rigidbody.isKinematic = true;
@@ -59,14 +65,20 @@ public class DusmanControl : MonoBehaviour
 
     public void DusamaniFirlatma(float deger)
     {
+        _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
+        _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
+        m_Rigidbody = GetComponent<Rigidbody>();
+        m_Collider = GetComponent<Collider>();
+        _playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         // _puanZemini.SetActive(true);
-        m_Rigidbody.isKinematic = false;
         GetComponent<Animator>().enabled = false;
+        m_Rigidbody.isKinematic = false;
         m_Rigidbody.AddForce(transform.up * (deger * Time.deltaTime), ForceMode.Impulse);
         m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
         _playerCamera.SetActive(false);
         _enemyCamera.SetActive(true);
-        EnemyCameraMovement._enemyKameraTakip = true;
+       // EnemyCameraMovement._enemyKameraTakip = true;
         
 
         Debug.Log(deger);
