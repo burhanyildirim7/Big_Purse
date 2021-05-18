@@ -41,10 +41,6 @@ public class DusmanControl : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
 
     public void EnemyYenile()
     {

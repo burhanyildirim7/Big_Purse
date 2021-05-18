@@ -11,10 +11,6 @@ public class TuglaYokEtme : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerExit(Collider other)
     {

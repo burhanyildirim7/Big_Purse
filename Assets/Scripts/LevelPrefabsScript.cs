@@ -29,8 +29,5 @@ public class LevelPrefabsScript : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
+
 }

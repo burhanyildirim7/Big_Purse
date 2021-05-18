@@ -46,6 +46,8 @@ public class LevelController : MonoBehaviour
 
     private GameObject _enemyObject;
 
+    private PlayerController _playerController;
+
     // private int _enemySpawnNumber;
 
     private int _playerNumber;
@@ -78,9 +80,11 @@ public class LevelController : MonoBehaviour
         // PlayerPrefs.SetInt("LevelNumarasi", 0);
         // PlayerPrefs.SetInt("PlayerNumber", 0);
         _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+        _playerPrefabs[_playerNumber].SetActive(true);
         //_enemyPrefabs[_playerNumber].SetActive(true);
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
         _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
         _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomBonusLevelNumarasi");
@@ -88,7 +92,7 @@ public class LevelController : MonoBehaviour
         // _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
         _levellerTamamlandi = PlayerPrefs.GetInt("LevellerTamamlandi");
 
-        _playerPrefabs[_playerNumber].SetActive(true);
+        
 
        
 
@@ -114,12 +118,6 @@ public class LevelController : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        // _cantalar = GameObject.Find("Cantalar");
-        //  _spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-    }
-
     public void DusmanYenile()
     {
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
@@ -140,20 +138,25 @@ public class LevelController : MonoBehaviour
     public void EksilenEsyaSayisi()
     {
         _toplananEsyaSayisi -= 1;
+        if (_toplananEsyaSayisi == -2)
+        {
+            _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            _playerController.PlayerDusme();
+        }
     }
 
     public void DusmanaUygulanacakKuvvet()
     {
         _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]) * 100;
 
-        if (_esyaOrani >= 10)
+        if (_esyaOrani >= 20)
         {
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti * (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]);
             Debug.Log("FirlatmaKuvveti = " + _dusmaniFirlatmaKuvveti.ToString());
         }
         else
         {
-            Debug.Log(_esyaOrani.ToString() + " - Minimumun Altinda Kaldi");
+            _dusmaniFirlatmaKuvveti = 40;
         }
 
         if (_esyaOrani >= 100)
@@ -169,11 +172,27 @@ public class LevelController : MonoBehaviour
         _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         _coinsController.CollectCoins();
-        _uiController.WinScreenClose();
-        DusmanControl._yereCarpti = false;
+
+        if (_toplananEsyaSayisi >= -1 )
+        {
+            _uiController.WinScreenClose();
+            DusmanControl._yereCarpti = false;
+            PlayerDegistir();
+            LevelDegistir();
+        }
+        else
+        {
+            _uiController.LoseScreenClose();
+           // _playerPrefabs[_playerNumber].SetActive(false);
+           // _playerPrefabs[_playerNumber].SetActive(true);
+            Destroy(_aktifLevelPrefab);
+            Destroy(_enemyObject);
+            _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+        }
+        
+        
         // _cantalar = GameObject.Find("Cantalar");
-        PlayerDegistir();
-        LevelDegistir();
+        
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
@@ -188,10 +207,18 @@ public class LevelController : MonoBehaviour
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
         _gameController.ConfettileriDurdur();
-        //_dusmanControl.KameralariNormaleDondur();
-        _toplananEsyaSayisi = 0;
+        //_dusmanControl.KameralariNormaleDondur(); 
         AnimationControl._dusmaniFirlat = false;
-        _uiController.UILevelNumber();
+        if (_toplananEsyaSayisi >= -1)
+        {
+            _uiController.UILevelNumber();
+        }
+        else
+        {
+            
+        }
+        _toplananEsyaSayisi = 0;
+
 
     }
 

@@ -16,10 +16,6 @@ public class CoinArtiBir : MonoBehaviour
     }
 
     
-    void Update()
-    {
-       
-    }
 
     IEnumerator ElmasMove()
     {

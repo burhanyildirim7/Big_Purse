@@ -11,8 +11,5 @@ public class VurusObjectScript : MonoBehaviour
     }
 
    
-    void Update()
-    {
-        
-    }
+ 
 }

@@ -7,16 +7,6 @@ public class HareketliZemin : MonoBehaviour
 {
 
     [SerializeField] private Animator _zeminAnimator;
-    void Start()
-    {
-        
-    }
-
-   
-    void Update()
-    {
-        
-    }
 
     public void ZeminiKaldir()
     {

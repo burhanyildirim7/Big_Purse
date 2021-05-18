@@ -167,6 +167,8 @@ public class AnimationControl : MonoBehaviour
 
     }
 
+   
+
 
     /*
     public void JumpAnim()

@@ -8,19 +8,7 @@ public class EnemyAnimatorController : MonoBehaviour
 
     [SerializeField] private Animator _enemyAnimator;
 
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-  
-
+   
     public void EnemyHit1()
     {
         Debug.Log("Hit1");

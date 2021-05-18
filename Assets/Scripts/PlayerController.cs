@@ -41,6 +41,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _yikmaObject;
     [SerializeField] private GameObject _moneyPurseObject;
 
+    private UIController _uiController;
+
+    private CoinsController _coinsController;
+
+    private GameObject _purse;
+
     private float _purseBoyutX;
     private int _playerNumber;
     public static bool _artiBirAktif;
@@ -48,6 +54,10 @@ public class PlayerController : MonoBehaviour
     {
         _artiBirAktif = false;
         p_Rigidbody = GetComponent<Rigidbody>();
+        _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
+        _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
+        _purse = GameObject.FindGameObjectWithTag("Purse");
+        _purseObject.SetActive(false);
         // _purseObject = GameObject.FindGameObjectWithTag("Purse");
 
     }
@@ -144,6 +154,28 @@ public class PlayerController : MonoBehaviour
             _moneyEffect.Stop();
             _windEffect.Stop();
         }
+
+    }
+
+    public void PlayerDusme()
+    {
+        _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
+        StartCoroutine(PlayerDusmeAnimasyonKontrol());
+        _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
+        _coinsController.OyunSonuCoinsHesapla(1);
+       // _purse = GameObject.FindGameObjectWithTag("Purse");
+        _purseObject.SetActive(false);
+        _uiController.LoseScreenOpen();
+
+    }
+
+    IEnumerator PlayerDusmeAnimasyonKontrol()
+    {
+
+        _playerAnimator.SetBool("dusme", true);
+        yield return new WaitForSeconds(1f);
+        GameController._oyunAktif = false;
+
 
     }
 
