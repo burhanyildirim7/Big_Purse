@@ -59,12 +59,13 @@ public class LevelController : MonoBehaviour
     private int _randomBonusLevelNumarasi;
 
     private int _bonusLevelSayac;
+    private float _bosnusLevelMod;
 
     private GameObject _aktifLevelPrefab;
 
     private int _levellerTamamlandi;
 
-    
+    private int geciciLevelNum;
 
 
 
@@ -300,82 +301,43 @@ public class LevelController : MonoBehaviour
             //  _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
             //  _aktifLevelPrefab.SetActive(false);
             Destroy(_aktifLevelPrefab);
-            _levelNumarasi = Random.Range(4, 14);
-           // _levelNumarasi = 3;
-            _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-            Debug.Log("Leveli yukledi"); 
-            // _levelPrefabs[_levelNumarasi].SetActive(true);
-            PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
-            /*
-            if (_bonusLevelSayac <= 4)
+
+
+            geciciLevelNum = Random.Range(5, 15);
+            if (geciciLevelNum != 5 && geciciLevelNum != 10 && geciciLevelNum != 15)
             {
-                _cantalar = GameObject.Find("Cantalar");
-                if (_cantalar == null)
-                {
-
-                }
-                else
-                {
-                    
-                    for (int a = 0; a < _cantalar.transform.childCount; a++)
-                    {
-                        _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(false);
-                    }
-                }
-
-                if (_aktifLevelPrefab == null)
-                {
-
-                }
-                else
-                {
-                    _aktifLevelPrefab.SetActive(false);
-                }
-
-                _randomLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
-                _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
-                _randomLevelNumarasi = Random.Range(0, 8);
-                _normalLevelPrefabs[_randomLevelNumarasi].SetActive(true);
-                PlayerPrefs.SetInt("RandomLevelNumarasi", _randomLevelNumarasi);
-                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
                 _bonusLevelSayac++;
                 PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+                Debug.Log(_bonusLevelSayac);
+                _bosnusLevelMod = _bonusLevelSayac % 5;
+
+                if (_bosnusLevelMod == 0)
+                {
+                    _bonusLevelSayac = 0;
+                    PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+                    geciciLevelNum = Random.Range(1, 3);
+                    _levelNumarasi = (geciciLevelNum * 5) - 1;
+                    // _levelNumarasi = 3;
+                    _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+                    Debug.Log("Leveli yukledi");
+                    // _levelPrefabs[_levelNumarasi].SetActive(true);
+                    PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+
+                }
+                else
+                {
+                    _levelNumarasi = geciciLevelNum - 1;
+                    // _levelNumarasi = 3;
+                    _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+                    Debug.Log("Leveli yukledi");
+                    // _levelPrefabs[_levelNumarasi].SetActive(true);
+                    PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
+                }
             }
             else
             {
-                _cantalar = GameObject.Find("Cantalar");
-                if (_cantalar == null)
-                {
-
-                }
-                else
-                {
-                    
-                    for (int a = 0; a < _cantalar.transform.childCount; a++)
-                    {
-                        _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(false);
-                    }
-                }
-
-                if (_aktifLevelPrefab == null)
-                {
-
-                }
-                else
-                {
-                    _aktifLevelPrefab.SetActive(false);
-                }
-
-                _randomBonusLevelNumarasi = PlayerPrefs.GetInt("RandomLevelNumarasi");
-                _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
-                _randomBonusLevelNumarasi = Random.Range(0, 2);
-                _bonusLevelPrefabs[_randomBonusLevelNumarasi].SetActive(true);
-                PlayerPrefs.SetInt("RandomBonusLevelNumarasi", _randomBonusLevelNumarasi);
-                _bonusLevelSayac = PlayerPrefs.GetInt("BonusLevelSayac");
-                _bonusLevelSayac = 0;
-                PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
+                LevelDegistir();
             }
-            */
         }
 
 
