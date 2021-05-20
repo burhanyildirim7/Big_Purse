@@ -14,17 +14,19 @@ public class LevelPrefabsScript : MonoBehaviour
     void Start()
     {
         _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-        Debug.Log(_playerNumber);
+       // Debug.Log(_playerNumber);
         for (int a = 0; a < _cantalar.transform.childCount; a++)
         {
-            Debug.Log("Forda canta acma oncesi");
+           // Debug.Log("Forda canta acma oncesi");
             _cantalar.transform.GetChild(a).GetChild(_playerNumber + 1).gameObject.SetActive(true);
-            Debug.Log("Forda canta acma sonrasi");
+           // Debug.Log("Forda canta acma sonrasi");
         }
 
        
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         Instantiate(_enemyPrefabs[_playerNumber], _spawnPoint.transform.position, _spawnPoint.transform.rotation);
+
+        AppMetrica.Instance.SendEventsBuffer();
         //_enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 

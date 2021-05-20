@@ -133,7 +133,7 @@ public class LevelController : MonoBehaviour
     public void ToplananEsyaSayisi()
     {
         _toplananEsyaSayisi += 1;
-        Debug.Log("TOPLADI" + _toplananEsyaSayisi.ToString());
+       // Debug.Log("TOPLADI" + _toplananEsyaSayisi.ToString());
     }
 
     public void EksilenEsyaSayisi()
@@ -153,7 +153,7 @@ public class LevelController : MonoBehaviour
         if (_esyaOrani >= 20)
         {
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti * (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]);
-            Debug.Log("FirlatmaKuvveti = " + _dusmaniFirlatmaKuvveti.ToString());
+          //  Debug.Log("FirlatmaKuvveti = " + _dusmaniFirlatmaKuvveti.ToString());
         }
         else
         {
@@ -296,7 +296,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Elsete");
+           // Debug.Log("Elsete");
             _levelNumarasi = PlayerPrefs.GetInt("LevelNumarasi");
             //  _aktifLevelPrefab = GameObject.FindGameObjectWithTag("LevelPrefab");
             //  _aktifLevelPrefab.SetActive(false);
@@ -308,7 +308,7 @@ public class LevelController : MonoBehaviour
             {
                 _bonusLevelSayac++;
                 PlayerPrefs.SetInt("BonusLevelSayac", _bonusLevelSayac);
-                Debug.Log(_bonusLevelSayac);
+              //  Debug.Log(_bonusLevelSayac);
                 _bosnusLevelMod = _bonusLevelSayac % 5;
 
                 if (_bosnusLevelMod == 0)
@@ -319,7 +319,7 @@ public class LevelController : MonoBehaviour
                     _levelNumarasi = (geciciLevelNum * 5) - 1;
                     // _levelNumarasi = 3;
                     _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-                    Debug.Log("Leveli yukledi");
+                  //  Debug.Log("Leveli yukledi");
                     // _levelPrefabs[_levelNumarasi].SetActive(true);
                     PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
 
@@ -329,7 +329,7 @@ public class LevelController : MonoBehaviour
                     _levelNumarasi = geciciLevelNum - 1;
                     // _levelNumarasi = 3;
                     _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
-                    Debug.Log("Leveli yukledi");
+                  //  Debug.Log("Leveli yukledi");
                     // _levelPrefabs[_levelNumarasi].SetActive(true);
                     PlayerPrefs.SetInt("LevelNumarasi", _levelNumarasi);
                 }

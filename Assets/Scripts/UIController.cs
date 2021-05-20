@@ -37,6 +37,7 @@ public class UIController : MonoBehaviour
         {
             _levelNumber = PlayerPrefs.GetInt("LevelNumber");
         }
+        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
     }
 
     public void UILevelNumber()
@@ -77,6 +78,7 @@ public class UIController : MonoBehaviour
     {
         _levelScreen.SetActive(false);
         _loseScreen.SetActive(true);
+        AppMetrica.Instance.SendEventsBuffer();
 
     }
 
@@ -90,6 +92,7 @@ public class UIController : MonoBehaviour
     {
         _levelScreen.SetActive(false);
         _winScreen.SetActive(true);
+        AppMetrica.Instance.SendEventsBuffer();
     }
 
     public void WinScreenClose()

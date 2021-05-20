@@ -73,9 +73,10 @@ public class GameController : MonoBehaviour
                 // _enemyCameraMovement.EnemyKameraPozisyonDuzenle();
                 _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
                 _dusmanControl.EnemyYenile();
+                
                // EnemyCameraMovement._enemyKameraTakip = false;
-              //  _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
-               
+               //  _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
+
 
 
             }

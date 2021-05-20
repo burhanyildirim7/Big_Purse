@@ -126,7 +126,7 @@ public class AnimationControl : MonoBehaviour
 
             hitType = Random.Range(1, 4);
 
-            Debug.Log(hitType);
+           // Debug.Log(hitType);
             if (_hitNumber == 0)
             {
                 //playerAnimator.SetTrigger("bir");
@@ -225,7 +225,7 @@ public class AnimationControl : MonoBehaviour
     {
         if (other.gameObject.tag == "YolSonu")
         {
-            Debug.Log("YolSonu");
+           // Debug.Log("YolSonu");
             _playerController.PlayerZipla();
             TapTapText.SetActive(true);
             GameController._oyunAktif = false;

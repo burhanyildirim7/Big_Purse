@@ -25,7 +25,7 @@ public class kinematikdeneme1 : MonoBehaviour
         {
             Tuglalar[i] = duvar.gameObject.transform.GetChild(0).GetChild(i).gameObject;
         }*/
-        Debug.Log(duvar.gameObject.transform.childCount);
+       // Debug.Log(duvar.gameObject.transform.childCount);
         if (kinematikAc)
         {
             for (int i = 0; i < Tuglalar.Count; i++)
