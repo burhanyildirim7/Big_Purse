@@ -78,6 +78,7 @@ public class UIController : MonoBehaviour
     {
         _levelScreen.SetActive(false);
         _loseScreen.SetActive(true);
+        AppMetrica.Instance.ReportEvent("level_finish" + _levelNumber);
         AppMetrica.Instance.SendEventsBuffer();
 
     }
@@ -92,6 +93,7 @@ public class UIController : MonoBehaviour
     {
         _levelScreen.SetActive(false);
         _winScreen.SetActive(true);
+        AppMetrica.Instance.ReportEvent("level_finish" + _levelNumber);
         AppMetrica.Instance.SendEventsBuffer();
     }
 
