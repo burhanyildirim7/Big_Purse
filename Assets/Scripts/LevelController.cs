@@ -67,12 +67,12 @@ public class LevelController : MonoBehaviour
 
     private int geciciLevelNum;
 
-
+    private bool _homeButtonControl;
 
 
     void Start()
     {
-
+        _homeButtonControl = false;
         //PlayerPrefs.SetInt("PlayerNumber", 0);
         //PlayerPrefs.SetInt("LevelNumarasi", 0);
         //PlayerPrefs.SetInt("LevellerTamamlandi", 0);
@@ -176,52 +176,71 @@ public class LevelController : MonoBehaviour
 
         if (_toplananEsyaSayisi >= -1 )
         {
-            _uiController.WinScreenClose();
-            DusmanControl._yereCarpti = false;
-            PlayerDegistir();
-            LevelDegistir();
+            if (_homeButtonControl==false)
+            {
+                _uiController.WinScreenClose();
+                DusmanControl._yereCarpti = false;
+                PlayerDegistir();
+                LevelDegistir();
+            }
+            else
+            {
+               
+                _homeButtonControl = false;
+                DusmanControl._yereCarpti = false;
+                SceneManager.LoadScene(0);
+                
+            }
+
         }
         else
         {
+            if (_homeButtonControl == false)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
 
-            SceneManager.LoadScene(0);
-            //_uiController.LoseScreenClose();
-           // _playerPrefabs[_playerNumber].SetActive(false);
-           // _playerPrefabs[_playerNumber].SetActive(true);
-           // Destroy(_aktifLevelPrefab);
-           // Destroy(_enemyObject);
-           // _aktifLevelPrefab = Instantiate(_levelPrefabs[_levelNumarasi], new Vector3(0, 0, 0), Quaternion.identity);
+                DusmanControl._yereCarpti = false;
+                SceneManager.LoadScene(0);
+
+            }
+            
+            
         }
-        
-        
-        // _cantalar = GameObject.Find("Cantalar");
-        
+                
         _cameraMovement.KameraPozisyonResetle();
         _playerObject = GameObject.FindGameObjectWithTag("Player");
         _playerObject.transform.position = new Vector3(0, 0.5f, 5);
         _playerObject.transform.eulerAngles = new Vector3(0, 0, 0);
-        // _enemySpawnNumber++;
-        //_enemyObject.transform.position = new Vector3(0, _enemySpawnPoints[_levelNumarasi].transform.position.y, _enemySpawnPoints[_levelNumarasi].transform.position.z);
-        //_spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        //_enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
         _dusmanControl.EnemyAnimatorBaslat();
         GameController._oyunAktif = false;
         AnimationControl._yolSonuKontrol = false;
         _playerObject.SetActive(false);
         _playerObject.SetActive(true);
         _gameController.ConfettileriDurdur();
-        //_dusmanControl.KameralariNormaleDondur(); 
         AnimationControl._dusmaniFirlat = false;
         if (_toplananEsyaSayisi >= -1)
         {
-            _uiController.UILevelNumber();
+            if (_homeButtonControl == false)
+            {
+                _uiController.UILevelNumber();
+            }
+            else
+            {
+
+                _homeButtonControl = false;
+
+            }
+
         }
         else
         {
+            PlayerPrefs.SetInt("Devam",1);
             
         }
         _toplananEsyaSayisi = 0;
-
 
     }
 
@@ -466,6 +485,11 @@ public class LevelController : MonoBehaviour
 
     }
 
+    public void HomeButtonControl()
+    {
+        _homeButtonControl = true;
+        CollectButonu();
+    }
     
 
 
