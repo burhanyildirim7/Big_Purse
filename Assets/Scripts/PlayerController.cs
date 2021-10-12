@@ -149,6 +149,13 @@ public class PlayerController : MonoBehaviour
             Invoke("AttackIptal", 0.5f);
 
         }
+        else if (other.gameObject.tag == "MerdivenBaslangici")
+        {
+            _playerMovement.PlayerHiziniDusur();
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            PlayerMovement._playerMerdivende = true;
+
+        }
         else
         {
             _moneyEffect.Stop();
@@ -218,7 +225,7 @@ public class PlayerController : MonoBehaviour
     public void PlayerZipla()
     {
         _playerAnimator.SetBool("zipla", true);
-        transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y + 2.5f, transform.position.z), 5f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(0, transform.position.y, transform.position.z), 5f);
         p_Rigidbody.isKinematic = true;
     }
 

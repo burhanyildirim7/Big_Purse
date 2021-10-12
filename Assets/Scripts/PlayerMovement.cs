@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static bool _playerHareket;
 
+    public static bool _playerMerdivende;
+
     private float _speed;
 
     
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _speed = _playerSpeed;
+        _playerMerdivende = false;
     }
 
     void Update()
@@ -56,54 +59,66 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.forward * Time.deltaTime * _speed);
 
-            if (Input.GetMouseButtonDown(0))
+            if (_playerMerdivende == false)
             {
-                Ray mouseRay = GenerateMouseRay();
-                RaycastHit hit;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Ray mouseRay = GenerateMouseRay();
+                    RaycastHit hit;
 
 
 
-                if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit))
+                    if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit))
+                    {
+
+
+                        objPlane = new Plane(Vector3.up, gObj2.transform.position);
+
+                        Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        float rayDistance;
+                        objPlane.Raycast(mRay, out rayDistance);
+
+                        m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
+                    }
+                }
+
+                else if (Input.GetMouseButton(0))
                 {
 
-
-                    objPlane = new Plane(Vector3.up, gObj2.transform.position);
 
                     Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                     float rayDistance;
-                    objPlane.Raycast(mRay, out rayDistance);
+                    if (objPlane.Raycast(mRay, out rayDistance))
+                    {
+                        gObj2.transform.position = mRay.GetPoint(rayDistance) + m0;
 
-                    m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
+                        if (gObj2.transform.position.x <= barierSol.transform.position.x)
+                        {
+
+                            gObj.transform.position = new Vector3(barierSol.transform.position.x + 0.1f, gObj.transform.position.y, gObj.transform.position.z);
+                        }
+                        else if (gObj2.transform.position.x >= barierSag.transform.position.x)
+                        {
+
+                            gObj.transform.position = new Vector3(barierSag.transform.position.x - 0.1f, gObj.transform.position.y, gObj.transform.position.z);
+                        }
+                        else
+                        {
+                            gObj.transform.position = new Vector3(gObj2.transform.position.x, gObj.transform.position.y, gObj.transform.position.z);
+                        }
+
+                    }
                 }
             }
-
-            else if (Input.GetMouseButton(0))
+            else
             {
 
-
-                Ray mRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                float rayDistance;
-                if (objPlane.Raycast(mRay, out rayDistance))
-                {
-                    gObj2.transform.position = mRay.GetPoint(rayDistance) + m0;
-
-                    if (gObj2.transform.position.x <= barierSol.transform.position.x)
-                    {
-
-                        gObj.transform.position = new Vector3(barierSol.transform.position.x + 0.1f, gObj.transform.position.y, gObj.transform.position.z);
-                    }
-                    else if (gObj2.transform.position.x >= barierSag.transform.position.x)
-                    {
-
-                        gObj.transform.position = new Vector3(barierSag.transform.position.x - 0.1f, gObj.transform.position.y, gObj.transform.position.z);
-                    }
-                    else
-                    {
-                        gObj.transform.position = new Vector3(gObj2.transform.position.x, gObj.transform.position.y, gObj.transform.position.z);
-                    }
-
-                }
             }
+
+        }
+        else
+        {
+
         }
         
      

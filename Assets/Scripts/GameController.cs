@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
 
     private GameObject _playerObject;
 
+    private PlayerMovement _playerMovement;
+
     private GameObject _cameraObject;
 
     public static bool _oyunAktif;
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
         //Enemy = GameObject.FindGameObjectWithTag("Enemy");
         _cameraObject = GameObject.FindGameObjectWithTag("MainCamera");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
+        _playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         _purse = GameObject.FindGameObjectWithTag("Purse");
         _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
        // _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
@@ -68,15 +71,17 @@ public class GameController : MonoBehaviour
                 PlayerMovement._playerHareket = true;
                 _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
                 _animationControl = GameObject.FindWithTag("Player").GetComponent<AnimationControl>();
+                _playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+                _playerMovement.PlayerHiziniArtir();
                 _playerController.PlayerYurume();
                 _animationControl.DusmanGuncelle();
                 _levelController.DusmanYenile();
                 // _enemyCameraMovement.EnemyKameraPozisyonDuzenle();
                 _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
                 _dusmanControl.EnemyYenile();
-                
-               // EnemyCameraMovement._enemyKameraTakip = false;
-               //  _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
+                PlayerMovement._playerMerdivende = false;
+                // EnemyCameraMovement._enemyKameraTakip = false;
+                //  _enemyCamera.transform.position = new Vector3(Enemy.transform.position.x, Enemy.transform.position.y + 20, Enemy.transform.position.z - 20);
 
 
 
@@ -104,9 +109,9 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         _yolSonuDuvari = GameObject.FindGameObjectWithTag("OyunSonuDuvari");
         _playerObject = GameObject.FindGameObjectWithTag("Player");
-        _cameraObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 11f, _playerObject.transform.position.z - 2);
-        _confettiPaket.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 2.5f, _playerObject.transform.position.z + 6.5f);
-        _playerObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 5.5f, _playerObject.transform.position.z + 10);
+        _cameraObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 15f, _playerObject.transform.position.z - 13);
+        _confettiPaket.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y + 3f, _playerObject.transform.position.z);
+       // _playerObject.transform.position = new Vector3(0, _yolSonuDuvari.transform.position.y, _playerObject.transform.position.z);
         _playerObject.transform.eulerAngles = new Vector3(0, 180, 0);
         _purse = GameObject.FindGameObjectWithTag("Purse");
         _purse.SetActive(false);
