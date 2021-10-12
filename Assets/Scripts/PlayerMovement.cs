@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
-using Sirenix.OdinInspector;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Title("Player Hareket Script")]
+    
     [SerializeField]
     GameObject gObj;
     [SerializeField]

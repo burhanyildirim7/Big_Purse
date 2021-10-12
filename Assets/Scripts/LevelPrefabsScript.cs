@@ -29,8 +29,8 @@ public class LevelPrefabsScript : MonoBehaviour
         _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
         Instantiate(_enemyPrefabs[_playerNumber], _spawnPoint.transform.position, _spawnPoint.transform.rotation);
 
-        AppMetrica.Instance.ReportEvent("level_start" + _levelNumber);
-        AppMetrica.Instance.SendEventsBuffer();
+        //AppMetrica.Instance.ReportEvent("level_start" + _levelNumber);
+        //AppMetrica.Instance.SendEventsBuffer();
         //_enemyObject.transform.position = new Vector3(0, _spawnPoint.transform.position.y, _spawnPoint.transform.position.z);
     }
 
