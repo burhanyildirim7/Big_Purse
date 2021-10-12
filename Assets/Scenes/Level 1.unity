@@ -1148,7 +1148,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 151380372}
   _cameraShake: {fileID: 963194230}
-  TapTapText: {fileID: 1711115389}
+  "_g\xFCcSliderObject": {fileID: 0}
+  "_g\xFCcSlider": {fileID: 0}
   _playerController: {fileID: 212331991}
   _moneyPurseObject: {fileID: 504490320}
 --- !u!114 &212331990
@@ -1416,7 +1417,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 1373114013}
   _cameraShake: {fileID: 963194230}
-  TapTapText: {fileID: 1711115389}
+  "_g\xFCcSliderObject": {fileID: 0}
+  "_g\xFCcSlider": {fileID: 0}
   _playerController: {fileID: 264813962}
   _moneyPurseObject: {fileID: 1353306411}
 --- !u!114 &264813961
@@ -1909,7 +1911,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 2079983555}
   _cameraShake: {fileID: 963194230}
-  TapTapText: {fileID: 1711115389}
+  "_g\xFCcSliderObject": {fileID: 0}
+  "_g\xFCcSlider": {fileID: 0}
   _playerController: {fileID: 335390743}
   _moneyPurseObject: {fileID: 335528392}
 --- !u!114 &335390742
@@ -4660,6 +4663,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
+  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4784,6 +4788,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DeltaMovement: 1
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b9ae18c04c25345a5622a4d1fdcf22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &979878796
 GameObject:
   m_ObjectHideFlags: 0
@@ -10251,7 +10267,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 2120217895}
   _cameraShake: {fileID: 963194230}
-  TapTapText: {fileID: 1711115389}
+  "_g\xFCcSliderObject": {fileID: 0}
+  "_g\xFCcSlider": {fileID: 0}
   _playerController: {fileID: 1173064076307730084}
   _moneyPurseObject: {fileID: 510784637}
 --- !u!114 &1173064076307730083
