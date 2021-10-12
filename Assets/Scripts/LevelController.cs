@@ -148,12 +148,13 @@ public class LevelController : MonoBehaviour
 
     public void DusmanaUygulanacakKuvvet()
     {
+        /*
         _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]) * 100;
 
         if (_esyaOrani >= 20)
         {
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti * (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]);
-          //  Debug.Log("FirlatmaKuvveti = " + _dusmaniFirlatmaKuvveti.ToString());
+          
         }
         else
         {
@@ -165,6 +166,7 @@ public class LevelController : MonoBehaviour
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti;
             
         }
+        */
 
     }
 
