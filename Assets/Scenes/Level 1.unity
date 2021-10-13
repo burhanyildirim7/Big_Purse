@@ -1148,8 +1148,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 151380372}
   _cameraShake: {fileID: 963194230}
-  "_g\xFCcSliderObject": {fileID: 0}
-  "_g\xFCcSlider": {fileID: 0}
+  "_g\xFCcSliderObject": {fileID: 1892181394}
+  "_g\xFCcSliderAnimation": {fileID: 891249632}
   _playerController: {fileID: 212331991}
   _moneyPurseObject: {fileID: 504490320}
 --- !u!114 &212331990
@@ -1417,8 +1417,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 1373114013}
   _cameraShake: {fileID: 963194230}
-  "_g\xFCcSliderObject": {fileID: 0}
-  "_g\xFCcSlider": {fileID: 0}
+  "_g\xFCcSliderObject": {fileID: 1892181394}
+  "_g\xFCcSliderAnimation": {fileID: 891249632}
   _playerController: {fileID: 264813962}
   _moneyPurseObject: {fileID: 1353306411}
 --- !u!114 &264813961
@@ -1911,8 +1911,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 2079983555}
   _cameraShake: {fileID: 963194230}
-  "_g\xFCcSliderObject": {fileID: 0}
-  "_g\xFCcSlider": {fileID: 0}
+  "_g\xFCcSliderObject": {fileID: 1892181394}
+  "_g\xFCcSliderAnimation": {fileID: 891249632}
   _playerController: {fileID: 335390743}
   _moneyPurseObject: {fileID: 335528392}
 --- !u!114 &335390742
@@ -5891,7 +5891,7 @@ RectTransform:
   m_Children:
   - {fileID: 1153488946}
   m_Father: {fileID: 1937871305}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.034169085, y: 0.90239286}
   m_AnchorMax: {x: 0.19241546, y: 1}
@@ -7754,105 +7754,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692318383}
   m_CullTransparentMesh: 1
---- !u!1 &1711115389
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1711115390}
-  - component: {fileID: 1711115393}
-  - component: {fileID: 1711115392}
-  - component: {fileID: 1711115391}
-  m_Layer: 5
-  m_Name: TapTapText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1711115390
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711115389}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7747948, y: 0.7747948, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1937871305}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22016908, y: 0.076464295}
-  m_AnchorMax: {x: 0.78000003, y: 0.14220984}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 136, y: 32}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &1711115391
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711115389}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9739aa572f06fb54da4a278e4f42fd93, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1711115392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711115389}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7587517, g: 0.4392157, b: 0.98039216, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: dca7afcde023a8a4a8aa8debbdbd5427, type: 3}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 120
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Tap Tap
---- !u!222 &1711115393
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1711115389}
-  m_CullTransparentMesh: 1
 --- !u!1 &1724637894
 GameObject:
   m_ObjectHideFlags: 0
@@ -8469,7 +8370,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1892181395}
   - component: {fileID: 1892181397}
-  - component: {fileID: 1892181396}
   m_Layer: 5
   m_Name: GucEkrani
   m_TagString: Untagged
@@ -8498,36 +8398,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1892181396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1892181394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1892181397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8643,7 +8513,6 @@ RectTransform:
   m_Children:
   - {fileID: 113971740}
   - {fileID: 2078314518}
-  - {fileID: 1711115390}
   - {fileID: 1216003163}
   m_Father: {fileID: 1200664418}
   m_RootOrder: 1
@@ -10627,8 +10496,8 @@ MonoBehaviour:
   _moneyEffectObject: {fileID: 1027255252}
   _purseObject: {fileID: 2120217895}
   _cameraShake: {fileID: 963194230}
-  "_g\xFCcSliderObject": {fileID: 0}
-  "_g\xFCcSlider": {fileID: 0}
+  "_g\xFCcSliderObject": {fileID: 1892181394}
+  "_g\xFCcSliderAnimation": {fileID: 891249632}
   _playerController: {fileID: 1173064076307730084}
   _moneyPurseObject: {fileID: 510784637}
 --- !u!114 &1173064076307730083

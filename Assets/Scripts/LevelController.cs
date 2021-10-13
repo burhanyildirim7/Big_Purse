@@ -146,7 +146,7 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void DusmanaUygulanacakKuvvet()
+    public void DusmanaUygulanacakKuvvet(float _deger)
     {
         /*
         _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]) * 100;
@@ -167,6 +167,8 @@ public class LevelController : MonoBehaviour
             
         }
         */
+
+        _dusmaniFirlatmaKuvveti = _deger;
 
     }
 
