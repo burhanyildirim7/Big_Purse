@@ -1736,6 +1736,7 @@ GameObject:
   - component: {fileID: 4164664296096339298}
   - component: {fileID: 4164664296096339299}
   - component: {fileID: 4164664296096339292}
+  - component: {fileID: 3248802580992343519}
   m_Layer: 0
   m_Name: EnemyCamera
   m_TagString: EnemyCamera
@@ -1818,6 +1819,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c52cae89b3f3e14a8498f2c1dfeb73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3248802580992343519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4164664296096339293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b9ae18c04c25345a5622a4d1fdcf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4164664296121842956
