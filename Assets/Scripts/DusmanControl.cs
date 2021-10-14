@@ -89,7 +89,7 @@ public class DusmanControl : MonoBehaviour
     IEnumerator SevinmeSahnesineGecis()
     {
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.5f);
         KameralariNormaleDondur();
         _gameController.PlayerSevinmeOrganizasyon();
         yield return new WaitForSeconds(0.5f);
@@ -101,10 +101,24 @@ public class DusmanControl : MonoBehaviour
     {
         if (_yereCarpti == false)
         {
+
+            if (other.gameObject.tag == "RagdollSerbest")
+            {
+                _ragdollControl.RagdollIsKinematic();
+            }
+            else
+            {
+
+            }
+
+
+
+
+
             if (other.gameObject.tag == "X1")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(1);
                 m_Rigidbody.isKinematic = true;
@@ -114,7 +128,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X2")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(2);
                 m_Rigidbody.isKinematic = true;
@@ -124,7 +138,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X3")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(3);
                 m_Rigidbody.isKinematic = true;
@@ -134,7 +148,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X4")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(4);
                 m_Rigidbody.isKinematic = true;
@@ -144,7 +158,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X5")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(5);
                 m_Rigidbody.isKinematic = true;
@@ -154,7 +168,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X6")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(6);
                 m_Rigidbody.isKinematic = true;
@@ -164,7 +178,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X7")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(7);
                 m_Rigidbody.isKinematic = true;
@@ -174,7 +188,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X8")
             {
                 //m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(8);
                 m_Rigidbody.isKinematic = true;
@@ -184,7 +198,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X9")
             {
                 // m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(9);
                 m_Rigidbody.isKinematic = true;
@@ -194,7 +208,7 @@ public class DusmanControl : MonoBehaviour
             else if (other.gameObject.tag == "X10")
             {
                 // m_Collider.isTrigger = false;
-                _ragdollControl.RagdollIsKinematic();
+                //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
                 _coinsController.OyunSonuCoinsHesapla(10);
                 m_Rigidbody.isKinematic = true;
