@@ -190,7 +190,7 @@ public class LevelController : MonoBehaviour
             else
             {
                
-                _homeButtonControl = false;
+                
                 DusmanControl._yereCarpti = false;
                 SceneManager.LoadScene(0);
                 
@@ -205,7 +205,7 @@ public class LevelController : MonoBehaviour
             }
             else
             {
-
+         
                 DusmanControl._yereCarpti = false;
                 SceneManager.LoadScene(0);
 
