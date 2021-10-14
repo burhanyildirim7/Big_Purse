@@ -74,10 +74,10 @@ public class DusmanControl : MonoBehaviour
         m_Rigidbody.AddForce(transform.forward * (-deger * Time.deltaTime), ForceMode.Impulse);
         _playerCamera.SetActive(false);
         _enemyCamera.SetActive(true);
-       // EnemyCameraMovement._enemyKameraTakip = true;
-        
+        // EnemyCameraMovement._enemyKameraTakip = true;
 
-       // Debug.Log(deger);
+        Debug.Log("Dusmanı Fırlatma Tamamlandı");
+        // Debug.Log(deger);
     }
 
     public void KameralariNormaleDondur()
