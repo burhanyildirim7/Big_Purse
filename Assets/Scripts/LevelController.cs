@@ -183,6 +183,7 @@ public class LevelController : MonoBehaviour
         {
             if (_homeButtonControl==false)
             {
+                Elephant.LevelCompleted(_levelNumarasi + 1);
                 _uiController.WinScreenClose();
                 DusmanControl._yereCarpti = false;
                 PlayerDegistir();
@@ -200,6 +201,8 @@ public class LevelController : MonoBehaviour
         }
         else
         {
+            Elephant.LevelFailed(_levelNumarasi + 1);
+
             if (_homeButtonControl == false)
             {
                 SceneManager.LoadScene(0);
@@ -212,7 +215,7 @@ public class LevelController : MonoBehaviour
 
             }
 
-            Elephant.LevelFailed(_levelNumarasi + 1);
+            
         }
                 
         _cameraMovement.KameraPozisyonResetle();
@@ -247,7 +250,7 @@ public class LevelController : MonoBehaviour
         }
         _toplananEsyaSayisi = 0;
 
-        Elephant.LevelCompleted(_levelNumarasi + 1);
+        
 
     }
 
