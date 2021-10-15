@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ElephantSDK;
 
 
 public class LevelController : MonoBehaviour
@@ -210,8 +211,8 @@ public class LevelController : MonoBehaviour
                 SceneManager.LoadScene(0);
 
             }
-            
-            
+
+            Elephant.LevelFailed(_levelNumarasi + 1);
         }
                 
         _cameraMovement.KameraPozisyonResetle();
@@ -246,6 +247,8 @@ public class LevelController : MonoBehaviour
         }
         _toplananEsyaSayisi = 0;
 
+        Elephant.LevelCompleted(_levelNumarasi + 1);
+
     }
 
     public void Collect3xButonu()
@@ -276,6 +279,10 @@ public class LevelController : MonoBehaviour
         _toplananEsyaSayisi = 0;
         AnimationControl._dusmaniFirlat = false;
         _uiController.UILevelNumber();
+
+        Elephant.LevelCompleted(_levelNumarasi + 1);
+
+        
 
 
     }

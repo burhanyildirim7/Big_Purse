@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ElephantSDK;
 
 public class LevelPrefabsScript : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class LevelPrefabsScript : MonoBehaviour
 
     void Start()
     {
+
+        
+
         _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
-        _levelNumber = PlayerPrefs.GetInt("LevelNumber");
+        _levelNumber = PlayerPrefs.GetInt("LevelNumarasi");
+
+        Elephant.LevelStarted(_levelNumber + 1);
         // Debug.Log(_playerNumber);
         for (int a = 0; a < _cantalar.transform.childCount; a++)
         {
