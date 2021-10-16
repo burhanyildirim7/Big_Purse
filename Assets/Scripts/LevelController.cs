@@ -68,12 +68,10 @@ public class LevelController : MonoBehaviour
 
     private int geciciLevelNum;
 
-    private bool _homeButtonControl;
 
 
     void Start()
     {
-        _homeButtonControl = false;
         //PlayerPrefs.SetInt("PlayerNumber", 0);
         //PlayerPrefs.SetInt("LevelNumarasi", 0);
         //PlayerPrefs.SetInt("LevellerTamamlandi", 0);
@@ -181,39 +179,18 @@ public class LevelController : MonoBehaviour
 
         if (_toplananEsyaSayisi >= -1 )
         {
-            if (_homeButtonControl==false)
-            {
                 Elephant.LevelCompleted(_levelNumarasi + 1);
                 _uiController.WinScreenClose();
                 DusmanControl._yereCarpti = false;
                 PlayerDegistir();
                 LevelDegistir();
-            }
-            else
-            {
-               
-                
-                DusmanControl._yereCarpti = false;
-                SceneManager.LoadScene(0);
-                
-            }
 
         }
         else
         {
             Elephant.LevelFailed(_levelNumarasi + 1);
 
-            if (_homeButtonControl == false)
-            {
-                SceneManager.LoadScene(0);
-            }
-            else
-            {
-         
-                DusmanControl._yereCarpti = false;
-                SceneManager.LoadScene(0);
-
-            }
+                SceneManager.LoadScene(1);
 
             
         }
@@ -231,16 +208,9 @@ public class LevelController : MonoBehaviour
         AnimationControl._dusmaniFirlat = false;
         if (_toplananEsyaSayisi >= -1)
         {
-            if (_homeButtonControl == false)
-            {
+
                 _uiController.UILevelNumber();
-            }
-            else
-            {
 
-                _homeButtonControl = false;
-
-            }
 
         }
         else
@@ -499,11 +469,6 @@ public class LevelController : MonoBehaviour
 
     }
 
-    public void HomeButtonControl()
-    {
-        _homeButtonControl = true;
-        CollectButonu();
-    }
     
 
 

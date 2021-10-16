@@ -11,7 +11,6 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _levelScreen;
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private GameObject _winScreen;
-    [SerializeField] private GameObject _continueScreen;
 
     [SerializeField] private Text _levelText;
 
@@ -19,8 +18,6 @@ public class UIController : MonoBehaviour
 
     private int _uiOyunBasladi;
 
-    public bool _isContinue;
-    public int _isContinueint;
 
     /*private void Awake()
     {
@@ -29,30 +26,8 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        _isContinueint = PlayerPrefs.GetInt("Devam");
-        if (_isContinueint==1)
-        {
-            _isContinue = true;
-        }
-        else if (_isContinueint==0)
-        {
-            _isContinue = false;
-        }
-        else
-        {
-
-        }
         //PlayerPrefs.SetInt("LevelNumber", 1);
-        if (_isContinue==false)
-        {
             _tapToStartScreen.SetActive(true);
-            _continueScreen.SetActive(false);
-        }
-        else
-        {
-            _tapToStartScreen.SetActive(false);
-            _continueScreen.SetActive(true);
-        }
 
         _levelScreen.SetActive(false);
         _loseScreen.SetActive(false);
@@ -95,17 +70,6 @@ public class UIController : MonoBehaviour
         _tapToStartScreen.SetActive(false);
         _levelScreen.SetActive(true);
     }
-    public void ContinueScreenOpen()
-    {
-        _tapToStartScreen.SetActive(false);
-        _continueScreen.SetActive(true);
-    }
-
-    public void ContinueScreenClose()
-    {
-        _continueScreen.SetActive(false);
-        _levelScreen.SetActive(true);
-    }
     public void LevelScreenOpen()
     {
         _levelScreen.SetActive(true);
@@ -114,13 +78,6 @@ public class UIController : MonoBehaviour
     public void LevelScreenClose()
     {
         _levelScreen.SetActive(false);
-    }
-    public void homeButtonControl()
-    {
-        _isContinue = false;
-        LevelScreenClose();
-        TapToStartScreenOpen();
-
     }
 
     public void LoseScreenOpen()
@@ -134,8 +91,7 @@ public class UIController : MonoBehaviour
     public void LoseScreenClose()
     {
         _loseScreen.SetActive(false);
-        _isContinue = true;
-        _continueScreen.SetActive(true);
+        _tapToStartScreen.SetActive(true);
     }
 
     public void WinScreenOpen()
@@ -148,8 +104,7 @@ public class UIController : MonoBehaviour
     public void WinScreenClose()
     {
         _winScreen.SetActive(false);
-        _isContinue = true;
-        _continueScreen.SetActive(true);
+        _tapToStartScreen.SetActive(true);
     }
     private void OnApplicationQuit()
     {

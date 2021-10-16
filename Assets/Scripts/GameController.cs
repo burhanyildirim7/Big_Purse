@@ -65,7 +65,6 @@ public class GameController : MonoBehaviour
             {
                 
                 _uiController.TapToStartScreenClose();
-                _uiController.ContinueScreenClose();
                 _uiController.LevelScreenOpen();
                 _oyunAktif = true;
                 PlayerMovement._playerHareket = true;

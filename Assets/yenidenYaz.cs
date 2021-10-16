@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class yenidenYaz : MonoBehaviour
+{
+    [SerializeField] Text LevelCoinText;
+    // Start is called before the first frame update
+    void Start()
+    {
+        GetComponent<Text>().text = LevelCoinText.text;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        GetComponent<Text>().text = LevelCoinText.text;
+    }
+}
