@@ -50,9 +50,11 @@ public class PlayerController : MonoBehaviour
     private float _purseBoyutX;
     private int _playerNumber;
     public static bool _artiBirAktif;
+    public static bool _eksiBirAktif;
     void Start()
     {
         _artiBirAktif = false;
+        _eksiBirAktif = false;
         p_Rigidbody = GetComponent<Rigidbody>();
         _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
         _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
@@ -114,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 }
  
             }
+            _eksiBirAktif = true;
             _levelController.EksilenEsyaSayisi();
             _moneyEffectObject.transform.position = _moneyPurseObject.transform.position;
             _moneyEffect.Play();
@@ -169,7 +172,7 @@ public class PlayerController : MonoBehaviour
         _uiController = GameObject.FindWithTag("UiController").GetComponent<UIController>();
         StartCoroutine(PlayerDusmeAnimasyonKontrol());
         _coinsController = GameObject.FindWithTag("CoinsController").GetComponent<CoinsController>();
-        _coinsController.OyunSonuCoinsHesapla(1);
+        _coinsController.OyunSonuCoinsHesapla(10);
        // _purse = GameObject.FindGameObjectWithTag("Purse");
 
         _purseObject.SetActive(false);
@@ -275,6 +278,34 @@ public class PlayerController : MonoBehaviour
         _playerAnimator.SetBool("dans", true);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "CounterEsya")
+        {
+            if (_purseBoyutX >= 1.1f)
+            {
+                _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+
+                if (_playerNumber == 2)
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.08f, 0.15f);
+                }
+                else
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.16f, 0.32f);
+                }
+
+            }
+            _eksiBirAktif = true;
+            Destroy(collision.gameObject);
+            _levelController.EksilenEsyaSayisi();
+
+        }
+
+
+    }
 
     /*
     private void OnCollisionEnter(Collision collision)

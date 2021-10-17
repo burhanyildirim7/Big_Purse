@@ -120,7 +120,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(1);
+                _coinsController.OyunSonuCoinsHesapla(10);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X1");
@@ -130,7 +130,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(2);
+                _coinsController.OyunSonuCoinsHesapla(20);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X2");
@@ -140,7 +140,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(3);
+                _coinsController.OyunSonuCoinsHesapla(30);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
               //  Debug.Log("X3");
@@ -150,7 +150,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(4);
+                _coinsController.OyunSonuCoinsHesapla(40);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X4");
@@ -160,7 +160,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(5);
+                _coinsController.OyunSonuCoinsHesapla(50);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X5");
@@ -170,7 +170,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(6);
+                _coinsController.OyunSonuCoinsHesapla(60);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X6");
@@ -180,7 +180,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(7);
+                _coinsController.OyunSonuCoinsHesapla(70);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
                // Debug.Log("X7");
@@ -190,7 +190,7 @@ public class DusmanControl : MonoBehaviour
                 //m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(8);
+                _coinsController.OyunSonuCoinsHesapla(80);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
               //  Debug.Log("X8");
@@ -200,7 +200,7 @@ public class DusmanControl : MonoBehaviour
                 // m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(9);
+                _coinsController.OyunSonuCoinsHesapla(90);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
               //  Debug.Log("X9");
@@ -210,7 +210,7 @@ public class DusmanControl : MonoBehaviour
                 // m_Collider.isTrigger = false;
                 //_ragdollControl.RagdollIsKinematic();
                 _yereCarpti = true;
-                _coinsController.OyunSonuCoinsHesapla(10);
+                _coinsController.OyunSonuCoinsHesapla(100);
                 m_Rigidbody.isKinematic = true;
                 StartCoroutine(SevinmeSahnesineGecis());
               //  Debug.Log("X10");
