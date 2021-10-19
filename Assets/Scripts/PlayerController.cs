@@ -159,6 +159,33 @@ public class PlayerController : MonoBehaviour
             PlayerMovement._playerMerdivende = true;
 
         }
+        else if (other.gameObject.tag == "Hirsiz")
+        {
+            if (_purseBoyutX >= 1.1f)
+            {
+                _playerNumber = PlayerPrefs.GetInt("PlayerNumber");
+
+                if (_playerNumber == 2)
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.08f, 0.15f);
+                }
+                else
+                {
+                    _purseObject.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+                    _purseObject.gameObject.transform.localPosition += new Vector3(0, 0.16f, 0.32f);
+                }
+
+            }
+            _eksiBirAktif = true;
+            _levelController.EksilenEsyaSayisi();
+            _moneyEffectObject.transform.position = _moneyPurseObject.transform.position;
+            _moneyEffect.Play();
+            _angryEmojiEffect.Play();
+            _playerAnimator.SetBool("tokezle", true);
+            _playerMovement.PlayerHiziniDusur();
+            Invoke("TokezleIptal", 1);
+        }
         else
         {
             _moneyEffect.Stop();
@@ -301,6 +328,10 @@ public class PlayerController : MonoBehaviour
             _eksiBirAktif = true;
             Destroy(collision.gameObject);
             _levelController.EksilenEsyaSayisi();
+
+        }
+        else
+        {
 
         }
 

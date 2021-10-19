@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class HirsizScript : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
     [SerializeField] private float _mesafeSiniri;
+
+    [SerializeField] private Animator _hirsizAnimator;
 
     private Transform _targetTransform;
 
@@ -53,6 +56,7 @@ public class HirsizScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            _hirsizAnimator.SetBool("Run", true);
             _playerGordu = true;
             _targetTransform = other.gameObject.transform;
         }
