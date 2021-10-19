@@ -1151,6 +1151,7 @@ MonoBehaviour:
   _cameraShake: {fileID: 963194230}
   "_g\xFCcSliderObject": {fileID: 1892181394}
   "_g\xFCcSliderAnimation": {fileID: 891249632}
+  _tapTapText: {fileID: 1579986365}
   _playerController: {fileID: 212331991}
   _moneyPurseObject: {fileID: 504490320}
 --- !u!114 &212331990
@@ -1421,6 +1422,7 @@ MonoBehaviour:
   _cameraShake: {fileID: 963194230}
   "_g\xFCcSliderObject": {fileID: 1892181394}
   "_g\xFCcSliderAnimation": {fileID: 891249632}
+  _tapTapText: {fileID: 1579986365}
   _playerController: {fileID: 264813962}
   _moneyPurseObject: {fileID: 1353306411}
 --- !u!114 &264813961
@@ -1915,6 +1917,7 @@ MonoBehaviour:
   _cameraShake: {fileID: 963194230}
   "_g\xFCcSliderObject": {fileID: 1892181394}
   "_g\xFCcSliderAnimation": {fileID: 891249632}
+  _tapTapText: {fileID: 1579986365}
   _playerController: {fileID: 335390743}
   _moneyPurseObject: {fileID: 335528392}
 --- !u!114 &335390742
@@ -2292,7 +2295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb67d617507d1548964ba2b14239d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maksimumFirlatmaKuvveti: 160
+  _maksimumFirlatmaKuvveti: 170
   _cameraMovement: {fileID: 963194229}
   _coinsController: {fileID: 163298161}
   _uiController: {fileID: 498351671}
@@ -6796,6 +6799,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578317023}
   m_CullTransparentMesh: 1
+--- !u!1 &1579986365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1579986368}
+  - component: {fileID: 1579986367}
+  - component: {fileID: 1579986366}
+  m_Layer: 5
+  m_Name: TapTapText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1579986366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579986365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 27
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Tap Tap
+--- !u!222 &1579986367
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579986365}
+  m_CullTransparentMesh: 1
+--- !u!224 &1579986368
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1579986365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1937871305}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1593910222
 GameObject:
   m_ObjectHideFlags: 0
@@ -8197,7 +8279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1937871305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8211,6 +8293,7 @@ RectTransform:
   m_Children:
   - {fileID: 113971740}
   - {fileID: 2078314518}
+  - {fileID: 1579986368}
   m_Father: {fileID: 1200664418}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10050,6 +10133,7 @@ MonoBehaviour:
   _cameraShake: {fileID: 963194230}
   "_g\xFCcSliderObject": {fileID: 1892181394}
   "_g\xFCcSliderAnimation": {fileID: 891249632}
+  _tapTapText: {fileID: 1579986365}
   _playerController: {fileID: 1173064076307730084}
   _moneyPurseObject: {fileID: 510784637}
 --- !u!114 &1173064076307730083

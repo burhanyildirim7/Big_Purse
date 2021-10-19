@@ -145,9 +145,9 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    public void DusmanaUygulanacakKuvvet(float _deger)
+    public void DusmanaUygulanacakKuvvet()
     {
-        /*
+        
         _esyaOrani = (_toplananEsyaSayisi / _toplanmasiGerekenEsyaSayisi[_levelNumarasi]) * 100;
 
         if (_esyaOrani >= 20)
@@ -157,7 +157,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
-            _dusmaniFirlatmaKuvveti = 40;
+            _dusmaniFirlatmaKuvveti = 50;
         }
 
         if (_esyaOrani >= 100)
@@ -165,9 +165,9 @@ public class LevelController : MonoBehaviour
             _dusmaniFirlatmaKuvveti = _maksimumFirlatmaKuvveti;
             
         }
-        */
+        
 
-        _dusmaniFirlatmaKuvveti = _deger;
+       // _dusmaniFirlatmaKuvveti = _deger;
 
     }
 

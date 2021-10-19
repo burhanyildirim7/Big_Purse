@@ -26,6 +26,8 @@ public class AnimationControl : MonoBehaviour
 
     [SerializeField] private GameObject _gücSliderAnimation;
 
+    [SerializeField] private GameObject _tapTapText;
+
     private float _firlatmaDegeri;
 
     private bool _gücBariAcik;
@@ -51,6 +53,8 @@ public class AnimationControl : MonoBehaviour
 
     private GameObject _enemyObject;
 
+    private bool _hitBekle;
+
     
 
     // [SerializeField] private Rigidbody _enemyRigidbody;
@@ -64,20 +68,22 @@ public class AnimationControl : MonoBehaviour
         _dusmaniFirlat = false;
         _firlatmaKuvvetiUygula = false;
         _gücSliderObject.SetActive(false);
-        _gücBariAcik = false;
-       // _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
-       // _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
-       // _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
-       // _purseObject = GameObject.FindGameObjectWithTag("Purse");
+        _tapTapText.SetActive(false);
+        _hitBekle = false;
+        //_gücBariAcik = false;
+        // _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
+        // _dusmanControl = GameObject.FindWithTag("Enemy").GetComponent<DusmanControl>();
+        // _enemyObject = GameObject.FindGameObjectWithTag("Enemy");
+        // _purseObject = GameObject.FindGameObjectWithTag("Purse");
 
 
 
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true && _gücBariAcik == true)
+        if (Input.GetMouseButtonDown(0) && _yolSonuKontrol == true && _dusmaniFirlat == false && _hitBekle == false)
         {
-            StartCoroutine(HitAnim());
+            HitAnim();
 
         }
         else
@@ -109,9 +115,10 @@ public class AnimationControl : MonoBehaviour
             _purseObject.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             _purseObject.gameObject.transform.localPosition = new Vector3(0, -0.637f, -1.493f);
             //_purse.transform.eulerAngles = new Vector3(210, 172, 4);
-            _dusmanControl.DusamaniFirlatma(_firlatmaDegeri);
+            _dusmanControl.DusamaniFirlatma(LevelController._dusmaniFirlatmaKuvveti);
             _firlatmaKuvvetiUygula = false;
-            Debug.Log("Fırlatma Degeri : " + _firlatmaDegeri);
+            _hitNumber = 0;
+            Debug.Log("Fırlatma Degeri : " + LevelController._dusmaniFirlatmaKuvveti);
             Debug.Log("Fixed Update Tamamlandı");
 
 
@@ -129,7 +136,7 @@ public class AnimationControl : MonoBehaviour
     }
 
 
-    IEnumerator HitAnim()
+    private void HitAnim()
     {
         if (_dusmaniFirlat == false)
         {
@@ -137,31 +144,54 @@ public class AnimationControl : MonoBehaviour
 
             _moneyEffectObject.transform.position = _moneyPurseObject.transform.position;
 
-            _gücBariAcik = false;
+            // _gücBariAcik = false;
 
-            GücHesapla();
+            //GücHesapla();
 
-            _levelController.DusmanaUygulanacakKuvvet(_firlatmaDegeri);
+            //_levelController.DusmanaUygulanacakKuvvet(_firlatmaDegeri);
+
+            StartCoroutine(HitBekle());
+
+            //yield return new WaitForSeconds(1f);
+
+            //_gücSliderObject.SetActive(false);
+
+            if (_hitNumber == 0)
+            {
+                StartCoroutine(PlayerHitType1());
+                _hitNumber++;
+                _hitBekle = true;
+            }
+            else if (_hitNumber == 1)
+            {
+                StartCoroutine(PlayerHitType2());
+                _hitNumber++;
+                _hitBekle = true;
+            }
+            else if (_hitNumber == 2)
+            {
+                StartCoroutine(PlayerHitType3());
+                _tapTapText.SetActive(false);
+                _hitNumber = 0;
+            }
+            else
+            {
+
+            }
+
+            
+
+
+            // yield return new WaitForSeconds(1f);
 
 
 
-            yield return new WaitForSeconds(1f);
-
-            _gücSliderObject.SetActive(false);
+            // yield return new WaitForSeconds(1f);
 
 
-            StartCoroutine(PlayerHitType1());
 
-            yield return new WaitForSeconds(1f);
 
-            StartCoroutine(PlayerHitType2());
 
-            yield return new WaitForSeconds(1f);
-
-            StartCoroutine(PlayerHitType3());
-              
-          
-           
         }
         else
         {
@@ -170,8 +200,15 @@ public class AnimationControl : MonoBehaviour
 
     }
 
-   
 
+    IEnumerator HitBekle()
+    {
+        
+        yield return new WaitForSeconds(1f);
+
+        _hitBekle = false;
+
+    }
 
     /*
     public void JumpAnim()
@@ -179,7 +216,7 @@ public class AnimationControl : MonoBehaviour
 		playerAnimator.SetTrigger("zipla");
 	}
 	*/
- 
+
     IEnumerator PlayerHitType1()
     {
         _enemyAnimatorController = GameObject.FindWithTag("Enemy").GetComponent<EnemyAnimatorController>();
@@ -222,16 +259,18 @@ public class AnimationControl : MonoBehaviour
     {
         if (other.gameObject.tag == "YolSonu")
         {
-            _gücBariAcik = true;
+            //_gücBariAcik = true;
             // Debug.Log("YolSonu");
-            _gücSliderObject.SetActive(true);
-            _gücSliderAnimation.GetComponent<Animator>().enabled = true;
+            //_gücSliderObject.SetActive(true);
+            //_gücSliderAnimation.GetComponent<Animator>().enabled = true;
+            _levelController.DusmanaUygulanacakKuvvet();
             _playerController.PlayerZipla();
             GameController._oyunAktif = false;
             _dusmaniFirlat = false;
+            _tapTapText.SetActive(true);
             // _firlatmaDegeri = 50;
-            
-            
+
+
             //JumpAnim();
             _yolSonuKontrol = true;
         }
