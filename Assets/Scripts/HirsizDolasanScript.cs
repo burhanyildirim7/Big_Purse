@@ -10,15 +10,15 @@ public class HirsizDolasanScript : MonoBehaviour
     [SerializeField] private float _turnTime;
 
     // [SerializeField] private float _smooth;
-
-    private float _donmeAcisi;
+    [Header("Hırsızın Başlangıçta Olacağı Rotation Y Değeri")]
+    [SerializeField] private float _donmeAcisi;
 
     private float _timer;
 
     void Start()
     {
         _timer = 0;
-        _donmeAcisi = 180;
+        //_donmeAcisi = 180;
     }
 
     
@@ -43,8 +43,9 @@ public class HirsizDolasanScript : MonoBehaviour
     private void KarakterDondur()
     {
         _timer = 0;
+        _donmeAcisi += 180;
         Quaternion target = Quaternion.Euler(transform.rotation.x, _donmeAcisi, transform.rotation.z);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * 720);
-        _donmeAcisi += 180;
+        
     }
 }

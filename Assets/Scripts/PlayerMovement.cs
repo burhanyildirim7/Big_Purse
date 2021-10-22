@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                         float rayDistance;
                         objPlane.Raycast(mRay, out rayDistance);
 
-                        m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
+                        //m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
                     }
                 }
 

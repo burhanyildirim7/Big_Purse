@@ -185,6 +185,7 @@ public class PlayerController : MonoBehaviour
             _playerAnimator.SetBool("tokezle", true);
             _playerMovement.PlayerHiziniDusur();
             Invoke("TokezleIptal", 1);
+            Destroy(other.gameObject);
         }
         else
         {

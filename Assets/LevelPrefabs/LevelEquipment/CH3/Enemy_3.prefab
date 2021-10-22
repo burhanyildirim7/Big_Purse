@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 3946502244444239045}
   - component: {fileID: 4231044196328556849}
   - component: {fileID: 8652121437256217575}
+  - component: {fileID: 6719373215826081819}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -397,6 +398,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyObject: {fileID: 622707689449808419}
+--- !u!65 &6719373215826081819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819694806823240056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1202383252433772195
 GameObject:
   m_ObjectHideFlags: 0
