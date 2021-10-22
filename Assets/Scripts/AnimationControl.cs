@@ -241,7 +241,7 @@ public class AnimationControl : MonoBehaviour
 
     IEnumerator PlayerHitType3()
     {
-        Time.timeScale = 0.5f;
+        Time.timeScale = 1f;
         _playerController.PlayerHit3();
         yield return new WaitForSeconds(0.35f);
         //_enemyAnimatorController.EnemyHit3();
@@ -249,7 +249,7 @@ public class AnimationControl : MonoBehaviour
         _moneyEffect.Play();
         _firlatmaKuvvetiUygula = true;
         yield return new WaitForSeconds(0.2f);
-        Time.timeScale = 1f;
+        Time.timeScale = 1.5f;
         
     }
 

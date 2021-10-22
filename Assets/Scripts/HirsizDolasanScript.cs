@@ -37,7 +37,7 @@ public class HirsizDolasanScript : MonoBehaviour
 
         }
 
-        Debug.Log(_timer);
+      //  Debug.Log(_timer);
     }
 
     private void KarakterDondur()

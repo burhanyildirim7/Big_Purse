@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float _speed;
 
-    
-    
+  
+    /*
     Ray GenerateMouseRay()
     {
 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         Ray mr = new Ray(mousePosN, mousePosF - mousePosN);
         return mr;
     }
-
+    */
     private void Start()
     {
         _speed = _playerSpeed;
@@ -55,10 +55,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        
+
         if (GameController._oyunAktif == true && _playerHareket == true)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * _speed);
 
+
+            /*
             if (_playerMerdivende == false)
             {
                 if (Input.GetMouseButtonDown(0))
@@ -78,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
                         float rayDistance;
                         objPlane.Raycast(mRay, out rayDistance);
 
-                        //m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
+                        m0 = gObj2.transform.position - mRay.GetPoint(rayDistance);
                     }
                 }
 
@@ -114,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             {
 
             }
-
+            */
         }
         else
         {

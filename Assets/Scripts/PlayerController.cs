@@ -155,7 +155,8 @@ public class PlayerController : MonoBehaviour
         else if (other.gameObject.tag == "MerdivenBaslangici")
         {
             _playerMovement.PlayerHiziniDusur();
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            //float mevcutydegeri = transform.position.y;
+            transform.position = new Vector3(0, transform.position.y + 0.5f, transform.position.z);
             PlayerMovement._playerMerdivende = true;
 
         }
@@ -223,7 +224,7 @@ public class PlayerController : MonoBehaviour
 
         _playerAnimator.SetBool("ucus", true);
         _playerAnimator.SetBool("yuru", false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         _playerAnimator.SetBool("ucus", false);
         _playerAnimator.SetBool("yuru", true);
 
